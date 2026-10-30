@@ -16,7 +16,7 @@ Cada skill trae su guía, design system, iconos, fuentes, plantilla y un ejemplo
 Necesitas acceso a este repo y GitHub configurado en tu equipo (por ejemplo `gh auth login` y luego `gh auth setup-git`).
 
 ```
-/plugin marketplace add OWNER/praxis-design-skills
+/plugin marketplace add Santiagopraxis/praxis-design-skills
 /plugin install global-transactions-presentaciones@praxis-design
 /plugin install fluxone-presentaciones@praxis-design
 ```
@@ -25,7 +25,7 @@ Para recibir actualizaciones: `/plugin marketplace update praxis-design`, o acti
 
 ## Instalar en claude.ai / Cowork
 
-Customize → Plugins → Add → Add marketplace → Add from a repository → `OWNER/praxis-design-skills`.
+Customize → Plugins → Add → Add marketplace → Add from a repository → `Santiagopraxis/praxis-design-skills`.
 
 Alternativa sin GitHub: descarga la carpeta de la skill (`plugins/<nombre>/skills/<nombre>`), comprímela en .zip y súbela en Customize → Skills → "+" → Upload a skill.
 
