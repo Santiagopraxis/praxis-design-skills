@@ -1,0 +1,59 @@
+:root {
+  /* Neutrals — cool, low-chroma */
+  --paper: oklch(98.5% 0.003 250);
+  --surface: oklch(100% 0 0);
+  --surface-sunken: oklch(96.3% 0.004 250);
+  --border-subtle: oklch(90% 0.006 250);
+  --border-strong: oklch(78% 0.01 250);
+  --ink-900: oklch(19% 0.02 290);
+  --ink-700: oklch(34% 0.018 290);
+  --ink-500: oklch(52% 0.014 290);
+  --ink-300: oklch(72% 0.01 290);
+
+  /* Purple — primary brand color (Karpay/Praxis family) */
+  --purple-950: #241542;
+  --purple-900: #2e1c58;
+  --purple-800: #3d2472;
+  --purple-600: #5c2d91;
+  --purple-400: #8b6bc0;
+  --purple-200: #d8cbef;
+  --purple-100: #efe9f7;
+
+  /* Teal-green — secondary accent */
+  --teal-700: #157a68;
+  --teal-500: #3dbfa0;
+  --teal-300: #a6e6d3;
+
+  /* Flame — logo accent only (the Karpay "K" mark). Not a background/UI color. */
+  --flame-400: #fb8a2e;
+  --flame-500: #f4571f;
+  --flame-600: #d62839;
+
+  /* Status */
+  --status-critical: var(--flame-600);
+  --status-warning: oklch(72% 0.15 55);
+  --status-ok: var(--teal-700);
+
+  /* Gradients — used sparingly, one hue family at a time */
+  --gradient-flame: linear-gradient(135deg, var(--flame-400), var(--flame-600));
+  --gradient-brand: var(--purple-950);
+  --gradient-panel: linear-gradient(135deg, var(--teal-300) 0%, var(--purple-200) 100%);
+
+  /* Tint washes — for background variety beyond plain paper / dark cover */
+  --tint-purple: var(--purple-100);
+  --tint-teal: var(--teal-300);
+  --bg-page: var(--paper);
+  --bg-surface: var(--surface);
+  --bg-sunken: var(--surface-sunken);
+  --bg-inverse: var(--purple-950);
+  --text-primary: var(--ink-900);
+  --text-secondary: var(--ink-500);
+  --text-inverse: oklch(97% 0.005 250);
+  --text-inverse-muted: oklch(82% 0.02 290);
+  --text-on-flame: #ffffff;
+  --accent-primary: var(--purple-600);
+  --accent-secondary: var(--teal-500);
+  --accent-logo: var(--flame-500);
+  --link: var(--purple-600);
+  --link-hover: var(--purple-800);
+}

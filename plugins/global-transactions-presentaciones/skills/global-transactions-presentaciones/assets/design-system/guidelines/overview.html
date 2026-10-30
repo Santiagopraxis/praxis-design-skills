@@ -1,0 +1,50 @@
+<!-- @dsCard group="Overview" viewport="1200x700" subtitle="Página de inicio — navegación a las demás secciones" name="00 · Inicio" -->
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0}
+  .nav{display:flex;gap:4px;padding:14px 24px;background:var(--surface);border-bottom:1px solid var(--border-subtle);font-family:var(--font-display);font-size:12.5px;font-weight:600;position:sticky;top:0;z-index:10}
+  .nav a{padding:8px 14px;border-radius:8px;color:var(--ink-700);text-decoration:none}
+  .nav a:hover{background:var(--surface-sunken)}
+  .nav a.active{background:var(--purple-100);color:var(--purple-600)}
+  .sec{padding:40px 48px}
+  .card{border:1px solid var(--border-subtle);border-radius:14px;padding:22px;text-decoration:none;display:block;color:inherit}
+  .card:hover{border-color:var(--purple-400)}
+  .card b{font-family:var(--font-display);font-size:15px;color:var(--ink-900)}
+  .card p{font-family:var(--font-body);font-size:13px;color:var(--ink-500);margin:6px 0 0}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+</style>
+<div style="font-family:var(--font-body);background:var(--paper)">
+  <div class="nav">
+    <a href="overview.html" class="active">Inicio</a>
+    <a href="manual-colores.html">Colores</a>
+    <a href="manual-tipografia.html">Tipografía & Espaciado</a>
+    <a href="manual-marca.html">Marca</a>
+    <a href="manual-docs.html">Docs & Slides</a>
+  </div>
+  <div class="sec" style="background:var(--gradient-brand)">
+    <div style="font-family:var(--font-display);color:#fff">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <img src="../assets/logo/karpay-logo-white.svg" style="height:32px">
+      </div>
+      <div style="font-size:32px;font-weight:var(--fw-title)">Sistema de diseño Karpay</div>
+      <div style="font-size:14px;color:rgba(255,255,255,0.7);margin-top:8px;font-family:var(--font-body)">Morado (marca) · Verde-teal (secundario) · Naranja (solo logo). Usa la barra de arriba para moverte entre secciones.</div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="grid">
+      <a class="card" href="manual-colores.html"><b>Colores</b><p>Morado, teal, naranja, neutrales, combinaciones y cuándo usar cada uno.</p></a>
+      <a class="card" href="manual-tipografia.html"><b>Tipografía & Espaciado</b><p>Plus Jakarta Sans + Public Sans, escala de tamaños, radios y sombras.</p></a>
+      <a class="card" href="manual-marca.html"><b>Marca</b><p>Logos de Karpay y Global Transactions, iconografía completa.</p></a>
+      <a class="card" href="manual-docs.html"><b>Docs & Slides</b><p>Las 5 plantillas de slide y el documento de propuesta con portada.</p></a>
+    </div>
+    <div style="margin-top:28px;font-family:var(--font-body);font-size:13.5px;color:var(--ink-700);line-height:1.9">
+      <b style="font-family:var(--font-display);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--purple-600)">Mapa de archivos</b><br><br>
+      <div><b>tokens/</b> — colors.css, typography.css, spacing.css, fonts.css (fuente de verdad de todos los valores)</div>
+      <div><b>guidelines/</b> — estas páginas + specimens individuales</div>
+      <div><b>components/</b> — Badge, Card+StatCard, Callout, SectionHeader, Timeline, Table</div>
+      <div><b>slides/</b> — 5 plantillas de slide</div>
+      <div><b>documents/</b> — plantilla de documento paginado (propuesta técnica)</div>
+      <div><b>assets/</b> — logos, hero de Global Transactions, iconos</div>
+    </div>
+  </div>
+</div>

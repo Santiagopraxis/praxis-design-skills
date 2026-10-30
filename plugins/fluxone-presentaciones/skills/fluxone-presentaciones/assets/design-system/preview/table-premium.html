@@ -1,0 +1,30 @@
+<!-- @dsCard group="Components" viewport="900x560" name="Tabla premium — precios" subtitle="Recipe para documentos: header con tinte de color, fila destacada, jerarquía clara" -->
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body{margin:0;background:#f2f2f4;padding:32px;box-sizing:border-box}
+.wrap{background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.06);overflow:hidden;border:1px solid rgba(10,10,10,0.06)}
+.eb{padding:20px 24px 0;font:600 11px/1 var(--flx-font-sans);letter-spacing:0.12em;text-transform:uppercase;color:#3CB8EB}
+h3{padding:6px 24px 18px;font:600 18px/1.2 var(--flx-font-sans);margin:0}
+table{width:100%;border-collapse:collapse}
+th{background:rgba(60,184,235,0.08);color:#0a0a0a;font:600 11px/1.3 var(--flx-font-sans);text-align:left;padding:13px 20px;letter-spacing:0.04em;text-transform:uppercase;border-bottom:2px solid #3CB8EB}
+td{padding:14px 20px;font:400 13.5px/1.5 var(--flx-font-sans);color:rgba(10,10,10,0.8);border-bottom:1px solid #f0f0f0}
+tr:last-child td{border-bottom:none}
+tr.featured td{background:rgba(60,184,235,0.05);font-weight:600;position:relative}
+tr.featured td:first-child{border-left:3px solid #3CB8EB}
+.badge{display:inline-block;margin-left:8px;font:600 9.5px/1 var(--flx-font-sans);letter-spacing:0.06em;text-transform:uppercase;background:#3CB8EB;color:#fff;padding:3px 8px;border-radius:999px}
+.note{padding:14px 24px 20px;font:400 12px/1.5 var(--flx-font-sans);color:rgba(10,10,10,0.5);border-top:1px solid #f5f5f5}
+</style>
+</head><body>
+<div class="wrap">
+<div class="eb">Colombia · Comisión por transacción</div>
+<h3>Tabla transaccional fluX</h3>
+<table>
+<tr><th>Transacciones al mes</th><th>Comisión</th><th>Ahorro vs. estándar</th></tr>
+<tr><td>De 1 a 10.000</td><td>$185 COP</td><td>—</td></tr>
+<tr class="featured"><td>De 10.001 a 50.000<span class="badge">Recomendado</span></td><td>$142 COP</td><td>23%</td></tr>
+<tr><td>Más de 50.000</td><td>$98 COP</td><td>47%</td></tr>
+</table>
+<div class="note">Precios en COP + IVA. Aplica facturación mensual consolidada por NIT.</div>
+</div>
+</body></html>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 350 323.77">
+  <defs>
+    
+    <linearGradient id="Degradado_sin_nombre" data-name="Degradado sin nombre" x1="235.03" y1="325.29" x2="235.03" y2="106.54" gradientTransform="translate(0 326) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f5b5d2"></stop>
+      <stop offset=".02" stop-color="#eeabcc"></stop>
+      <stop offset=".06" stop-color="#dc92be"></stop>
+      <stop offset=".1" stop-color="#bf69a7"></stop>
+      <stop offset=".13" stop-color="#ab4b96"></stop>
+      <stop offset=".2" stop-color="#87367a"></stop>
+      <stop offset=".3" stop-color="#4e154f"></stop>
+      <stop offset=".57" stop-color="#408ec3"></stop>
+      <stop offset=".65" stop-color="#3cb8eb"></stop>
+    </linearGradient>
+    <linearGradient id="Degradado_sin_nombre_2" data-name="Degradado sin nombre 2" x1="-45.87" y1="286.41" x2="225.6" y2="-41.97" gradientTransform="translate(0 326) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3cb8eb"></stop>
+      <stop offset=".14" stop-color="#3daee4"></stop>
+      <stop offset=".36" stop-color="#4295d1"></stop>
+      <stop offset=".65" stop-color="#4a6bb3"></stop>
+      <stop offset=".99" stop-color="#55328a"></stop>
+      <stop offset=".99" stop-color="#56328a"></stop>
+    </linearGradient>
+  </defs>
+  <g id="Capa_2-2" data-name="Capa 2">
+    <g id="Capa_1-2" data-name="Capa 1-2">
+      <path class="cls-3" d="M341.02.71h-53.1c-9.08,0-17.56,4.53-22.6,12.08l-18.21,32.09c-3.91,6.93-8.89,9.28-13.37,9.28h-15.18c-9.04,0-17.46,4.56-22.41,12.12l-67.12,99.04,31.97,54.14,75.98-117.45c5.1-7.87,13.89-12.55,23.27-12.39l6.25.12c8.4.16,16.3-3.96,20.99-10.93L341.02.71Z"></path>
+      <path class="cls-2" d="M314.57,297.81l-104.45-141.46c-.97-1.29-46.16-61.54-47.12-62.81L91.82.71c-.08-.11-.21-.18-.35-.18h-47.58l-22.55-.25,9.39,12.54c.05.06.09.13.13.19l3.32,4.42,99.75,130.91c1.96,2.61,2.08,6.18.31,8.92l-19.47,30.06.15.03s-52.31,84.36-74.11,105.61c-18.24,17.78-32.61,11.19-40.81,7.54,12.64,13.64,26.82,18.07,26.82,18.07h0c.08.03,15.87,6.85,34.25,4.82h.02c21.49-1.4,33.83-8.27,42.62-19.54l63.57-93.76c2.99-4.46,9.49-4.63,12.72-.34l76.62,104.36c1.47,1.96,3.78,3.12,6.24,3.12h47.84l19.5.2-15.62-19.63h-.01Z"></path>
+    </g>
+  </g>
+</svg>

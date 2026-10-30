@@ -1,0 +1,166 @@
+/* ============================================================
+   fluX One — Foundations ("Stroke & Glow")
+   4 pilares: Cobrar (cian) · Conciliar (violeta) · Pagar (rosa) · Decidir (morado)
+   Fondos: negro puro o blanco puro. Cero gradientes en fills.
+   Tipografía: Plus Jakarta Sans, techo de peso 600.
+   Import this file FIRST.
+   ============================================================ */
+
+@font-face { font-family:"Plus Jakarta Sans"; src:url("./fonts/PlusJakartaSans-ExtraLight.ttf") format("truetype"); font-weight:200; font-style:normal; font-display:swap; }
+@font-face { font-family:"Plus Jakarta Sans"; src:url("./fonts/PlusJakartaSans-Light.ttf") format("truetype"); font-weight:300; font-style:normal; font-display:swap; }
+@font-face { font-family:"Plus Jakarta Sans"; src:url("./fonts/PlusJakartaSans-Regular.ttf") format("truetype"); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:"Plus Jakarta Sans"; src:url("./fonts/PlusJakartaSans-Medium.ttf") format("truetype"); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:"Plus Jakarta Sans"; src:url("./fonts/PlusJakartaSans-SemiBold.ttf") format("truetype"); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:"Plus Jakarta Sans"; src:url("./fonts/PlusJakartaSans-Italic.ttf") format("truetype"); font-weight:400; font-style:italic; font-display:swap; }
+
+:root {
+  /* ===== 4 pillars (module colors) — non-negotiable ===== */
+  --flx-cobrar:   #3CB8EB;  /* Cobrar */
+  --flx-conciliar:#AB4B96;  /* Conciliar */
+  --flx-pagar:    #F5B5D2;  /* Pagar */
+  --flx-decidir:  #4E154F;  /* Decidir */
+
+  /* Glows — soft halo, used as accent only, never as a fill */
+  --flx-glow-cobrar:    0 0 0 1px rgba(60,184,235,0.35), 0 0 24px rgba(60,184,235,0.25);
+  --flx-glow-conciliar: 0 0 0 1px rgba(171,75,150,0.35), 0 0 24px rgba(171,75,150,0.25);
+  --flx-glow-pagar:     0 0 0 1px rgba(245,181,210,0.4), 0 0 24px rgba(245,181,210,0.28);
+  --flx-glow-decidir:   0 0 0 1px rgba(78,21,79,0.5), 0 0 28px rgba(78,21,79,0.35);
+
+  /* Semantic (respect brand: success=cobrar-cyan, info=conciliar-violet, warn=pagar-pink tone, error=independent red) */
+  --flx-success: #3CB8EB; --flx-success-bg: rgba(60,184,235,0.10);
+  --flx-info:    #AB4B96; --flx-info-bg: rgba(171,75,150,0.10);
+  --flx-warn:    #d97706; --flx-warn-bg: rgba(217,119,6,0.10);
+  --flx-error:   #dc2626; --flx-error-bg: rgba(220,38,38,0.10);
+
+  /* ===== Dark surfaces ===== */
+  --flx-d-bg:        #000000;
+  --flx-d-surface-1: #0d0d0d;
+  --flx-d-surface-2: #161616;
+  --flx-d-surface-3: #202020;
+  --flx-d-line:        rgba(255,255,255,0.08);
+  --flx-d-line-strong:  rgba(255,255,255,0.16);
+  --flx-d-fg-1: #ffffff;
+  --flx-d-fg-2: rgba(255,255,255,0.72);
+  --flx-d-fg-3: rgba(255,255,255,0.48);
+  --flx-d-fg-4: rgba(255,255,255,0.28);
+
+  /* ===== Light surfaces ===== */
+  --flx-l-bg:        #ffffff;
+  --flx-l-surface-1: #f7f7f8;
+  --flx-l-surface-2: #eeeef0;
+  --flx-l-surface-3: #e2e2e6;
+  --flx-l-line:        rgba(10,10,10,0.08);
+  --flx-l-line-strong:  rgba(10,10,10,0.16);
+  --flx-l-fg-1: #0a0a0a;
+  --flx-l-fg-2: rgba(10,10,10,0.72);
+  --flx-l-fg-3: rgba(10,10,10,0.48);
+  --flx-l-fg-4: rgba(10,10,10,0.28);
+
+  /* ===== Type ===== */
+  --flx-font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --flx-font-mono: "Plus Jakarta Sans", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Weight ceiling is 600 — never 700/800 in product UI. */
+  --flx-display-1: 200 clamp(48px,6vw,88px)/1.0 var(--flx-font-sans);
+  --flx-h1: 600 clamp(32px,3.6vw,44px)/1.1 var(--flx-font-sans);
+  --flx-h2: 600 clamp(24px,2.6vw,32px)/1.15 var(--flx-font-sans);
+  --flx-h3: 600 20px/1.2 var(--flx-font-sans);
+  --flx-h4: 500 15px/1.3 var(--flx-font-sans);
+  --flx-body:   400 16px/1.6 var(--flx-font-sans);
+  --flx-body-s: 400 13px/1.5 var(--flx-font-sans);
+  --flx-meta:    500 12px/1.3 var(--flx-font-sans);
+  --flx-mono:   500 13px/1.45 var(--flx-font-mono);
+  --flx-mono-s: 500 11px/1.4 var(--flx-font-mono);
+  --flx-eyebrow: 600 11px/1 var(--flx-font-sans); /* + 0.16em tracking, uppercase */
+
+  /* ===== Document type scale (propuestas, decks, PDFs, reportes) =====
+     Regla fija — no reducir por debajo de estos tamaños aunque haya
+     mucho contenido. Si sobra texto, se ajusta el layout (más
+     páginas, columnas), nunca la fuente.
+     - Título:              30px
+     - Subtítulo:           14px
+     - Texto largo/cuerpo:  12px (tope)
+     - Texto largo denso:   10px (solo si hay mucho texto en poco espacio) */
+  --flx-doc-title:      600 30px/1.25 var(--flx-font-sans);
+  --flx-doc-subtitle:   600 14px/1.35 var(--flx-font-sans);
+  --flx-doc-body:       400 12px/1.6 var(--flx-font-sans);
+  --flx-doc-body-dense: 400 10px/1.5 var(--flx-font-sans);
+
+  /* ===== Spacing (4px base) ===== */
+  --flx-s-1:4px; --flx-s-2:8px; --flx-s-3:12px; --flx-s-4:16px; --flx-s-5:20px;
+  --flx-s-6:24px; --flx-s-8:32px; --flx-s-10:40px; --flx-s-12:48px; --flx-s-16:64px;
+
+  /* ===== Radii ===== */
+  --flx-r-sm:6px; --flx-r-md:10px; --flx-r-lg:16px; --flx-r-xl:24px; --flx-r-pill:9999px;
+
+  /* ===== Motion ===== */
+  --flx-ease: cubic-bezier(0.4,0,0.2,1); /* @kind other */
+  --flx-dur-fast:150ms; /* @kind other */
+  --flx-dur-base:300ms; /* @kind other */
+  --flx-dur-slow:400ms; /* @kind other */
+
+  /* Sidebar states (real product) */
+  --flx-sidebar-collapsed: 80px;
+  --flx-sidebar-expanded: 260px;
+}
+
+/* ============================================================
+   Theme containers — .flx-dark / .flx-light wrap any section.
+   Both must look equally finished — this is not a "dark app with
+   a light option", both are first-class.
+   ============================================================ */
+.flx-dark {
+  background: var(--flx-d-bg);
+  color: var(--flx-d-fg-1);
+}
+.flx-light {
+  background: var(--flx-l-bg);
+  color: var(--flx-l-fg-1);
+}
+
+html, body {
+  background: var(--flx-l-bg);
+  color: var(--flx-l-fg-1);
+  font-family: var(--flx-font-sans);
+  letter-spacing: -0.015em;
+  -webkit-font-smoothing: antialiased;
+}
+h1{font:var(--flx-h1);margin:0}
+h2{font:var(--flx-h2);margin:0}
+h3{font:var(--flx-h3);margin:0}
+h4{font:var(--flx-h4);margin:0}
+p{font:var(--flx-body);margin:0}
+small{font:var(--flx-body-s)}
+a{color:var(--flx-cobrar);text-decoration:none}
+a:hover{color:#2a93c9}
+::selection{background:rgba(60,184,235,0.25)}
+
+.flx-eyebrow{font:var(--flx-eyebrow);letter-spacing:0.16em;text-transform:uppercase}
+
+/* ===== Buttons — stroke & glow, never a solid color fill ===== */
+.flx-btn{font:600 13px/1 var(--flx-font-sans);padding:12px 18px;border-radius:var(--flx-r-md);cursor:pointer;border:1px solid;transition:all var(--flx-dur-base) var(--flx-ease)}
+.flx-btn-primary-dark{background:#fff;color:#000;border-color:#fff}
+.flx-btn-primary-light{background:#0a0a0a;color:#fff;border-color:#0a0a0a}
+.flx-btn-cobrar{background:transparent;color:var(--flx-cobrar);border-color:var(--flx-cobrar);box-shadow:var(--flx-glow-cobrar)}
+.flx-btn-ghost-dark{background:transparent;color:#fff;border-color:var(--flx-d-line-strong)}
+.flx-btn-ghost-light{background:transparent;color:#0a0a0a;border-color:var(--flx-l-line-strong)}
+
+*{box-sizing:border-box}
+
+/* ===== Cards — contour + glow, never heavy fill ===== */
+.flx-card{border-radius:var(--flx-r-lg);padding:20px;border:1px solid;display:flex;flex-direction:column;gap:10px;box-sizing:border-box}
+.flx-card-dark{background:var(--flx-d-surface-1);border-color:var(--flx-d-line)}
+.flx-card-light{background:var(--flx-l-surface-1);border-color:var(--flx-l-line)}
+
+/* ===== Semantic badges (pill, tinted bg + text, no border) ===== */
+.flx-badge{display:inline-flex;align-items:center;justify-content:center;border-radius:var(--flx-r-sm);padding:4px 10px;font:var(--flx-meta);border:none}
+.flx-badge-success{background:var(--flx-success-bg);color:#0e7490}
+.flx-badge-info{background:var(--flx-info-bg);color:var(--flx-conciliar)}
+.flx-badge-warn{background:var(--flx-warn-bg);color:var(--flx-warn)}
+.flx-badge-error{background:var(--flx-error-bg);color:var(--flx-error)}
+
+/* ===== Sidebar item states ===== */
+.flx-sidebar-item-active{border-left:3px solid var(--flx-cobrar);color:var(--flx-cobrar);font-weight:500;background:rgba(60,184,235,0.08);border-radius:0 6px 6px 0}
+.flx-sidebar-item-inactive{border-left:3px solid transparent;font-weight:400;background:transparent}
+.flx-dark .flx-sidebar-item-inactive{color:var(--flx-d-fg-3)}
+.flx-light .flx-sidebar-item-inactive{color:var(--flx-l-fg-3)}

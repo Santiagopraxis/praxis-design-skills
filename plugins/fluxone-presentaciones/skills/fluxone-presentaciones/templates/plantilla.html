@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light only">
+<title>fluXOne · {{TÍTULO}}</title>
+<style>
+@font-face{font-family:'Plus Jakarta Sans';font-weight:200;font-display:block;src:url(assets/fuentes/PlusJakartaSans-ExtraLight.ttf) format('truetype')}
+@font-face{font-family:'Plus Jakarta Sans';font-weight:300;font-display:block;src:url(assets/fuentes/PlusJakartaSans-Light.ttf) format('truetype')}
+@font-face{font-family:'Plus Jakarta Sans';font-weight:400;font-display:block;src:url(assets/fuentes/PlusJakartaSans-Regular.ttf) format('truetype')}
+@font-face{font-family:'Plus Jakarta Sans';font-weight:500;font-display:block;src:url(assets/fuentes/PlusJakartaSans-Medium.ttf) format('truetype')}
+@font-face{font-family:'Plus Jakarta Sans';font-weight:600;font-display:block;src:url(assets/fuentes/PlusJakartaSans-SemiBold.ttf) format('truetype')}
+@font-face{font-family:'Plus Jakarta Sans';font-style:italic;font-weight:300;font-display:block;src:url(assets/fuentes/PlusJakartaSans-LightItalic.ttf) format('truetype')}
+@font-face{font-family:'Onest';font-weight:300;font-display:block;src:url(assets/fuentes/Onest-300.woff2) format('woff2')}
+@font-face{font-family:'Onest';font-weight:400;font-display:block;src:url(assets/fuentes/Onest-400.woff2) format('woff2')}
+@font-face{font-family:'Onest';font-weight:500;font-display:block;src:url(assets/fuentes/Onest-500.woff2) format('woff2')}
+</style>
+<link rel="stylesheet" href="templates/estilos-base.css">
+<link rel="stylesheet" href="templates/componentes.css">
+<style>
+/* Impresión / PDF: una diapositiva por página, todo visible, sin animaciones */
+@page{size:1920px 1080px;margin:0}
+@media print{
+  html,body{margin:0!important;padding:0!important;overflow:visible!important;height:auto!important;background:#fff!important}
+  .deck{position:static!important;overflow:visible!important}
+  .stage{position:relative!important;left:0!important;top:0!important;transform:none!important;height:auto!important;overflow:visible!important}
+  .slide{position:relative!important;width:1920px;height:1080px;opacity:1!important;visibility:visible!important;break-after:page;page-break-after:always;overflow:hidden}
+  .ui,.bar{display:none!important}
+  *{animation:none!important;transition:none!important}
+  .draw{stroke-dashoffset:0!important} svg.lines .dot{display:none}
+  [data-f]{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+<div class="stage" id="stage">
+
+<!-- ============ F1 · PORTADA (líneas "portada" + render barras cian + chips) ============ -->
+<section class="slide" id="s-portada">
+  <svg class="lines" data-lines="portada"></svg>
+  <img class="render float" src="assets/renders/barras-cian.webp" alt="" style="right:0;bottom:-40px;height:560px">
+  <div class="chip" style="left:300px;top:187px"><svg class="ico" viewBox="0 0 24 24" stroke="#AB4B96" data-i="rieles"></svg>Rieles de pago</div>
+  <div class="chip" style="left:1190px;top:374px"><svg class="ico" viewBox="0 0 24 24" stroke="#AB4B96" data-i="conciliacion"></svg>Conciliación</div>
+  <div class="chip" style="left:1330px;top:684px"><svg class="ico" viewBox="0 0 24 24" stroke="#3CB8EB" data-i="domiciliacion"></svg>Domiciliación</div>
+  <div class="abs rise" style="left:120px;top:440px;display:flex;align-items:center;gap:28px">
+    <img src="assets/logos/praxis.webp" alt="Praxis" style="height:68px">
+    <span style="width:1px;height:52px;background:var(--linea)"></span>
+    <img src="assets/logos/fluxone-negro.png" alt="fluXOne" style="height:46px">
+  </div>
+  <h1 class="abs rise" style="--d:.15s;left:120px;top:548px;margin:0;font-size:76px;line-height:1.06;font-weight:200;letter-spacing:-.025em">{{Título línea 1}}<br>{{línea 2}}<br><span class="acc c-cobrar" style="font-weight:300">{{remate en color.}}</span></h1>
+  <p class="abs lead rise" style="--d:.3s;left:120px;top:830px;width:1100px">{{Bajada en una línea.}}</p>
+  <p class="abs small rise" style="--d:.45s;left:120px;top:940px;font-size:17px;color:var(--t3)"><span style="font-weight:500">{{Tipo de presentación}}</span>&nbsp;&nbsp;&nbsp; {{País}}</p>
+</section>
+
+<!-- ============ F2 · FRASE EN NEGRO (líneas "oscuro") ============ -->
+<section class="slide dark">
+  <svg class="lines" data-lines="oscuro"></svg>
+  <img class="logo" src="assets/logos/fluxone-blanco.png" alt="fluXOne" style="left:120px;right:auto">
+  <p class="abs rise" style="left:120px;top:330px;width:1560px;margin:0;font-size:92px;line-height:1.08;font-weight:200;letter-spacing:-.025em">{{Afirmación corta.}}<br><span style="color:var(--cobrar);font-weight:300">{{¿Pregunta que abre?}}</span></p>
+</section>
+
+<!-- ============ F3 · RETO (3 columnas + 3 cifras que cuentan) ============ -->
+<section class="slide">
+  <div class="eyebrow">El reto</div>
+  <img class="logo" src="assets/logos/fluxone-negro.png" alt="fluXOne">
+  <h2 class="h1">{{Problema en una frase,}} <em class="c-conciliar">{{consecuencia en color}}</em></h2>
+  <div class="abs cols3" style="left:120px;right:120px;top:330px">
+    <div class="rise col" style="--d:.1s"><svg class="ico anim" viewBox="0 0 24 24" stroke="#AB4B96" data-i="rieles" style="--d:.3s"></svg><div class="col-t">Fragmentación</div><p class="small">Varios bancos, portales y archivos distintos para un mismo flujo de dinero.</p></div>
+    <div class="rise col" style="--d:.25s"><svg class="ico anim" viewBox="0 0 24 24" stroke="#AB4B96" data-i="conciliacion" style="--d:.45s"></svg><div class="col-t">Conciliación manual</div><p class="small">Identificar quién pagó y cruzarlo con la factura se sigue haciendo a mano.</p></div>
+    <div class="rise col" style="--d:.4s"><svg class="ico anim" viewBox="0 0 24 24" stroke="#AB4B96" data-i="dispersion" style="--d:.6s"></svg><div class="col-t">Pagos que esperan</div><p class="small">Dispersiones en lotes y en horario bancario, aunque el negocio no se detiene.</p></div>
+  </div>
+  <div class="abs cols3" style="left:120px;right:120px;top:690px">
+    <div class="rise rs"><div class="rs-n"><span class="count" data-to="50">50</span><small>h</small></div><p>al mes puede tomar la conciliación manual.<span>DigitalDefynd / Gartner</span></p></div>
+    <div class="rise rs" style="--d:.15s"><div class="rs-n"><span class="count" data-to="42">42</span><small>%</small></div><p>de las tareas financieras se puede automatizar.<span>McKinsey</span></p></div>
+    <div class="rise rs" style="--d:.3s"><div class="rs-n c-conciliar"><span class="count" data-to="59">59</span><small>días</small></div><p>de ciclo promedio de cobro en LATAM.<span>Coface 2025</span></p></div>
+  </div>
+  <div class="num"></div>
+</section>
+
+<!-- ============ F4 · QUÉ ES (claim izquierda + 4 pilares derecha, líneas "intro") ============ -->
+<section class="slide">
+  <svg class="lines" data-lines="intro"></svg>
+  <div class="eyebrow" style="color:var(--t2)">Orquestación financiera para empresas · by Praxis</div>
+  <img class="abs rise" src="assets/logos/fluxone-negro.png" alt="fluXOne" style="left:120px;top:150px;width:520px">
+  <p class="abs rise" style="--d:.15s;left:120px;top:330px;width:760px;margin:0;font-size:52px;line-height:1.15;font-weight:200;letter-spacing:-.02em">Una sola integración para <span class="c-decidir" style="font-weight:300">pagar, cobrar, conciliar y decidir.</span></p>
+  <p class="abs lead rise" style="--d:.3s;left:120px;top:560px;width:700px">{{Qué es fluXOne en 2–3 líneas.}}</p>
+  <p class="abs rise" style="--d:.45s;left:120px;top:930px;margin:0;font-size:24px;font-style:italic;font-weight:300;color:var(--t2)">¿Y si todo fuera más fácil?</p>
+  <div class="abs pil" style="left:1040px;top:130px;width:760px">
+    <div class="rise pil-r" style="--d:.2s"><svg class="ico anim" viewBox="0 0 24 24" stroke="#DC92BE" data-i="glifo-pagar_color" style="--d:.4s"></svg><div><div class="pil-t c-pagar">Pagar</div><p class="small">Dispersión 24/7 a proveedores, nómina o usuarios, individual o masiva.</p></div></div>
+    <div class="rise pil-r" style="--d:.35s"><svg class="ico anim" viewBox="0 0 24 24" stroke="#3DAEE4" data-i="glifo-cobrar_color" style="--d:.55s"></svg><div><div class="pil-t c-cobrar">Cobrar</div><p class="small">Transferencias inmediatas, QR, tarjetas, domiciliación y links de pago.</p></div></div>
+    <div class="rise pil-r" style="--d:.5s"><svg class="ico anim" viewBox="0 0 24 24" stroke="#AB4B96" data-i="glifo-conciliar_color" style="--d:.7s"></svg><div><div class="pil-t c-conciliar">Conciliar</div><p class="small">Cada pago identificado y cruzado con su factura, en automático.</p></div></div>
+    <div class="rise pil-r" style="--d:.65s"><svg class="ico anim" viewBox="0 0 24 24" stroke="#4E154F" data-i="glifo-decidir_color" style="--d:.85s"></svg><div><div class="pil-t c-decidir">Decidir</div><p class="small">El flujo de caja en tiempo real, para decidir a tiempo.</p></div></div>
+  </div>
+</section>
+
+<!-- ============ F12 · CIERRE (negro, líneas "gracias") ============ -->
+<section class="slide dark">
+  <svg class="lines" data-lines="gracias"></svg>
+  <div class="abs rise" style="left:120px;top:96px"><img src="assets/logos/fluxone-blanco.png" alt="fluXOne" style="height:46px"></div>
+  <h2 class="abs rise" style="--d:.1s;left:108px;top:300px;margin:0;font-size:120px;line-height:1.05;font-weight:200;letter-spacing:-.04em">¿Y si todo fuera<br><span style="color:var(--cobrar);font-weight:300">más fácil?</span></h2>
+  <p class="abs rise" style="--d:.3s;left:120px;top:600px;margin:0;font-size:40px;font-weight:200;color:#D9D9DE">Pagar, Cobrar, Conciliar y Decidir.</p>
+  <p class="abs rise" style="--d:.45s;left:120px;top:700px;margin:0;font-size:28px;font-style:italic;font-weight:300;color:#D9D9DE">fluXOne. Fluye a tu manera.</p>
+  <p class="abs rise" style="--d:.55s;left:120px;bottom:60px;margin:0;font-size:30px;font-weight:300;color:#FFFFFF">{{fluxone.com.co / .mx}}</p>
+  <p class="abs" style="right:120px;bottom:64px;margin:0;font-size:18px;color:#8C8C92">by Praxis</p>
+</section>
+
+</div>
+</div>
+<div class="bar" id="bar"></div>
+<div class="ui" id="ui">
+  <button id="prev" aria-label="Diapositiva anterior">‹</button>
+  <span class="count" id="count"></span>
+  <button id="next" aria-label="Diapositiva siguiente">›</button>
+  <button id="fsBtn" aria-label="Pantalla completa">PANTALLA COMPLETA (F)</button>
+</div>
+<script src="templates/runtime.js"></script>
+</body>
+</html>

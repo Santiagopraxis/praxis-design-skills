@@ -1,0 +1,52 @@
+<!-- @dsCard group="Overview" viewport="1200x700" subtitle="Slides y documento de propuesta" name="04 · Docs & Slides" -->
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0}
+  .nav{display:flex;gap:4px;padding:14px 24px;background:var(--surface);border-bottom:1px solid var(--border-subtle);font-family:var(--font-display);font-size:12.5px;font-weight:600;position:sticky;top:0;z-index:10}
+  .nav a{padding:8px 14px;border-radius:8px;color:var(--ink-700);text-decoration:none}
+  .nav a:hover{background:var(--surface-sunken)}
+  .nav a.active{background:var(--purple-100);color:var(--purple-600)}
+  .sec{padding:40px 48px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .note{font-family:var(--font-body);font-size:13px;color:var(--ink-500);margin-top:16px;max-width:640px;line-height:1.5}
+  a.file{color:var(--purple-600)}
+</style>
+<div style="font-family:var(--font-body);background:var(--paper)">
+  <div class="nav">
+    <a href="overview.html">Inicio</a>
+    <a href="manual-colores.html">Colores</a>
+    <a href="manual-tipografia.html">Tipografía & Espaciado</a>
+    <a href="manual-marca.html">Marca</a>
+    <a href="manual-docs.html" class="active">Docs & Slides</a>
+  </div>
+
+  <div class="sec">
+    <div class="grid2">
+      <div style="border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden">
+        <div style="height:110px;background:var(--gradient-brand);display:flex;align-items:center;padding:0 16px">
+          <span style="color:#fff;font-family:var(--font-display);font-weight:var(--fw-title);font-size:15px">Kick-off del Proyecto</span>
+        </div>
+        <div style="padding:10px 14px;font-size:12.5px;color:var(--ink-500)">Portada de slide — <a class="file" href="../slides/title-slide.html">slides/title-slide.html</a></div>
+      </div>
+      <div style="border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden">
+        <div style="height:110px;background:var(--paper);display:flex;align-items:center;padding:0 16px;border-bottom:1px solid var(--border-subtle)">
+          <span style="font-family:var(--font-display);font-weight:var(--fw-title);font-size:15px;color:var(--ink-900)">Objetivos del Negocio</span>
+        </div>
+        <div style="padding:10px 14px;font-size:12.5px;color:var(--ink-500)">Divisor de sección — <a class="file" href="../slides/section-slide.html">slides/section-slide.html</a></div>
+      </div>
+      <div style="border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden">
+        <div style="height:110px;background:var(--surface);display:flex;align-items:center;padding:0 16px;border-bottom:1px solid var(--border-subtle)">
+          <span style="font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--ink-700)">Cronograma y Hitos</span>
+        </div>
+        <div style="padding:10px 14px;font-size:12.5px;color:var(--ink-500)">Cronograma — <a class="file" href="../slides/timeline-slide.html">slides/timeline-slide.html</a></div>
+      </div>
+      <div style="border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden">
+        <div style="height:110px;background:var(--gradient-brand);display:flex;align-items:center;padding:0 16px">
+          <span style="font-family:var(--font-display);font-weight:var(--fw-title);font-size:15px;color:#fff">Propuesta Técnica</span>
+        </div>
+        <div style="padding:10px 14px;font-size:12.5px;color:var(--ink-500)">Documento con portada — <a class="file" href="../documents/propuesta-tecnica.html">documents/propuesta-tecnica.html</a></div>
+      </div>
+    </div>
+    <div class="note">Las 5 plantillas de slide completas están en <a class="file" href="../slides">slides/</a>. Encabezado de documento suelto: <a class="file" href="docs-header.html">docs-header.html</a>. Banner social: <a class="file" href="brand-social-banner.html">brand-social-banner.html</a>.</div>
+  </div>
+</div>

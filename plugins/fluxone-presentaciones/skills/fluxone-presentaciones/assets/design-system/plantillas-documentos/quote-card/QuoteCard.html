@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>fluX One — Quote Card</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<style>
+  /* =========================================================
+     QUOTE CARD — plantilla reutilizable para piezas de dato+cita.
+     Edita la sección "CONTENIDO" y las variables --qc-*.
+     Tamaño base: 1080x1350 (IG post).
+     ========================================================= */
+  :root{
+    --qc-w: 1080px;
+    --qc-h: 1350px;
+    --qc-bg: var(--flx-d-bg);
+    --qc-fg: var(--flx-d-fg-1);
+    --qc-fg-muted: var(--flx-d-fg-3);
+    --qc-accent: var(--flx-pagar);
+  }
+  html,body{margin:0;padding:0;background:#3a3a3a}
+  .qc{
+    width:var(--qc-w); height:var(--qc-h);
+    background:var(--qc-bg); color:var(--qc-fg);
+    position:relative; overflow:hidden;
+    font-family:var(--flx-font-sans);
+  }
+
+  /* shard: contenedor recortado en la esquina, no un PNG suelto */
+  .qc-shard-mask{
+    position:absolute; top:0; right:0;
+    width:52%; height:30%;
+    overflow:hidden; z-index:0;
+    -webkit-mask-image:linear-gradient(225deg, #000 55%, transparent 100%);
+    mask-image:linear-gradient(225deg, #000 55%, transparent 100%);
+  }
+  .qc-shard-mask img{
+    position:absolute; top:-8%; right:-10%;
+    width:130%; max-width:none;
+  }
+
+  .qc-logo{
+    position:absolute; top:5.2%; right:5.2%; height:2.6%; min-height:28px; z-index:3;
+  }
+
+  .qc-body{
+    position:relative; z-index:2;
+    padding:17% 6.7% 0 6.7%;
+    display:flex; flex-direction:column; gap:2.2%;
+  }
+  .qc-quote{
+    font:italic 300 clamp(34px,4.6vw,52px)/1.2 var(--flx-font-sans);
+    color:var(--qc-accent);
+    margin:0;
+    max-width:88%;
+    text-shadow:0 2px 24px rgba(0,0,0,0.35);
+  }
+  .qc-quote b, .qc-quote strong{ font-weight:600; font-style:italic; }
+  .qc-stat{
+    font:400 clamp(18px,2.4vw,28px)/1.45 var(--flx-font-sans);
+    color:var(--qc-fg);
+    max-width:80%;
+  }
+  .qc-source{
+    font:500 clamp(14px,1.6vw,18px)/1.3 var(--flx-font-sans);
+    color:var(--qc-fg-muted);
+  }
+
+  /* banda visual inferior — alto fijo, imagen recortada con cover, nunca estirada */
+  .qc-visual{
+    position:absolute; left:0; right:0; bottom:0;
+    height:38%;
+    z-index:1;
+    box-shadow:0 -60px 80px -20px rgba(0,0,0,0.55) inset;
+  }
+  .qc-visual::before{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, var(--qc-bg) 0%, rgba(0,0,0,0) 22%);
+    z-index:2;
+  }
+  .qc-visual img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover; object-position:top center;
+    filter:drop-shadow(0 24px 40px rgba(0,0,0,0.5));
+  }
+</style>
+</head>
+<body>
+
+<div class="qc">
+  <div class="qc-shard-mask">
+    <img src="../../assets/bg-blades-purple.png" alt="">
+  </div>
+
+  <img class="qc-logo" src="../../assets/logo-fluxone-blanco.png" alt="fluX One">
+
+  <!-- ===================== CONTENIDO — edita aquí ===================== -->
+  <div class="qc-body">
+    <p class="qc-quote">&ldquo;El que con Excel duerme,<br><b>con deuda amanece.</b>&rdquo;</p>
+    <p class="qc-stat">El 98% de las empresas medianas concilia sus pagos a mano.</p>
+    <p class="qc-source">— Shinkansen / iWorld 2026</p>
+  </div>
+  <!-- =================================================================== -->
+
+  <div class="qc-visual">
+    <img src="../../assets/render-06-cyan-stack.png" alt="">
+  </div>
+</div>
+
+</body>
+</html>

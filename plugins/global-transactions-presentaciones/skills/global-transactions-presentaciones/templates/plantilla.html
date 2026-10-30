@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Fija el esquema claro: evita que el modo oscuro del sistema/navegador invierta colores -->
+<meta name="color-scheme" content="light only">
+<title>Global Transactions · {{TÍTULO}} · {{CLIENTE}}</title>
+<style>
+/* ===== Tokens (Karpay DS → tokens/colors.css; tipografía editorial aprobada: Helvetica) ===== */
+:root{
+  --p950:#241542; --p900:#2e1c58; --p800:#3d2472; --p600:#5c2d91; --p400:#8b6bc0; --p200:#d8cbef; --p100:#efe9f7;
+  --teal:#3dbfa0; --teal7:#157a68;
+  --paper:#f8f9fb; --ink:#1c1626; --ink7:#3e3849; --ink5:#6c6677; --ink3:#aca8b3; --rule:#dfe2e7;
+  --inv:#f6f6f9; --invm:#cbc3dc;
+  --hf:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  color-scheme:light;
+}
+html,body{margin:0;height:100%;background:#0d0816;overflow:hidden}
+#vp{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#stage{position:relative;width:1920px;height:1080px;flex:none;transform-origin:center center}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;box-sizing:border-box;overflow:hidden;opacity:0;visibility:hidden;
+  transition:opacity .5s ease,visibility 0s linear .5s;background:var(--paper);color:var(--ink);font-family:var(--hf)}
+.slide.on{opacity:1;visibility:visible;transition:opacity .5s ease}
+.slide.dark{background:var(--p950);color:var(--inv)}
+.slide *{box-sizing:border-box}
+.slide p,.slide h1,.slide h2,.slide h3{margin:0}
+.a{position:absolute}
+/* ===== Tipografía (px a 1920×1080) ===== */
+.kicker{font-size:22px;font-weight:700;letter-spacing:3px;text-transform:uppercase;line-height:1.35;color:var(--ink5)}
+.folio{font-size:22px;letter-spacing:2px;color:var(--ink5);text-align:right;width:200px}
+.display{font-size:136px;font-weight:700;letter-spacing:-6px;line-height:1}
+.h1{font-size:88px;font-weight:700;letter-spacing:-.04em;line-height:1}
+.h2{font-size:56px;font-weight:700;letter-spacing:-2px;line-height:1.05}
+.light{font-weight:300;letter-spacing:-1px}
+.lead{font-size:40px;font-weight:300;line-height:1.2;letter-spacing:-1px}
+.body{font-size:28px;font-weight:400;line-height:1.35;color:var(--ink7)}
+.small{font-size:22px;line-height:1.4;color:var(--ink5)}
+.dark .kicker,.dark .folio,.dark .small{color:var(--invm)} .dark .body{color:var(--invm)}
+.num{font-size:240px;font-weight:700;letter-spacing:-12px;line-height:.8}
+.num small{font-size:.28em;font-weight:300;letter-spacing:0;margin-left:.15em}
+.accent{color:var(--p600)} .ok{color:var(--teal7)} .dark .accent{color:var(--p200)} .dark .ok{color:var(--teal)}
+/* ===== Reglas / hairlines ===== */
+.rule{position:absolute;height:0;border-top:1px solid var(--rule)}
+.rule.strong{border-top:2px solid var(--ink)} .dark .rule{border-color:rgba(255,255,255,.18)} .dark .rule.strong{border-color:var(--inv)}
+/* ===== Máscara de título ===== */
+.mask .row{display:block;overflow:hidden;padding-bottom:.06em}
+.mask .ln{display:block}
+/* ===== Ledger (tabla Swiss) ===== */
+.ledger{position:absolute;border-top:2px solid var(--ink)}
+.ledger .r{display:grid;grid-template-columns:var(--cols,220px 1fr 160px);gap:24px;align-items:center;min-height:84px;border-bottom:1px solid var(--rule);font-size:26px}
+.ledger .r b{font-size:30px;letter-spacing:-.5px} .ledger .r span{color:var(--ink5)} .ledger .r .fig{font-size:34px;font-weight:700;text-align:right}
+.ledger .r.hi .fig,.ledger .r.hi b{color:var(--p600)}
+.ledger img{height:40px;width:auto;max-width:200px;object-fit:contain}
+/* ===== Logos ===== */
+.logo{position:absolute;object-fit:contain}
+.client-slot{position:absolute;display:flex;align-items:center;justify-content:flex-end;font-size:30px;font-weight:700;letter-spacing:-.5px}
+/* ===== HUD ===== */
+#hud{position:fixed;right:16px;bottom:12px;font:13px/1 var(--hf);color:#cbc3dc;opacity:.55;transition:opacity .3s;display:flex;gap:8px;align-items:center;user-select:none;z-index:5}
+body:hover #hud{opacity:.9}
+#hud button{background:#241542;color:#f6f6f9;border:1px solid #5c2d91;border-radius:6px;padding:6px 10px;cursor:pointer;font:inherit}
+:fullscreen #hud{display:none}
+/* ===== Impresión / PDF: todas las diapositivas, una por página, sin animación ===== */
+@page{size:1920px 1080px;margin:0}
+@media print{
+  html,body{overflow:visible;height:auto;background:#fff}
+  #vp{position:static;display:block} #stage{transform:none!important;width:1920px;height:auto}
+  .slide{position:relative;opacity:1!important;visibility:visible!important;page-break-after:always;break-after:page}
+  #hud{display:none}
+  *{animation:none!important;transition:none!important}
+  .gt-pulse{display:none}
+}
+</style>
+</head>
+<body>
+<div id="vp"><div id="stage">
+
+<!-- ============ L1 · PORTADA (Magazine Spread: página blanca + página morada) ============ -->
+<section class="slide" id="portada">
+  <div class="a" style="left:1104px;top:0;width:816px;height:1080px;background:var(--p950)"></div>
+  <svg class="a" data-rings="16" data-color="#8b6bc0" data-dot="#3dbfa0" style="left:1212px;top:120px;width:600px;height:600px"></svg>
+  <svg class="a" data-skyline data-color="#d8cbef" viewBox="0 0 816 320" style="left:1104px;top:760px;width:816px;height:320px"></svg>
+  <img class="logo" data-in="1" src="assets/logos/global-transactions-color.png" alt="Global Transactions" style="left:96px;top:72px;width:250px;height:65px">
+  <p class="a kicker accent" data-in="2" style="left:96px;top:300px;width:900px">Preparado para {{CLIENTE}} · {{AÑO}}</p>
+  <div class="rule strong" style="left:96px;top:350px;width:912px"></div>
+  <p class="a lead" data-in="3" style="left:96px;top:384px;width:900px;font-size:52px">{{ANTETÍTULO}}</p>
+  <h1 class="a display mask" style="left:88px;top:460px;width:1000px"><span class="row"><span class="ln">{{TÍTULO L1}}</span></span><span class="row"><span class="ln">{{TÍTULO L2}}</span></span></h1>
+  <p class="a lead" data-in="4" style="left:96px;top:780px;width:900px;font-size:48px">{{Promesa}} <span class="ok">{{remate.}}</span></p>
+  <div class="rule" style="left:96px;top:960px;width:912px"></div>
+  <p class="a kicker" data-in="5" style="left:96px;top:985px;width:300px;font-weight:400">Powered by</p>
+  <img class="logo" data-in="5" src="assets/logos/karpay-color.svg" alt="Karpay" style="left:270px;top:978px;width:200px;height:40px">
+</section>
+
+<!-- ============ L2 · DIVISOR / MANIFIESTO (página morada completa) ============ -->
+<section class="slide dark" id="divisor">
+  <svg class="a" data-rings="18" data-color="#5c2d91" style="left:1180px;top:200px;width:900px;height:900px"></svg>
+  <p class="a kicker" data-in="1" style="left:96px;top:56px;width:900px">01 · {{Capítulo}}</p>
+  <div class="rule" style="left:96px;top:100px;width:1728px"></div>
+  <h2 class="a h1 mask" style="left:96px;top:380px;width:1300px;font-size:120px"><span class="row"><span class="ln">{{La oportunidad}}</span></span><span class="row"><span class="ln" style="color:var(--p200)">{{en una frase.}}</span></span></h2>
+  <p class="a lead" data-in="3" style="left:96px;top:700px;width:900px;color:var(--invm)">{{Bajada de 1–2 líneas.}}</p>
+  <img class="logo" data-in="6" src="assets/logos/global-transactions-blanco.png" alt="Global Transactions" style="left:96px;top:986px;width:170px;height:44px">
+</section>
+
+<!-- ============ L4 · GLOBO + LEDGER (4 col mapa / 8 col tabla) ============ -->
+<section class="slide" id="rieles">
+  <p class="a kicker" data-in="1" style="left:96px;top:56px;width:1000px">Presencia global</p>
+  <p class="a folio" data-in="1" style="left:1624px;top:56px">03 / 06</p>
+  <div class="rule" style="left:96px;top:100px;width:1728px"></div>
+  <svg class="a" data-globe data-hub="327,284" data-pts="FedNow:327,284;SPEI:151,415;Bre-B:301,569;Pix:517,743;SEPA:769,175;Swift:752,215" data-land="#8b6bc0" data-node="#5c2d91" data-route="#3dbfa0" data-labels="no" style="left:60px;top:240px;width:640px;height:640px"></svg>
+  <h2 class="a h2 mask" style="left:826px;top:150px;width:1000px"><span class="row"><span class="ln">Siete rieles.</span></span><span class="row"><span class="ln accent">Una plataforma.</span></span></h2>
+  <div class="ledger" style="left:826px;top:330px;width:998px;--cols:200px 1fr 140px">
+    <div class="r hi" data-in="2"><img src="assets/rieles/fednow-tinta.svg" alt="FedNow"><span>Estados Unidos · ISO 20022 · 24×7×365</span><div class="fig">20 s</div></div>
+    <div class="r" data-in="3"><img src="assets/rieles/spei-tinta.svg" alt="SPEI"><span>México · SPEI / CoDi</span><div class="fig">1 s</div></div>
+    <div class="r" data-in="4"><img src="assets/rieles/breb-tinta.svg" alt="Bre-B"><span>Colombia · llaves y QR</span><div class="fig">20 s</div></div>
+    <div class="r" data-in="5"><img src="assets/rieles/pix-tinta.svg" alt="Pix"><span>Brasil · app y monitoreo web</span><div class="fig">—</div></div>
+    <div class="r" data-in="6"><img src="assets/rieles/sepa-tinta.svg" alt="SEPA Inst"><span>Zona euro · ISO 20022</span><div class="fig">10 s</div></div>
+    <div class="r" data-in="7"><img src="assets/rieles/swift-tinta.svg" alt="Swift"><span>Transfronterizo · gpi, CBPR+</span><div class="fig">—</div></div>
+  </div>
+  <p class="a small" data-in="8" style="left:826px;top:900px;width:998px">Cifras: tiempo de procesamiento por transacción. Fuente: {{fuente}}.</p>
+  <div class="rule" style="left:96px;top:960px;width:1728px"></div>
+  <img class="logo" src="assets/logos/global-transactions-color.png" alt="Global Transactions" style="left:96px;top:986px;width:170px;height:44px">
+  <img class="logo" src="assets/logos/karpay-color.svg" alt="Karpay" style="left:306px;top:990px;width:190px;height:36px">
+</section>
+
+<!-- ============ L5 · CIFRA HÉROE (Swiss Ledger) ============ -->
+<section class="slide" id="cifra">
+  <p class="a kicker" data-in="1" style="left:96px;top:56px;width:1000px">Prueba · {{tema}}</p>
+  <p class="a folio" data-in="1" style="left:1624px;top:56px">04 / 06</p>
+  <div class="rule" style="left:96px;top:100px;width:1728px"></div>
+  <p class="a num" style="left:88px;top:250px;width:1100px"><span data-count="20">20</span><small class="accent">segundos</small></p>
+  <p class="a lead" data-in="2" style="left:96px;top:520px;width:860px">{{Qué significa la cifra, en una frase.}}</p>
+  <div class="rule strong" style="left:1118px;top:250px;width:706px"></div>
+  <div class="a" style="left:1118px;top:270px;width:706px">
+    <p class="kicker" data-in="3">Disponibilidad</p><p class="body" data-in="3" style="margin:6px 0 28px">24×7×365, colas IBM MQ</p>
+    <p class="kicker" data-in="4">Límite por defecto</p><p class="body" data-in="4" style="margin:6px 0 28px">US$ 100.000 por transacción</p>
+    <p class="kicker" data-in="5">Configurable</p><p class="body" data-in="5">Hasta US$ 1.000.000</p>
+  </div>
+  <svg class="a" data-rings="9" data-color="#d8cbef" style="left:1500px;top:640px;width:340px;height:340px"></svg>
+  <div class="rule" style="left:96px;top:960px;width:1728px"></div>
+  <img class="logo" src="assets/logos/global-transactions-color.png" alt="Global Transactions" style="left:96px;top:986px;width:170px;height:44px">
+</section>
+
+<!-- ============ L6 · PROCESO (ruta horizontal + nodos + pulso de luz) ============ -->
+<section class="slide" id="proceso">
+  <p class="a kicker" data-in="1" style="left:96px;top:56px;width:1000px">Cómo funciona</p>
+  <p class="a folio" data-in="1" style="left:1624px;top:56px">05 / 06</p>
+  <div class="rule" style="left:96px;top:100px;width:1728px"></div>
+  <h2 class="a h2 mask" style="left:96px;top:150px;width:1300px"><span class="row"><span class="ln">De la consultoría</span></span><span class="row"><span class="ln accent">a producción.</span></span></h2>
+  <svg class="a" viewBox="0 0 1728 80" style="left:96px;top:460px;width:1728px;height:80px">
+    <path d="M216 40H1512" stroke="#dfe2e7" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path class="trace pulse" d="M216 40H1512" stroke="#3dbfa0" stroke-width="4" stroke-linecap="round" fill="none" pathLength="1" data-light="#3dbfa0" data-r="9"/>
+  </svg>
+  <!-- Nodo: disco 140px + icono 80px; texto centrado debajo. Columnas de 4 en 12. -->
+  <div class="a" data-in="2" style="left:242px;top:430px;width:140px;height:140px;border-radius:70px;background:var(--paper);border:2px solid var(--rule)"></div>
+  <img class="a" data-in="2" src="assets/iconos/persona-banco-gray.png" alt="" style="left:272px;top:460px;width:80px;height:80px;object-fit:contain">
+  <div class="a" data-in="3" style="left:890px;top:430px;width:140px;height:140px;border-radius:70px;background:var(--p950)"></div>
+  <img class="a" data-in="3" src="assets/iconos/api-white.png" alt="" style="left:920px;top:460px;width:80px;height:80px;object-fit:contain">
+  <div class="a" data-in="4" style="left:1538px;top:430px;width:140px;height:140px;border-radius:70px;background:var(--paper);border:2px solid var(--rule)"></div>
+  <img class="a" data-in="4" src="assets/iconos/transferencia-gray.png" alt="" style="left:1568px;top:460px;width:80px;height:80px;object-fit:contain">
+  <p class="a h2" data-in="2" style="left:32px;top:610px;width:560px;font-size:34px;text-align:center">DIAGNÓSTICO</p>
+  <p class="a body" data-in="2" style="left:62px;top:670px;width:500px;text-align:center">{{Paso 1 en una frase.}}</p>
+  <p class="a h2" data-in="3" style="left:680px;top:610px;width:560px;font-size:34px;text-align:center">INTEGRACIÓN</p>
+  <p class="a body" data-in="3" style="left:710px;top:670px;width:500px;text-align:center">{{Paso 2 en una frase.}}</p>
+  <p class="a h2" data-in="4" style="left:1328px;top:610px;width:560px;font-size:34px;text-align:center">PRODUCCIÓN</p>
+  <p class="a body" data-in="4" style="left:1358px;top:670px;width:500px;text-align:center">{{Paso 3 en una frase.}}</p>
+  <div class="rule" style="left:96px;top:960px;width:1728px"></div>
+  <img class="logo" src="assets/logos/global-transactions-color.png" alt="Global Transactions" style="left:96px;top:986px;width:170px;height:44px">
+</section>
+
+<!-- ============ L9 · CIERRE (spread: morado izq. / blanco der.) ============ -->
+<section class="slide" id="cierre">
+  <div class="a" style="left:0;top:0;width:960px;height:1080px;background:var(--p950)"></div>
+  <svg class="a" data-rings="16" data-color="#8b6bc0" data-dot="#3dbfa0" style="left:180px;top:240px;width:600px;height:600px"></svg>
+  <h2 class="a display mask" style="left:1050px;top:360px;width:800px;font-size:150px"><span class="row"><span class="ln">Gracias.</span></span></h2>
+  <div class="rule strong" style="left:1056px;top:540px;width:768px"></div>
+  <p class="a lead" data-in="3" style="left:1056px;top:580px;width:768px">{{Siguiente paso concreto, con fecha.}}</p>
+  <div class="rule" style="left:1056px;top:820px;width:768px"></div>
+  <img class="logo" data-in="5" src="assets/logos/global-transactions-color.png" alt="Global Transactions" style="left:1056px;top:850px;width:220px;height:57px">
+  <img class="logo" data-in="5" src="assets/logos/karpay-color.svg" alt="Karpay" style="left:1316px;top:856px;width:230px;height:44px">
+  <!-- Slot de cliente: usa su logo (img) si lo dieron; si no, su nombre en texto -->
+  <div class="client-slot" data-in="5" style="left:1586px;top:850px;width:238px;height:57px">{{CLIENTE}}</div>
+  <!-- Praxis: solo endoso, pequeño y al final -->
+  <p class="a small" data-in="6" style="left:1056px;top:960px;width:768px;font-size:18px">Una solución de Praxis</p>
+</section>
+
+</div></div>
+<div id="hud"><button id="pv" aria-label="Anterior">&#8592;</button><span id="ct"></span><button id="nx" aria-label="Siguiente">&#8594;</button><button id="fs">Pantalla completa (F)</button></div>
+<script src="templates/land.js"></script>
+<script src="templates/runtime.js"></script>
+</body>
+</html>

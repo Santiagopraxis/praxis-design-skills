@@ -1,0 +1,129 @@
+<!-- @dsCard group="Overview" viewport="1200x700" subtitle="Morado, teal, naranja, neutrales, combinaciones y reglas de uso" name="01 · Colores" -->
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0}
+  .nav{display:flex;gap:4px;padding:14px 24px;background:var(--surface);border-bottom:1px solid var(--border-subtle);font-family:var(--font-display);font-size:12.5px;font-weight:600;position:sticky;top:0;z-index:10}
+  .nav a{padding:8px 14px;border-radius:8px;color:var(--ink-700);text-decoration:none}
+  .nav a:hover{background:var(--surface-sunken)}
+  .nav a.active{background:var(--purple-100);color:var(--purple-600)}
+  .sec{padding:40px 48px;border-bottom:1px solid var(--border-subtle)}
+  .sec h2{font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:var(--tracking-wide);text-transform:uppercase;color:var(--purple-600);margin:0 0 20px}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .sw{flex:1;min-width:90px;height:80px;border-radius:10px;display:flex;align-items:flex-end;padding:8px;font:11px var(--font-body);color:#fff}
+  .note{font-family:var(--font-body);font-size:13px;color:var(--ink-500);margin-top:10px;max-width:640px;line-height:1.5}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  a.file{color:var(--purple-600)}
+</style>
+<div style="font-family:var(--font-body);background:var(--paper)">
+  <div class="nav">
+    <a href="overview.html">Inicio</a>
+    <a href="manual-colores.html" class="active">Colores</a>
+    <a href="manual-tipografia.html">Tipografía & Espaciado</a>
+    <a href="manual-marca.html">Marca</a>
+    <a href="manual-docs.html">Docs & Slides</a>
+  </div>
+
+  <div class="sec">
+    <h2>Morado (primario)</h2>
+    <div class="row">
+      <div class="sw" style="background:var(--purple-100);color:var(--ink-700)">100</div>
+      <div class="sw" style="background:var(--purple-200);color:var(--ink-700)">200</div>
+      <div class="sw" style="background:var(--purple-400)">400</div>
+      <div class="sw" style="background:var(--purple-600)">600 · primario</div>
+      <div class="sw" style="background:var(--purple-800)">800</div>
+      <div class="sw" style="background:var(--purple-950)">950</div>
+    </div>
+    <div class="note">Editar en <a class="file" href="../tokens/colors.css">tokens/colors.css</a> · specimen: <a class="file" href="colors-purple.html">colors-purple.html</a></div>
+  </div>
+
+  <div class="sec">
+    <h2>Verde-teal (secundario)</h2>
+    <div class="row">
+      <div class="sw" style="background:var(--teal-300);color:var(--ink-700)">300</div>
+      <div class="sw" style="background:var(--teal-500)">500 · secundario</div>
+      <div class="sw" style="background:var(--teal-700)">700</div>
+    </div>
+    <div class="note">specimen: <a class="file" href="colors-teal.html">colors-teal.html</a></div>
+  </div>
+
+  <div class="sec">
+    <h2>Naranja (solo logo / crítico)</h2>
+    <div class="row">
+      <div class="sw" style="background:var(--gradient-flame)">gradiente del logo</div>
+      <div class="sw" style="background:var(--flame-500)">500</div>
+      <div class="sw" style="background:var(--flame-600)">600 · crítico</div>
+    </div>
+    <div class="note">Solo para la marca "K" y estados críticos — nunca como color de fondo o acento general. specimen: <a class="file" href="colors-flame.html">colors-flame.html</a></div>
+  </div>
+
+  <div class="sec">
+    <h2>Neutrales</h2>
+    <div class="row">
+      <div class="sw" style="background:var(--paper);color:var(--ink-500)">paper</div>
+      <div class="sw" style="background:var(--surface-sunken);color:var(--ink-500)">sunken</div>
+      <div class="sw" style="background:var(--ink-300)">300</div>
+      <div class="sw" style="background:var(--ink-500)">500</div>
+      <div class="sw" style="background:var(--ink-700)">700</div>
+      <div class="sw" style="background:var(--ink-900)">900</div>
+    </div>
+    <div class="note">specimen: <a class="file" href="colors-neutrals.html">colors-neutrals.html</a></div>
+  </div>
+
+  <div class="sec">
+    <h2>Combinaciones en uso</h2>
+    <div class="grid2">
+      <div style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:14px;padding:20px">
+        <span style="display:inline-flex;padding:5px 14px;border-radius:999px;background:var(--purple-100);color:var(--purple-600);font-size:13px;font-weight:600;font-family:var(--font-display)">Badge primario</span>
+        <div style="font-family:var(--font-display);font-size:18px;font-weight:var(--fw-title);color:var(--ink-900);margin-top:12px">Card sobre paper</div>
+        <div style="font-size:13px;color:var(--ink-700);margin-top:4px">ink-900 sobre surface, borde border-subtle.</div>
+      </div>
+      <div style="background:var(--purple-950);border-radius:14px;padding:20px;color:#fff">
+        <span style="display:inline-flex;padding:5px 14px;border-radius:999px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.18);font-size:13px;font-weight:600;font-family:var(--font-display)">Badge inverso</span>
+        <div style="font-family:var(--font-display);font-size:18px;font-weight:var(--fw-title);margin-top:12px">Cover morado oscuro</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:4px">texto blanco / text-inverse-muted sobre purple-950.</div>
+      </div>
+    </div>
+    <div class="note">Ejemplos completos en las cards de <a class="file" href="../components">components/</a> (Badge, Card, Callout…)</div>
+  </div>
+
+  <div class="sec" style="border-bottom:none">
+    <h2>Cuándo usar cada color</h2>
+    <div class="grid2">
+      <div style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:14px;padding:18px">
+        <div style="width:28px;height:28px;border-radius:8px;background:var(--purple-600);margin-bottom:10px"></div>
+        <b style="font-family:var(--font-display);font-size:13px">Morado — primario</b>
+        <p style="font-size:13px;color:var(--ink-700);margin:6px 0 0;line-height:1.5">Kickers, títulos de sección, badges por defecto, portadas y divisores oscuros (<code>--gradient-brand</code>).</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:14px;padding:18px">
+        <div style="width:28px;height:28px;border-radius:8px;background:var(--teal-500);margin-bottom:10px"></div>
+        <b style="font-family:var(--font-display);font-size:13px">Verde-teal — secundario</b>
+        <p style="font-size:13px;color:var(--ink-700);margin:6px 0 0;line-height:1.5">Estados positivos/"en curso", paneles de apoyo, y como wash de fondo suave para dar variedad.</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:14px;padding:18px">
+        <div style="width:28px;height:28px;border-radius:8px;background:var(--gradient-flame);margin-bottom:10px"></div>
+        <b style="font-family:var(--font-display);font-size:13px">Naranja — logo / crítico</b>
+        <p style="font-size:13px;color:var(--ink-700);margin:6px 0 0;line-height:1.5">Solo el mark "K" y riesgo crítico. Nunca como fondo grande ni acento decorativo.</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border-subtle);border-radius:14px;padding:18px">
+        <div style="width:28px;height:28px;border-radius:8px;background:var(--tint-teal);margin-bottom:10px"></div>
+        <b style="font-family:var(--font-display);font-size:13px">Cómo "fondear"</b>
+        <p style="font-size:13px;color:var(--ink-700);margin:6px 0 0;line-height:1.5">Tres fondos aprobados: <b>paper</b>, <b>gradient-brand</b> (con moderación), y <b>washes</b> (<code>--tint-purple</code>/<code>--tint-teal</code>).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" style="border-bottom:none">
+    <h2>Íconos y motivo geométrico</h2>
+    <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+      <div style="display:flex;gap:12px">
+        <div style="width:52px;height:52px;border-radius:14px;background:var(--purple-600);display:flex;align-items:center;justify-content:center"><img src="../assets/icons/transferencia-white.png" style="width:26px"></div>
+        <div style="width:52px;height:52px;border-radius:14px;background:var(--teal-500);display:flex;align-items:center;justify-content:center"><img src="../assets/icons/api-white.png" style="width:26px"></div>
+      </div>
+      <div style="position:relative;width:180px;height:140px">
+        <div style="position:absolute;left:0;top:10px;width:110px;height:110px;border-radius:24px;background:var(--teal-500);opacity:0.85"></div>
+        <div style="position:absolute;left:60px;top:60px;width:110px;height:110px;border-radius:24px;background:var(--purple-600)"></div>
+      </div>
+    </div>
+    <p class="note">Regla: los íconos siempre van sobre un cuadro con esquinas redondeadas (radius ~14px), en blanco, con fondo sólido morado o teal — nunca sobre fondo transparente ni en gris suelto. Como motivo decorativo, dos cuadros redondeados (uno morado, uno teal) se superponen en intersección — sin degradado, solo color plano. Ver <a class="file" href="../slides/title-slide.html">slides/title-slide.html</a> y <a class="file" href="../slides/content-cards-slide.html">content-cards-slide.html</a>.</p>
+  </div>
+</div>
