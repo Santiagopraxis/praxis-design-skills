@@ -1,10 +1,9 @@
 /* ============================================================================
-   Praxis › fluXOne — sistema EDITORIAL de documentos
-   Hoja carta 8.5×11 in = 816×1056 px. Cada <section class="pg"> es UNA página fija.
-   Dirección: informe anual / revista de negocios. NO es el deck impreso:
-   sin anillos ni spreads; tipografía grande y ligera, columna de notas al margen,
-   aperturas de sección con número gigante, citas destacadas y figuras con pie.
-   Retícula: margen 64 · columna de margen 148 · medianil 28 · columna principal 512
+   fluXOne — DOCUMENTOS (réplica fiel de la plantilla aprobada del design system:
+   assets/design-system/plantillas-documentos/propuesta-comercial-co)
+   Hoja A4 = 794×1123 px. Cada <section class="pc-page"> es UNA página fija.
+   Portada: tarjeta gris con líneas de flujo. Internas: franja de vidrio arriba,
+   pie "Fluye a tu manera" + logo. Solo logos: sin etiquetas de jerarquía.
    ============================================================================ */
 @font-face{font-family:'Jakarta FX';font-weight:200;src:url(../assets/fuentes/PlusJakartaSans-ExtraLight.ttf) format('truetype')}
 @font-face{font-family:'Jakarta FX';font-weight:300;src:url(../assets/fuentes/PlusJakartaSans-Light.ttf) format('truetype')}
@@ -12,146 +11,79 @@
 @font-face{font-family:'Jakarta FX';font-weight:500;src:url(../assets/fuentes/PlusJakartaSans-Medium.ttf) format('truetype')}
 @font-face{font-family:'Jakarta FX';font-weight:600;src:url(../assets/fuentes/PlusJakartaSans-SemiBold.ttf) format('truetype')}
 :root{
-  --p950:#000000; --p900:#0a0a0a; --p800:#0a0a0a; --p600:#1e9fd6; --p400:#408ec3; --p200:#c4c4c9; --p100:#f6f6f7; --p50:#f6f6f7;
+  --f:'Plus Jakarta Sans','Jakarta FX',Arial,sans-serif;
+  --ink:#0a0a0a; --ink2:rgba(10,10,10,.72); --ink3:rgba(10,10,10,.5); --ink4:rgba(10,10,10,.4); --line:#eee;
   --cobrar:#3cb8eb; --cobrar-t:#1e9fd6; --conciliar:#ab4b96; --pagar:#f5b5d2; --pagar-t:#c9679a; --decidir:#4e154f;
-  --teal:#3cb8eb; --teal7:#ab4b96; --teal1:#f6f6f7;
-  --paper:#ffffff; --white:#fff; --ink:#0a0a0a; --ink7:#55555b; --ink5:#8c8c92; --ink3:#c4c4c9; --rule:#e8e8ec; --sunk:#f6f6f7;
-  --inv:#ffffff; --invm:#a8a8ae; --warn:#b86a12; --crit:#c8213a;
-  --hf:'Plus Jakarta Sans','Jakarta FX',Arial,sans-serif;
-  --M:64px; --side:148px; --gut:28px; --main:512px;   /* main empieza en x = 240 */
+  /* escala fija de documentos del DS: título 30 · subtítulo 14 · cuerpo 12 · denso 10 */
+  --doc-title:600 30px/1.2 var(--f); --doc-sub:600 14px/1.4 var(--f); --doc-body:400 12px/1.65 var(--f); --doc-dense:400 10px/1.5 var(--f);
   color-scheme:light;
 }
-@page{size:8.5in 11in;margin:0}
+@page{size:A4;margin:0}
 *{box-sizing:border-box}
-html,body{margin:0;background:#d6d3dc}
-body{font-family:var(--hf);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.pg{position:relative;width:816px;height:1056px;margin:24px auto;background:var(--paper);overflow:hidden;box-shadow:0 6px 30px rgba(36,21,66,.18)}
-.pg p,.pg h1,.pg h2,.pg h3,.pg ul,.pg ol,.pg figure,.pg blockquote{margin:0}
-@media print{html,body{background:none}.pg{margin:0;box-shadow:none;break-after:page;page-break-after:always}}
-.a{position:absolute}
+html,body{margin:0;background:#d9d9dc}
+body{font-family:var(--f);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pc-page{width:794px;height:1123px;background:#fff;position:relative;overflow:hidden;margin:24px auto;box-shadow:0 4px 24px rgba(0,0,0,.12)}
+@media print{html,body{background:none}.pc-page{margin:0;box-shadow:none;break-after:page;page-break-after:always}}
+.pc-page h1{margin:0}
 
-/* ---------- Jerarquía de marca (Praxis › Global Transactions › Karpay) ---------- */
-.ladder{display:flex;align-items:stretch;gap:0}
-.ladder .step{display:flex;flex-direction:column;gap:8px;padding:0 22px;border-left:1px solid var(--rule)}
-.ladder .step:first-child{padding-left:0;border-left:0}
-.ladder .lbl{font-size:8.5px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink5)}
-.ladder .box{height:32px;display:flex;align-items:center}
-.ladder img{display:block;width:auto;object-fit:contain}
-.ladder .praxis img{height:30px} .ladder .gt img{height:28px} .ladder .kp img{height:20px}
-.dark .ladder .step{border-color:rgba(255,255,255,.18)} .dark .ladder .lbl{color:var(--invm)}
+/* ---------- Portada ---------- */
+.pc-cover{background:#ececec}
+.pc-cover .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.pc-cover .in{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;padding:90px}
+.pc-cover .tt{font-weight:200;font-size:46px;line-height:1.15;color:#1a1a1a;text-transform:uppercase;letter-spacing:.01em}
+.pc-cover .sub{font:var(--doc-body);color:rgba(10,10,10,.65);max-width:34ch;margin-top:20px}
+.pc-cover .for{font:500 11px/1 var(--f);letter-spacing:.16em;text-transform:uppercase;color:var(--cobrar-t);margin-bottom:18px}
+.pc-cover .meta{position:absolute;bottom:70px;left:70px;font:400 12px/1.4 var(--f);color:rgba(10,10,10,.5)}
+.pc-cover .lg{position:absolute;bottom:68px;right:70px;display:flex;align-items:center;gap:18px}
+.pc-cover .lg img{height:20px;width:auto}
 
 /* ---------- Encabezado / pie de páginas internas ---------- */
-.hd{position:absolute;left:var(--M);right:var(--M);top:34px;display:flex;align-items:center;justify-content:space-between}
-.hd img{height:18px;width:auto}
-.hd span{font-size:8.5px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--ink5)}
-.ft{position:absolute;left:var(--M);right:var(--M);bottom:30px;display:flex;align-items:center;gap:14px;font-size:8.5px;letter-spacing:.5px;color:var(--ink5)}
-.ft .fo{font-size:20px;font-weight:300;letter-spacing:-.5px;color:var(--ink);font-feature-settings:"tnum" 1;min-width:28px}
-.ft .sep{flex:1;border-top:1px solid var(--rule)}
-.ft img{height:13px;width:auto} .ft img.kp{height:10px}
-
-/* ---------- Columnas ---------- */
-.side{position:absolute;left:var(--M);width:var(--side)}
-.main{position:absolute;left:240px;width:var(--main)}
-.full{position:absolute;left:var(--M);right:var(--M)}
+.pc-header{width:100%;height:90px;background:url(../assets/documentos/encabezado-vidrio.jpg) center/cover no-repeat;position:relative}
+.pc-doclabel{position:absolute;top:50%;right:56px;transform:translateY(-50%);font:300 12px/1 var(--f);letter-spacing:.22em;text-transform:uppercase;color:#0a0a0a}
+.pc-footer{width:100%;height:70px;background:url(../assets/documentos/pie-fluye.jpg) center/cover no-repeat;position:absolute;left:0;bottom:0}
+.pc-folio{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font:500 10px/1 var(--f);color:var(--ink4);letter-spacing:.1em}
+.pc-body{padding:28px 56px 40px}
 
 /* ---------- Tipografía ---------- */
-.eyebrow{font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--p600)}
-.eyebrow.mute{color:var(--ink5)} .dark .eyebrow{color:var(--invm)}
-.secnum{font-size:112px;font-weight:200;letter-spacing:-6px;line-height:.8;color:var(--p600);margin-left:-5px}
-.title{font-size:34px;font-weight:200;letter-spacing:-1.2px;line-height:1.08}
-.title b{font-weight:500}
-.title.xl{font-size:56px;letter-spacing:-2.4px;line-height:1.02}
-.dek{font-size:16px;font-weight:300;line-height:1.45;letter-spacing:-.1px;color:var(--ink7)}
-.dark .dek{color:var(--invm)}
-.txt{font-size:11.5px;line-height:1.62;color:var(--ink7);hyphens:auto}
-.txt + .txt{margin-top:9px}
-.txt b{color:var(--ink)}
-.dropcap::first-letter{float:left;font-size:54px;line-height:.86;font-weight:300;color:var(--p600);padding:4px 8px 0 0}
-.note{font-size:9.5px;line-height:1.5;color:var(--ink5)}
-.note b{color:var(--ink);font-weight:600}
-.dark .note{color:var(--invm)}
-.cap{font-size:9px;line-height:1.45;color:var(--ink5);margin-top:8px}
-.cap b{color:var(--p600);letter-spacing:1px;text-transform:uppercase;font-size:8.5px}
-.hr{border-top:1px solid var(--rule)} .hr.ink{border-top:1.5px solid var(--ink)}
-
-/* ---------- Cita destacada ---------- */
-.pull{border-top:1.5px solid var(--p600);border-bottom:1px solid var(--rule);padding:16px 0 18px}
-.pull p{font-size:21px;font-weight:300;line-height:1.3;letter-spacing:-.5px;color:var(--p800)}
-.pull span{display:block;margin-top:10px;font-size:9px;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink5)}
-
-/* ---------- Cifras editoriales (en margen o en fila) ---------- */
-.fig-n{font-size:44px;font-weight:300;letter-spacing:-2px;line-height:1;color:var(--ink);font-feature-settings:"tnum" 1}
-.fig-n small{font-size:14px;letter-spacing:0;margin-left:3px;color:var(--p600);font-weight:400}
-.fig-d{font-size:9.5px;line-height:1.45;color:var(--ink5);margin-top:6px}
-.figs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1.5px solid var(--ink)}
-.figs>div{padding:14px 18px 0 0} .figs>div+div{padding-left:18px;border-left:1px solid var(--rule)}
-
-/* ---------- Sumario ---------- */
-.toc .it{display:grid;grid-template-columns:62px 1fr 30px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--rule)}
-.toc .it .n{font-size:28px;font-weight:300;letter-spacing:-1px;color:var(--p600)}
-.toc .it b{font-size:15px;font-weight:600;letter-spacing:-.2px}
-.toc .it em{display:block;font-style:normal;font-size:10.5px;color:var(--ink5);margin-top:3px;font-weight:400;letter-spacing:0}
-.toc .it .pp{text-align:right;font-size:11px;color:var(--ink5);font-feature-settings:"tnum" 1}
-
-/* ---------- Listas ---------- */
-ol.num{list-style:none;padding:0;counter-reset:n}
-ol.num li{counter-increment:n;display:grid;grid-template-columns:30px 1fr;padding:10px 0;border-bottom:1px solid var(--rule);font-size:11.5px;line-height:1.5;color:var(--ink7)}
-ol.num li::before{content:counter(n,decimal-leading-zero);font-size:10px;font-weight:600;color:var(--p600);padding-top:1px}
-ol.num li b{color:var(--ink)}
-ul.dash{list-style:none;padding:0}
-ul.dash li{position:relative;padding-left:16px;font-size:11.5px;line-height:1.55;color:var(--ink7);margin-bottom:5px}
-ul.dash li::before{content:"";position:absolute;left:0;top:8px;width:8px;border-top:1.5px solid var(--p600)}
-
-/* ---------- Tabla editorial ---------- */
-table.t{width:100%;border-collapse:collapse;font-size:10.5px}
-table.t th{text-align:left;font-size:8.5px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink5);padding:0 8px 8px 0;border-bottom:1.5px solid var(--ink)}
-table.t td{padding:9px 8px 9px 0;border-bottom:1px solid var(--rule);color:var(--ink7);line-height:1.45;vertical-align:top}
-table.t td b{color:var(--ink)} table.t td.r,table.t th.r{text-align:right}
-table.t .big{font-size:15px;font-weight:300;letter-spacing:-.3px;color:var(--ink);font-feature-settings:"tnum" 1}
-table.t img{height:15px;width:auto;display:block}
-
-/* ---------- Estado (único lugar con color de estado) ---------- */
-.tag{display:inline-block;font-size:8.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:3px 7px;border-radius:3px;white-space:nowrap}
-.tag{background:transparent;border:1px solid currentColor}
-.tag.p{color:var(--p600)} .tag.ok{color:var(--teal7)} .tag.w{color:var(--warn)} .tag.c{color:var(--crit)}
-
-/* ---------- Figura sobre panel ---------- */
-.panel{background:var(--p50);border-radius:4px;padding:22px}
-.panel.dark{background:var(--p950);color:var(--inv)}
-
-/* Diagrama de flujo editorial (línea + paradas) */
-.route{display:grid;grid-template-columns:repeat(var(--n,4),1fr);position:relative}
-.route::before{content:"";position:absolute;left:0;right:0;top:6px;border-top:1.5px solid var(--p400)}
-.route .stop{position:relative;padding-right:14px}
-.route .stop i{display:block;width:13px;height:13px;border-radius:50%;background:var(--paper);border:2px solid var(--p600);margin-bottom:12px;position:relative}
-.route .stop.on i{background:var(--p600)}
-.route .stop .k{font-size:8.5px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink5)}
-.route .stop b{display:block;font-size:13px;margin:4px 0 5px;letter-spacing:-.2px}
-.route .stop p{font-size:10px;line-height:1.45;color:var(--ink7)}
-
-/* Arquitectura en capas */
-.layers .ly{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule)}
-.layers .ly:first-child{border-top:1.5px solid var(--p600)}
-.layers .ly .k{font-size:8.5px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--p600)}
-.layers .chips{display:flex;flex-wrap:wrap;gap:6px}
-.layers .chips span{font-size:10px;padding:5px 9px;border:1px solid #d5d4db;border-radius:3px;color:var(--ink);background:var(--white)}
-.layers .ly.core{background:var(--p950);margin:0 -22px;padding:14px 22px;border-bottom:0}
-.layers .ly.core .k{color:var(--invm)}
-.layers .ly.core .chips span{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:var(--inv)}
-
-/* Gantt editorial */
-.gantt{}
-.gantt .scale{display:grid;grid-template-columns:150px repeat(13,1fr);font-size:8.5px;color:var(--ink5);border-bottom:1.5px solid var(--ink);padding-bottom:6px;font-feature-settings:"tnum" 1}
-.gantt .row{display:grid;grid-template-columns:150px 1fr;align-items:center;min-height:44px;border-bottom:1px solid var(--rule)}
-.gantt .row b{font-size:12px} .gantt .row em{display:block;font-style:normal;font-size:9.5px;color:var(--ink5);margin-top:2px}
-.gantt .track{position:relative;height:100%}
-.gantt .track i{position:absolute;top:50%;height:10px;margin-top:-5px;background:var(--p600);border-radius:1px}
-.gantt .track i.lt{background:repeating-linear-gradient(135deg,var(--p600) 0 4px,#7a52a8 4px 8px)} .gantt .track i.t{background:var(--teal)}
-.gantt .track u{position:absolute;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;transform:rotate(45deg);background:var(--teal7)}
-
-/* ---------- fluXOne: color de pilar en líneas finas ---------- */
+.pc-h2{font:var(--doc-title);color:var(--ink);margin:0 0 12px;letter-spacing:-.01em}
+.pc-h2 small{font-weight:400;color:var(--ink3);font-size:13px}
+.pc-h3{font:var(--doc-sub);color:var(--ink);margin:20px 0 8px}
+.pc-p{font:var(--doc-body);color:var(--ink2);margin:0 0 12px}
+.pc-li{font:var(--doc-body);color:var(--ink2);margin-bottom:5px;padding-left:14px;position:relative}
+.pc-li::before{content:"•";position:absolute;left:0}
+.pc-note{font:var(--doc-dense);color:var(--ink3);margin:6px 0 16px}
 .c-cobrar{color:var(--cobrar-t)} .c-conciliar{color:var(--conciliar)} .c-pagar{color:var(--pagar-t)} .c-decidir{color:var(--decidir)}
-.pl{border-top:2px solid var(--ink);padding-top:12px}
-.pl.cobrar{border-color:var(--cobrar)} .pl.conciliar{border-color:var(--conciliar)} .pl.pagar{border-color:var(--pagar)} .pl.decidir{border-color:var(--decidir)}
-.gantt .track i.cobrar{background:var(--cobrar)} .gantt .track i.conciliar{background:var(--conciliar)} .gantt .track i.pagar{background:var(--pagar)} .gantt .track i.decidir{background:var(--decidir)}
-.flowline{height:3px;background:linear-gradient(90deg,var(--cobrar),var(--conciliar) 55%,var(--pagar))}
+
+/* ---------- Tabla de contenidos ---------- */
+.toc .l1{display:flex;align-items:baseline;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line);font:600 17px/1.3 var(--f)}
+.toc .l1 span:last-child{font:500 14px/1 var(--f);color:var(--ink4)}
+.toc .l2{padding:10px 0 10px 24px;font:400 14px/1.5 var(--f);color:rgba(10,10,10,.65)}
+.toc .l3{padding:10px 0 10px 48px;font:400 13px/1.5 var(--f);color:rgba(10,10,10,.55)}
+.toc .end{border-bottom:1px solid var(--line)}
+
+/* ---------- Tabla ---------- */
+.pc-table{width:100%;border-collapse:collapse;margin:12px 0 18px;border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.05);border:1px solid rgba(10,10,10,.06)}
+.pc-table th{background:rgba(60,184,235,.08);color:var(--ink);font:600 11px/1.3 var(--f);text-align:left;padding:13px 16px;letter-spacing:.04em;text-transform:uppercase;border-bottom:2px solid var(--cobrar)}
+.pc-table td{border-bottom:1px solid #f0f0f0;font:var(--doc-body);padding:13px 16px;color:var(--ink)}
+.pc-table tr:last-child td{border-bottom:none}
+.pc-table tr:nth-child(even) td{background:#fafbfc}
+
+/* ---------- Etiqueta de país / pilar ---------- */
+.pc-tag{display:inline-flex;align-items:center;gap:6px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:11px;margin-bottom:8px;padding:5px 10px;border-radius:999px;background:rgba(0,0,0,.04);color:var(--cobrar)}
+.pc-tag::before{content:"";width:6px;height:6px;border-radius:999px;background:currentColor}
+
+/* ---------- Pilares y cifras (para one-pager y secciones de solución) ---------- */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:8px 0 6px}
+.pillar{border-top:2px solid var(--ink);padding-top:10px}
+.pillar b{display:block;font:600 11px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.pillar p{font:var(--doc-body);color:var(--ink2)}
+.pillar.cobrar{border-color:var(--cobrar)} .pillar.cobrar b{color:var(--cobrar-t)}
+.pillar.conciliar{border-color:var(--conciliar)} .pillar.conciliar b{color:var(--conciliar)}
+.pillar.pagar{border-color:var(--pagar)} .pillar.pagar b{color:var(--pagar-t)}
+.pillar.decidir{border-color:var(--decidir)} .pillar.decidir b{color:var(--decidir)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0}
+.stat .n{font:200 40px/1 var(--f);letter-spacing:-.04em;color:var(--ink)}
+.stat .n small{font-size:14px;font-weight:400;color:var(--cobrar-t);margin-left:3px;letter-spacing:0}
+.stat .d{font:var(--doc-dense);color:var(--ink3);margin-top:6px}
+.pays{display:flex;align-items:center;gap:34px;padding:14px 0}
+.pays img{height:24px;width:auto}

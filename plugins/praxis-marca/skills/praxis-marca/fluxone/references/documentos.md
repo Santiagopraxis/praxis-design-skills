@@ -1,32 +1,28 @@
-# Documentos · Praxis › fluXOne
+# Documentos · fluXOne
 
-Propuestas, informes, one-pagers, cartas y actas de fluXOne. Hoja carta (816×1056 px). Misma retícula editorial que Global Transactions (columna de margen + columna principal), con la identidad de fluXOne.
+Propuestas comerciales, informes, one-pagers, cartas y actas de fluXOne. **Réplica fiel del template aprobado del design system** (`assets/design-system/plantillas-documentos/propuesta-comercial-co` y `-mx`). Hoja A4 (794×1123 px). No usar la retícula editorial de Global Transactions.
 
-Plantillas: `templates/documento.html` (propuesta, 6 páginas X1–X6), `templates/one-pager.html`, `templates/carta.html`; estilos en `templates/documento.css`.
+Plantillas: `templates/documento.html` (propuesta, 5 páginas), `templates/one-pager.html`, `templates/carta.html`; estilos en `templates/documento.css`.
 Ejemplos: `ejemplos/fluXOne_ServiciosAndinos_Propuesta.pdf`, `fluXOne_OnePager_Recaudo.pdf`, `fluXOne_Carta_ServiciosAndinos.pdf`.
 
-## Marca
-- **Jerarquía:** Praxis es la empresa madre, fluXOne el producto. Portada y contraportada con la escalera `.ladder` (Praxis · fluXOne). Páginas internas: fluXOne en el encabezado y "by Praxis" en el pie.
-- Escribir siempre **fluXOne**.
-- Voz: cercana, LATAM, sin "disruptivo", "sin fricción" ni "seamless". Firma: "Fluye a tu manera."
+## Estructura del template (no cambiarla)
+- **Portada** `.pc-cover`: tarjeta gris con líneas de flujo y logo (`assets/documentos/portada-lineas.jpg`), título "PROPUESTA COMERCIAL" en 200 mayúsculas, bajada, "Preparado para {Cliente}", fecha y versión abajo.
+- **Páginas internas**: franja de vidrio arriba (`.pc-header` + `.pc-doclabel` "Tipo · País"), cuerpo `.pc-body`, pie "Fluye a tu manera" + logo (`.pc-footer`).
+- Orden de la propuesta: Tabla de contenidos → Sobre Praxis IT & Sobre fluXOne (texto aprobado, no reescribir) → Propuesta comercial (resumen ejecutivo + costos de implementación) → Mínimo mensual (SaaS), tabla transaccional y expiración (60 días).
+- Tablas `.pc-table` con encabezado cian; etiqueta de país `.pc-tag` antes de cada tabla de precios.
 
-## Páginas de la propuesta (en la plantilla)
-| Código | Página |
-|---|---|
-| X1 | Portada con `assets/documentos/portada-lineas.jpg` (tarjeta gris con líneas de flujo), "Preparado para" en Conciliar, título 200 con remate en Cobrar, escalera de marca |
-| X2 | Resumen: número de sección, cifras con fuente en el margen, texto con capitular, cita de recomendación |
-| X3 | Los 4 pilares (`.pl.cobrar/.conciliar/.pagar/.decidir`) + medios de pago del país + cita |
-| X4 | Arquitectura por capas (ingesta=Cobrar, proceso=Conciliar, salida=Pagar, reglas=Decidir) + tabla hoy vs. con fluXOne |
-| X5 | Cronograma (`.gantt` con color de pilar) + qué incluye + inversión (solo cifras aprobadas) |
-| X6 | Contraportada negra: "Fluye a tu manera", línea de flujo `.flowline`, pasos, escalera blanca |
+## Marca
+- **Solo logos**, sin etiquetas tipo "Una empresa de" o "Producto". fluXOne en portada y pie; Praxis aparece como "by Praxis" en el texto.
+- Escribir siempre **fluXOne** (el template antiguo dice "fluX").
+- Voz cercana, LATAM; sin "disruptivo", "sin fricción", "seamless".
 
 ## Reglas
-- Fondos blanco puro o negro puro. Plus Jakarta Sans (incluida), peso máximo 600; titulares en 200–300.
-- El color vive en líneas finas, cifras y una palabra del título. Cobrar `#3CB8EB` (texto `#1E9FD6`) · Conciliar `#AB4B96` · Pagar `#F5B5D2` (texto `#C9679A`) · Decidir `#4E154F`. Nunca cambiar el color de un pilar; el rosa solo existe para Pagar.
-- **Nunca mezclar países** en un componente: Colombia = Recaudo, Bre-B, PSE, Nequi · México = Cobranza, SPEI, CLABE, CoDi. Logos de medios en `assets/medios-pago/`.
-- Escala del DS para texto corrido: cuerpo 11.5–12 px, nunca menos de 8.5 px; si no cabe, otra página.
-- No inventar cifras ni precios. Datos reutilizables y fuentes en `references/marca-y-voz.md`.
-- Imágenes JPG nuevas: re-guardarlas con PIL antes de usarlas (los JPG de Adobe salen rosados en algunos visores).
+- Escala fija del DS: título 30 px, subtítulo 14 px, cuerpo 12 px, denso 10 px. Si no cabe, otra página; nunca bajar la letra.
+- Plus Jakarta Sans (incluida), peso máximo 600.
+- Pilares con su color fijo (solo en líneas finas y rótulos): Cobrar `#3CB8EB` · Conciliar `#AB4B96` · Pagar `#F5B5D2` · Decidir `#4E154F`.
+- **Nunca mezclar países**: Colombia = Recaudo, Bre-B, PSE, Nequi, COP · México = Cobranza, SPEI, CLABE, CoDi, MXN (ver `propuesta-comercial-mx` en el DS para los textos de México).
+- **Precios:** nunca inventarlos. Dejar `$[monto]` y avisar si el usuario no los dio.
+- Imágenes: no re-convertir `pie-fluye.jpg` ni `encabezado-vidrio.jpg` (ya están en RGB correcto). Cualquier JPG nuevo se revisa en la hoja de revisión: si sale rosado o con colores raros, venía en CMYK.
 
 ## Armar
 `python3 <skill>/scripts/armar.py pieza.html --marca fluxone` → HTML único + PDF + `_revision.png`. Mira la hoja de revisión antes de entregar.

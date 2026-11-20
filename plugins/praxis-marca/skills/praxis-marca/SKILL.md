@@ -17,7 +17,7 @@ Claude hace todo: escribe, arma sobre la plantilla, revisa y entrega HTML + PDF.
 | Pieza | Plantilla (en la carpeta de la marca) | Guía que debes leer (solo esa) |
 |---|---|---|
 | Presentación / deck / slides | `templates/plantilla.html` | `guia-presentaciones.md` |
-| Propuesta, informe, documento largo | `templates/documento.html` | `references/documentos.md` |
+| Propuesta, informe, documento largo | `templates/documento.html` (GT: editorial · fluXOne: template aprobado del DS) | `references/documentos.md` |
 | One-pager, ficha de producto, hoja de venta | `templates/one-pager.html` | `references/documentos.md` |
 | Carta, memo, correo formal en PDF, acta | `templates/carta.html` | `references/documentos.md` |
 
@@ -44,7 +44,7 @@ Entrega el PDF (y el HTML si es un deck) como archivos descargables. Nombre: `<M
 
 ## Reglas comunes
 
-- **Jerarquía:** Praxis es la empresa madre. Global Transactions es un producto de Praxis y Karpay es un servicio de Global Transactions; en documentos GT van los 3 logos. fluXOne es un producto de Praxis.
+- **Jerarquía:** Praxis es la empresa madre. Global Transactions es un producto de Praxis y Karpay es un servicio de Global Transactions; en documentos GT van los 3 logos. En fluXOne van solo los logos (sin etiquetas de jerarquía) y Praxis como "by Praxis".
 - Escritura: "fluXOne", "Global Transactions", "Karpay", "Karpay Instapay", "Bre-B".
 - No mezclar marcas en una pieza (los colores de una no van en la otra). En GT no usar rosados ni lilas; en fluXOne el rosa es solo del pilar Pagar.
 - Si la pieza es de muestra o borrador, decirlo en la portada.
