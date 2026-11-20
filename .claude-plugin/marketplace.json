@@ -1,19 +1,12 @@
 {
   "name": "praxis-design",
-  "description": "Skills de diseño de Praxis: presentaciones y documentos Global Transactions / Karpay y fluXOne",
-  "owner": {
-    "name": "Praxis · Diseño"
-  },
+  "description": "Skill de marca de Praxis: Global Transactions / Karpay y fluXOne",
+  "owner": { "name": "Praxis · Diseño" },
   "plugins": [
     {
-      "name": "global-transactions-presentaciones",
-      "source": "./plugins/global-transactions-presentaciones",
-      "description": "Presentaciones animadas y documentos (propuestas, informes, one-pagers, cartas) de Global Transactions / Karpay, exportados a HTML y PDF."
-    },
-    {
-      "name": "fluxone-presentaciones",
-      "source": "./plugins/fluxone-presentaciones",
-      "description": "Presentaciones HTML de fluXOne con su design system, líneas Stroke & Glow, imágenes oficiales y exportación offline/PDF."
+      "name": "praxis-marca",
+      "source": "./plugins/praxis-marca",
+      "description": "Presentaciones, propuestas, informes, one-pagers y cartas con la marca de Global Transactions / Karpay o fluXOne, en HTML y PDF."
     }
   ]
 }
