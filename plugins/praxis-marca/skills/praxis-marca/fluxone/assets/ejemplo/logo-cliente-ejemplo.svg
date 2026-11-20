@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" width="260" height="60">
+  <!-- Logo FICTICIO solo para el ejemplo. Reemplazar por el logo real del cliente. -->
+  <rect x="0" y="6" width="48" height="48" rx="10" fill="#0f6e5c"/>
+  <path d="M8 44 L20 26 L28 36 L34 28 L42 44 Z" fill="#ffffff"/>
+  <circle cx="35" cy="17" r="4" fill="#f4c64e"/>
+  <text x="60" y="30" font-family="Helvetica Neue, Arial, sans-serif" font-size="21" font-weight="700" fill="#0f3d36" letter-spacing="-0.4">Banco Andino</text>
+  <text x="61" y="47" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#5b7a74" letter-spacing="2.2">BANCA · INVERSIÓN</text>
+</svg>

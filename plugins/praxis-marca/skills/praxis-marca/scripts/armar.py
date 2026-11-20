@@ -2,18 +2,19 @@
 """Un solo paso: empaqueta la pieza (HTML offline), exporta el PDF y crea una hoja de revisión.
 
 Uso:
-  python3 scripts/armar.py PIEZA.html --marca gt|fluxone [--salida carpeta] [--sin-pdf]
+  python3 scripts/armar.py PIEZA.html --marca gt|fluxone|praxis [--salida carpeta] [--sin-pdf] [--png]
 
 Genera en la carpeta de salida (por defecto, junto a la pieza):
   <nombre>.html   → archivo único, funciona sin internet
   <nombre>.pdf    → para enviar/imprimir (decks: 1 diapositiva por página; documentos: carta)
   <nombre>_revision.png → todas las páginas en miniatura; MÍRALA antes de entregar
+  --png → además, una imagen PNG por página a tamaño real (posts: 1080×1080 o 1080×1350)
 Revisar UNA imagen de miniaturas cuesta mucho menos que abrir cada página.
 """
 import os, subprocess, sys, glob, shutil, tempfile
 
 AQUI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MARCAS = {'gt': 'global-transactions', 'global-transactions': 'global-transactions', 'karpay': 'global-transactions', 'fluxone': 'fluxone'}
+MARCAS = {'gt': 'global-transactions', 'global-transactions': 'global-transactions', 'karpay': 'global-transactions', 'fluxone': 'fluxone', 'praxis': 'praxis'}
 
 
 def main():
@@ -23,7 +24,7 @@ def main():
     src = os.path.abspath(a[0])
     marca = MARCAS.get(a[a.index('--marca') + 1].lower())
     if not marca:
-        sys.exit('Marca no válida: usa gt o fluxone')
+        sys.exit('Marca no válida: usa gt, fluxone o praxis')
     root = os.path.join(AQUI, marca)
     out = os.path.abspath(a[a.index('--salida') + 1]) if '--salida' in a else os.path.dirname(src)
     os.makedirs(out, exist_ok=True)
@@ -35,7 +36,14 @@ def main():
     if '--sin-pdf' in a:
         return
     pdf = os.path.join(out, name + '.pdf')
-    subprocess.run([sys.executable, os.path.join(root, 'scripts', 'exportar.py'), html, '--pdf', pdf], check=True)
+    if 'class="slide' in open(html, encoding='utf-8', errors='ignore').read():
+        # presentación animada: captura cada vista ya animada (1920×1080)
+        subprocess.run([sys.executable, os.path.join(AQUI, 'scripts', 'deck_pdf.py'), html, pdf], check=True)
+    else:
+        subprocess.run([sys.executable, os.path.join(root, 'scripts', 'exportar.py'), html, '--pdf', pdf], check=True)
+    if '--png' in a and shutil.which('pdftoppm'):
+        subprocess.run(['pdftoppm', '-r', '96', '-png', pdf, os.path.join(out, name)], stderr=subprocess.DEVNULL)
+        print('PNG →', out, '(%s-N.png)' % name)
     # hoja de revisión (miniaturas)
     if shutil.which('pdftoppm'):
         tmp = tempfile.mkdtemp()

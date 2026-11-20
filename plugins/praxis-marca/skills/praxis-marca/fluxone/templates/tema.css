@@ -1,0 +1,23 @@
+/* Tema fluXOne para las piezas del día a día (va DESPUÉS de ../../nucleo/piezas.css) */
+@font-face{font-family:'Jakarta FX';font-weight:200;src:url(../assets/fuentes/PlusJakartaSans-ExtraLight.ttf) format('truetype')}
+@font-face{font-family:'Jakarta FX';font-weight:300;src:url(../assets/fuentes/PlusJakartaSans-Light.ttf) format('truetype')}
+@font-face{font-family:'Jakarta FX';font-weight:400;src:url(../assets/fuentes/PlusJakartaSans-Regular.ttf) format('truetype')}
+@font-face{font-family:'Jakarta FX';font-weight:600;src:url(../assets/fuentes/PlusJakartaSans-SemiBold.ttf) format('truetype')}
+:root{
+  --brand:#1e9fd6; --brand2:#ab4b96; --dark:#000000; --paper:#ffffff;
+  --ink:#0a0a0a; --ink2:#55555b; --ink3:#8c8c92; --line:#e8e8ec; --soft:#f6f6f7;
+  --ok:#1e9fd6; --warn:#c9781a; --bad:#c8213a;
+  --cobrar:#3cb8eb; --conciliar:#ab4b96; --pagar:#f5b5d2; --pagar-t:#c9679a; --decidir:#4e154f;
+  --f:'Plus Jakarta Sans','Jakarta FX',Arial,sans-serif; --wb:600;
+}
+/* fluXOne: titulares delgados, color solo en una palabra y en líneas finas */
+.t1,.post .h{font-weight:200}
+.t1 b,.post .h b{font-weight:300;color:var(--brand)}
+.flowline{height:4px;background:linear-gradient(90deg,var(--cobrar),var(--conciliar) 55%,var(--pagar))}
+.c-cobrar{color:#1e9fd6} .c-conciliar{color:var(--conciliar)} .c-pagar{color:var(--pagar-t)} .c-decidir{color:var(--decidir)}
+.pil{border-top:3px solid var(--ink);padding-top:10px}
+.pil.cobrar{border-color:var(--cobrar)} .pil.conciliar{border-color:var(--conciliar)} .pil.pagar{border-color:var(--pagar)} .pil.decidir{border-color:var(--decidir)}
+.hub .node{background:#fff;color:var(--ink);box-shadow:0 0 0 10px #f0f6fb,0 0 0 11px #d6e9f5,0 0 0 26px #f7f2f8,0 0 0 27px #ead6e6}
+.hub .node span{color:var(--ink3)}
+.fase .ico{border-color:#d6e9f5}
+.sem.ok{color:#127aa8}

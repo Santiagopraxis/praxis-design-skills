@@ -1,0 +1,16 @@
+/* Tema Global Transactions · Karpay para las piezas del día a día (va DESPUÉS de ../../nucleo/piezas.css) */
+@font-face{font-family:'Inter GT';font-weight:300;src:url(../assets/fuentes/Inter-300.woff2) format('woff2')}
+@font-face{font-family:'Inter GT';font-weight:400;src:url(../assets/fuentes/Inter-400.woff2) format('woff2')}
+@font-face{font-family:'Inter GT';font-weight:700;src:url(../assets/fuentes/Inter-700.woff2) format('woff2')}
+:root{
+  --brand:#5c2d91; --brand2:#3dbfa0; --dark:#241542; --paper:#f8f9fb;
+  --ink:#1c1626; --ink2:#3e3849; --ink3:#6c6677; --line:#dfe2e7; --soft:#f1f2f5;
+  --ok:#157a68; --warn:#c9781a; --bad:#d62839;
+  --f:'Helvetica Neue','Inter GT',Helvetica,Arial,sans-serif; --wb:700;
+}
+/* Anillos Praxis (del deck de Redeban): círculos concéntricos con punto teal */
+.anillos{position:absolute;border-radius:50%;background:repeating-radial-gradient(circle at center,transparent 0 17px,rgba(139,107,192,.55) 17px 18px);}
+.anillos::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--brand2)}
+.t1,.post .h{letter-spacing:-1px}
+.t1 b,.post .h b{color:var(--brand)}
+.dark .t1 b,.post.dark .h b{color:var(--brand2)}
