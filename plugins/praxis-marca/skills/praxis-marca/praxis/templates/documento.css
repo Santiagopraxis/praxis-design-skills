@@ -28,7 +28,8 @@ body{font-family:var(--f);color:var(--ink);-webkit-print-color-adjust:exact;prin
 .pg :where(p,h1,h2,h3,h4,ul,ol,table){margin:0}
 
 /* ======================= PORTADA ======================= */
-.cover .arcs{position:absolute;right:-70px;top:-60px;width:360px}
+/* arcos rotados: el círculo naranja queda en la esquina superior derecha */
+.cover .arcs{position:absolute;left:391px;top:-54px;width:460px}
 .cover .logos{position:absolute;left:var(--ml);right:var(--mr);top:64px;display:flex;align-items:center;gap:22px}
 .cover .logos img{height:34px;width:auto}
 .cover .logos .x{width:1px;height:30px;background:var(--line)}
@@ -42,7 +43,7 @@ body{font-family:var(--f);color:var(--ink);-webkit-print-color-adjust:exact;prin
 .cover .meta span{display:block;font-size:8.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink4)}
 .cover .meta b{display:block;font-size:12px;font-weight:400;color:var(--ink);margin-top:5px}
 .cover .band{position:absolute;left:0;right:0;bottom:0;height:150px;background:var(--nv2)}
-.cover .city{position:absolute;left:var(--ml);bottom:150px;width:330px;opacity:.85}
+.cover .city{position:absolute;left:var(--ml);bottom:150px;width:560px;opacity:.9}
 .cover .band p{position:absolute;left:var(--ml);right:var(--mr);bottom:40px;display:flex;justify-content:space-between;font-size:9.5px;color:#aeb6cc;letter-spacing:.3px}
 .cover .band p b{color:#fff;font-weight:700}
 
@@ -124,7 +125,7 @@ table.t tr:nth-child(odd) td{background:var(--soft)}
 
 /* Contraportada */
 .back{background:var(--nv2)}
-.back .arcs{position:absolute;right:-70px;top:-60px;width:360px;opacity:.5}
+.back .arcs{position:absolute;left:391px;top:-54px;width:460px;opacity:.6}
 .back .in{position:absolute;left:var(--ml);right:var(--mr);top:380px;color:#fff}
 .back .in h2{font-size:30px;font-weight:300;letter-spacing:-.6px;line-height:1.2}
 .back .in h2 b{font-weight:700;color:var(--or)}

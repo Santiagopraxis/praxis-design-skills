@@ -12,6 +12,7 @@ No copies la diagramación de las diapositivas (cifras gigantes, bloques centrad
 - **Color:** naranja `#E96326` (número de sección, filete bajo el título, viñetas, rótulos, cifras), azul marino `#1A2347` (títulos, encabezado de tablas, banda de portada, contraportada), azul Praxis `#2F3E87` (cifras alternas, borde de cajas).
 - **Logos:** Praxis (`assets/logos/praxis-color.png`, blanco en contraportada) **y el logo del cliente** en la portada (uno al lado del otro, separados por un filete) y en el encabezado de cada página (Praxis a la izquierda, cliente a la derecha). Pide al usuario el logo del cliente (PNG/SVG con fondo transparente). Si no lo tiene, escribe el nombre del cliente en texto y avísale. `assets/ejemplo/logo-cliente-ejemplo.svg` es ficticio, nunca lo dejes en una pieza real.
 - Logos del 30 aniversario (`praxis-30-*`) solo si la pieza lo pide.
+- **Gráficos** (`assets/graficos/`), solo en portada y contraportada: `arcos-esfera-esquina.png` con el círculo naranja pegado a la esquina superior derecha (no moverlo ni rotarlo) y `ciudad-lineal.png` grande, apoyada sobre la banda azul marino.
 
 ## Estructura de la plantilla (`templates/documento.html`)
 1. **Portada** `.cover`: logos Praxis + cliente, arcos con esfera arriba a la derecha, bloque de título con filete naranja a la izquierda (tipo de documento, título, bajada), fila de metadatos (cliente, fecha, versión, clasificación), ciudad en línea y banda azul marino al pie.
