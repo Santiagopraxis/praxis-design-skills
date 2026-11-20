@@ -1,49 +1,65 @@
-# Documentos · Global Transactions / Karpay
+# Documentos · Praxis › Global Transactions › Karpay
 
-Para todo lo que NO es una presentación: propuestas técnicas y comerciales, informes de estado, one-pagers, cartas, memos, actas y fichas de producto. Mismo ADN que los decks (Swiss Ledger + Magazine Spread, papel/morado, Helvetica), adaptado a hoja **carta 8.5×11 in (816×1056 px)**.
+Para todo lo que NO es una presentación: propuestas técnicas y comerciales, informes de estado, one-pagers, cartas, memos, actas y fichas de producto. Hoja **carta 8.5×11 in (816×1056 px)**.
 
-Ejemplo terminado: `ejemplos/GT_BancoAndino_PropuestaTecnica.pdf` (y `.html`). Plantilla: `templates/documento.html` + `templates/documento.css` + `templates/documento.js`.
+**Los documentos NO son el deck impreso.** Tienen su propia dirección editorial (informe anual / revista de negocios): tipografía grande y ligera, columna de notas al margen, aperturas de sección con número gigante, citas destacadas, figuras numeradas con pie. No uses anillos Praxis, skyline ni el spread papel/morado de los decks.
 
-## Flujo
+Ejemplo terminado: `ejemplos/GT_BancoAndino_PropuestaTecnica.pdf`. Plantilla: `templates/documento.html` + `templates/documento.css`.
 
-1. **Brief** (una sola ronda): tipo de documento, cliente, objetivo, destinatario, idioma, datos con fuente, fecha/versión. No inventes cifras ni precios: si faltan, deja la sección con el dato pendiente marcado y avísalo.
-2. **Índice**: decide las páginas (tabla abajo) y qué va en cada una. Una idea por página; si no cabe, crea otra página, **nunca** reduzcas la letra.
-3. **Construcción**: copia `templates/documento.html` a la carpeta de trabajo, conserva `<head>` y el `<script>` final, y duplica/reemplaza las `<section class="pg">`. Usa solo las clases de `documento.css`.
-4. **Empaquetar**: `python3 scripts/empaquetar.py doc.html "GT_<Cliente>_<tipo>.html" --root <skill>`.
-5. **PDF**: `python3 scripts/exportar.py "GT_<Cliente>_<tipo>.html" --pdf "GT_<Cliente>_<tipo>.pdf"` (Chromium respeta `@page` carta).
-6. **Verificar**: `pdftoppm -r 60 -png archivo.pdf p` y mira cada página: nada se sale del área (encabezado arriba, pie abajo), sin espacios muertos grandes al final de una página, logos visibles, sin `{{…}}`. Corrige y repite.
-7. **Entregar**: PDF + HTML. Si piden Word, construye el .docx con la skill docx usando estos mismos colores, jerarquía y orden de secciones.
+## Jerarquía de marca en documentos (obligatoria, los 3 logos)
 
-## Tipos de página (en `templates/documento.html`)
-
-| Código | Página | Cuándo |
+| Nivel | Marca | Dónde |
 |---|---|---|
-| D1 | Portada spread: papel + panel morado (anillos Praxis + skyline), GT arriba-izquierda, kicker "Tipo · Preparado para {Cliente}", título 2 líneas (2.ª en morado), promesa, versión/clasificación, "Powered by Karpay" | Toda propuesta o informe de más de 2 páginas |
-| D2 | Contenido (ledger numerado) + resumen ejecutivo + 3 cifras clave + callout de decisión | Documentos de 4+ páginas |
-| D3 | Sección con 3 tarjetas de ícono + flujo de 4 pasos + cita | Solución, oferta, cómo funciona |
-| D4 | Diagrama de arquitectura (canales → núcleo morado → rieles) + ledger de rieles con logos | Técnica, arquitectura, cobertura |
-| D5 | Cronograma (barra + fases con píldora de estado) + tabla de entregables + gobierno | Plan, implementación, estado de proyecto |
-| D6 | Tabla dentro/fuera de alcance + supuestos + responsabilidades + riesgos | Alcance, condiciones, riesgos |
-| D7 | Cierre morado: próximos pasos con fecha + lockup GT · Karpay · cliente + "Una solución de Praxis" | Última página de toda propuesta |
+| Marca madre | **Praxis** | Arriba-izquierda en portada y contraportada; encabezado de todas las páginas internas |
+| Producto de Praxis | **Global Transactions** | Escalera de marca, nombre del documento en el encabezado, pie de página, firma de la carta |
+| Servicio de Global Transactions | **Karpay** (Karpay Instapay) | Escalera de marca y pie de página, siempre después de GT |
 
-Todas las internas llevan `.run-h` (logo GT + "Tipo · Cliente") y `.run-f` ("GLOBAL TRANSACTIONS · Confidencial · año" + folio `NN / TT`). Contenido dentro de `.body-area`.
+La **escalera de marca** (`.ladder`) muestra las tres en orden con sus etiquetas "Una empresa de · Producto · Servicio". Va en la banda inferior de la portada y en la contraportada. Logos: `praxis-color.png` / `praxis-blanco.png`, `global-transactions-color.png` / `-blanco.png`, `karpay-color.svg` / `karpay-blanco.svg`. Sobre morado, siempre blancos.
 
-## Recetas por tipo de documento
+## Retícula
+
+Margen 64 · columna de margen 148 (x = 64) · medianil 28 · columna principal 512 (x = 240). Clases: `.side` (notas, cifras, rótulos), `.main` (texto), `.full` (figuras y tablas a todo el ancho). Posiciona por `top` en px y deja 96 px libres arriba (encabezado) y abajo (pie).
+
+## Tipos de página (en la plantilla)
+
+| Código | Página | Elementos |
+|---|---|---|
+| E1 | Portada | Imagen oficial `portada-mapa-divisas.jpg` a sangre con degradado morado a la izquierda, Praxis arriba, "Preparado para {Cliente}" en teal, título `.title.xl` (ligero + remate en negrita), bajada, banda blanca con escalera de marca |
+| E2 | Sumario + carta | Sumario con números grandes (`.toc`), carta de presentación firmada |
+| E3 | Apertura de sección | Rótulo + `.secnum` en el margen, título y bajada en la columna principal; cifras apiladas en el margen; texto con capitular (`.dropcap`); cita de decisión (`.pull`) |
+| E4 | Contenido con figura | Tres columnas de rótulo + texto, figura en `.panel` con `.route` (flujo) y pie `.cap` "Figura N", nota al margen + cita |
+| E5 | Arquitectura | `.panel.layers` (capas con chips; la capa Karpay en morado) + tabla de rieles con logos |
+| E6 | Plan | `.gantt` por semanas + tabla de entregables + gobierno |
+| E7 | Alcance y riesgos | Dos listas `ol.num` (incluido / no incluido), supuestos `ul.dash`, tabla de riesgos con `.tag` |
+| E8 | Contraportada | Imagen a medio alto, próximos pasos con fecha, escalera de marca en blanco, "Preparado para {Cliente}" |
+
+Encabezado interno `.hd` (Praxis + "Global Transactions · Tipo") y pie `.ft` (folio grande, nombre del documento, GT + Karpay).
+
+## Recetas
 
 | Documento | Páginas |
 |---|---|
-| Propuesta técnica | D1 · D2 · D3 · D4 · D5 · D6 · D7 |
-| Propuesta comercial | D1 · D2 · D3 · tabla de inversión (`table.t`, cifras del usuario) · D6 · D7 |
-| Informe de estado / avance | D1 · D2 (cifras = avance) · D5 (píldoras reales de estado) · D6 (solo riesgos) · D7 |
-| One-pager / ficha de producto | 1 página: banda superior morada de 260 px con logo blanco + título, luego 3 tarjetas, ledger de rieles o cifras y pie con lockup |
-| Carta / memo | `.run-h` + destinatario, fecha, asunto (`.h3`), cuerpo `.txt` (máx. 1 página), firma; sin portada |
-| Acta de reunión | `.run-h` + tabla de asistentes, decisiones (`ul.list`), compromisos (`table.t` con responsable y fecha) |
+| Propuesta técnica | E1 · E2 · E3 · E4 · E5 · E6 · E7 · E8 |
+| Propuesta comercial | E1 · E2 · E3 · E4 · página de inversión (`table.t` con cifras del usuario, columna `.r .big`) · E7 · E8 |
+| Informe de estado | E1 · E3 (cifras = avance) · E6 (estados reales con `.tag`) · E7 (solo riesgos) · E8 |
+| One-pager / ficha | 1 página: Praxis arriba, título `.title`, 3 columnas rótulo + texto, figura o tabla, escalera de marca al pie |
+| Carta / memo | `.hd` + destinatario, fecha, asunto, cuerpo `.txt` (máx. 1 página), firma con logo GT; sin portada |
+| Acta | `.hd` + asistentes (`table.t`), decisiones (`ol.num`), compromisos (`table.t` con responsable y fecha) |
+
+## Flujo
+
+1. Brief en una sola ronda (tipo, cliente, objetivo, destinatario, datos con fuente, fecha/versión). No inventes cifras ni precios.
+2. Decide las páginas con la receta. Una idea por página; si no cabe, otra página — nunca bajes la letra.
+3. Copia `templates/documento.html`, conserva `<head>`, reemplaza las `<section class="pg">`.
+4. `python3 scripts/empaquetar.py doc.html "GT_<Cliente>_<tipo>.html" --root <skill>`
+5. `python3 scripts/exportar.py "GT_<Cliente>_<tipo>.html" --pdf "GT_<Cliente>_<tipo>.pdf"`
+6. Revisa cada página (`pdftoppm -r 70 -png doc.pdf p`): nada encima del encabezado/pie, el título de portada no choca con el mapa, ninguna página con más de ~1/4 vacío, los 3 logos presentes, sin `{{…}}`.
+7. Entrega PDF + HTML. Si piden Word, usa la skill docx respetando estos colores, la jerarquía de marca y el orden de secciones.
 
 ## Reglas
 
-- Tipografía: `'Helvetica Neue','Inter GT',Helvetica,Arial` (Inter va embebida como respaldo con peso light). Cuerpo 12.5 px (~9.5 pt), nunca menos de 9.5 px en nada. Títulos 700 contra bajadas 300.
-- Color: papel `#f8f9fb`, tinta `#1c1626`, morado `#5c2d91`/`#241542`, teal solo positivo. Estructura (barras, teselas, nodos) siempre morada; rojo/ámbar **solo** dentro de `.pill`.
-- Íconos junto a texto: `assets/iconos-lineales/` (blancos) sobre teja morada `.card .tile`. Los de `assets/iconos/` son ilustraciones grandes, no van en tarjetas.
-- Marca: GT lidera (encabezados y portada), Karpay como "Powered by", Praxis solo como endoso en el cierre. Sobre morado, logos blancos.
-- Cifras con unidad y fuente en `.small`. Si es muestra o borrador, dilo en la portada.
-- Antes de entregar, ninguna página debe terminar con más de ~1/4 vacío: agrega una sección útil o reparte el contenido.
+- Tipografía `'Helvetica Neue','Inter GT',Helvetica,Arial` (Inter embebida). Contraste: títulos 300 con remate 700. Cuerpo 11.5 px; nada por debajo de 8.5 px.
+- Color: papel `#fbfbfc`, tinta `#1c1626`, morado `#5c2d91` / `#241542`, lavanda `#f6f2fb` para paneles, teal solo para positivo y "Preparado para". Rojo/ámbar solo dentro de `.tag`.
+- Los números de sección y las cifras van en peso ligero y morado; las tablas con regla negra arriba y hairlines.
+- Figuras siempre con pie "Figura N"; cifras siempre con fuente en `.note`.
+- Si es muestra o borrador, dilo en la portada.

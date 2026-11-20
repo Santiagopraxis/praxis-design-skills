@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- PLANTILLA DE DOCUMENTO GT/Karpay. Copia este archivo, conserva <head> y el <script> final, y reemplaza/duplica las <section class="pg"> (D1–D7, ver references/documentos.md). Rutas relativas a la carpeta de la skill: empaqueta con scripts/empaquetar.py --root <skill>. -->
+<!-- PLANTILLA EDITORIAL DE DOCUMENTO Praxis › Global Transactions › Karpay. Copia este archivo, conserva <head>, y reemplaza/duplica las <section class="pg"> (E1–E8, ver references/documentos.md). Rutas relativas a la carpeta de la skill: empaqueta con scripts/empaquetar.py --root <skill>. -->
 <html lang="es">
 <head>
 <meta charset="utf-8">
@@ -9,269 +9,274 @@
 </head>
 <body>
 
-<!-- ================= D1 · PORTADA (Magazine Spread: papel + panel morado) ================= -->
-<section class="pg" id="portada">
-  <div style="position:absolute;left:504px;top:0;width:312px;height:1056px;background:var(--p950)"></div>
-  <svg data-rings="15" data-color="#8b6bc0" data-dot="#3dbfa0" style="position:absolute;left:520px;top:150px;width:280px;height:280px"></svg>
-  <svg data-skyline data-color="#d8cbef" viewBox="0 0 816 320" style="position:absolute;left:504px;top:880px;width:312px;height:122px"></svg>
-  <img class="logo" src="assets/logos/global-transactions-color.png" alt="Global Transactions" style="position:absolute;left:64px;top:60px;width:170px;height:44px;object-position:left">
+<!-- ============ E1 · PORTADA ============ -->
+<section class="pg dark" style="background:var(--p950)">
+  <div class="a" style="left:0;top:0;width:816px;height:872px;background:url(assets/ilustraciones/portada-mapa-divisas.jpg) 100% 50%/cover no-repeat"></div>
+  <div class="a" style="left:0;top:0;width:816px;height:872px;background:linear-gradient(90deg,#241542 0%,#241542 46%,rgba(36,21,66,.75) 60%,rgba(36,21,66,0) 82%)"></div>
+  <img class="a" src="assets/logos/praxis-blanco.png" alt="Praxis" style="left:64px;top:56px;height:30px">
+  <p class="a eyebrow" style="right:64px;top:66px;color:var(--invm);text-align:right">Propuesta técnica · N.º 01 · Noviembre 2026</p>
 
-  <p class="kicker" style="position:absolute;left:64px;top:300px;width:400px">Propuesta técnica · Preparado para Banco Andino</p>
-  <div class="rule strong" style="position:absolute;left:64px;top:326px;width:392px"></div>
-  <p class="lead" style="position:absolute;left:64px;top:346px;width:392px;font-size:20px">Pagos inmediatos para</p>
-  <h1 class="h1" style="position:absolute;left:62px;top:384px;width:420px;font-size:52px;letter-spacing:-2.2px">Bre-B,<br><span class="l2">listo en 90 días</span></h1>
-  <p class="lead" style="position:absolute;left:64px;top:520px;width:392px">Una sola integración para conectar al banco con el sistema de pagos inmediatos y <span class="ok">quedar listo para los demás rieles.</span></p>
+  <p class="a eyebrow" style="left:64px;top:470px;color:var(--teal)">Preparado para Banco Andino</p>
+  <h1 class="a title xl" style="left:62px;top:498px;width:560px;color:#fff">Pagos inmediatos<br>para Bre-B,<br><b>listos en 90 días.</b></h1>
+  <p class="a dek" style="left:64px;top:704px;width:400px">Una sola integración para conectar al banco con el sistema de pagos inmediatos de Colombia y dejarlo listo para los demás rieles.</p>
 
-  <div style="position:absolute;left:64px;top:820px;width:392px">
-    <div class="rule"></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-top:14px">
-      <div><p class="kicker mute">Versión</p><p class="txt" style="margin-top:4px">1.0 · noviembre 2026</p></div>
-      <div><p class="kicker mute">Clasificación</p><p class="txt" style="margin-top:4px">Confidencial</p></div>
-    </div>
+  <div class="a" style="left:0;top:872px;width:816px;height:184px;background:var(--paper)"></div>
+  <div class="a ladder" style="left:64px;top:920px">
+    <div class="step praxis"><span class="lbl">Una empresa de</span><div class="box"><img src="assets/logos/praxis-color.png" alt="Praxis"></div></div>
+    <div class="step gt"><span class="lbl">Producto</span><div class="box"><img src="assets/logos/global-transactions-color.png" alt="Global Transactions"></div></div>
+    <div class="step kp"><span class="lbl">Servicio</span><div class="box"><img src="assets/logos/karpay-color.svg" alt="Karpay"></div></div>
   </div>
-  <div style="position:absolute;left:64px;top:952px;width:392px;display:flex;align-items:center;gap:12px;border-top:1px solid var(--rule);padding-top:16px">
-    <span class="kicker mute" style="font-weight:400">Powered by</span>
-    <img class="logo" src="assets/logos/karpay-color.svg" alt="Karpay" style="width:104px;height:22px;object-position:left">
+  <div class="a" style="right:64px;top:920px;text-align:right">
+    <p class="note">Versión 1.0 · Confidencial</p>
+    <p class="note" style="margin-top:4px;color:var(--ink3)">Documento de muestra · datos ilustrativos</p>
   </div>
-  <p class="small" style="position:absolute;left:528px;top:66px;width:260px;color:var(--invm);text-align:right">Documento de muestra · datos ilustrativos</p>
 </section>
 
-<!-- ================= D2 · CONTENIDO + RESUMEN EJECUTIVO ================= -->
+<!-- ============ E2 · SUMARIO + CARTA ============ -->
 <section class="pg">
-  <div class="run-h"><img src="assets/logos/global-transactions-color.png" alt="Global Transactions"><span>Propuesta técnica · Banco Andino</span></div>
-  <div class="body-area">
-    <p class="kicker">Contenido</p>
-    <div class="ledger" style="margin-top:12px;--cols:40px 1fr 40px">
-      <div class="r"><span class="accent" style="font-weight:700">01</span><b>Resumen ejecutivo</b><span style="text-align:right">2</span></div>
-      <div class="r"><span class="accent" style="font-weight:700">02</span><b>La solución: Global Transactions + Karpay Instapay</b><span style="text-align:right">3</span></div>
-      <div class="r"><span class="accent" style="font-weight:700">03</span><b>Arquitectura y rieles</b><span style="text-align:right">4</span></div>
-      <div class="r"><span class="accent" style="font-weight:700">04</span><b>Plan de implementación en 90 días</b><span style="text-align:right">5</span></div>
-      <div class="r"><span class="accent" style="font-weight:700">05</span><b>Alcance, supuestos y responsabilidades</b><span style="text-align:right">6</span></div>
-      <div class="r"><span class="accent" style="font-weight:700">06</span><b>Próximos pasos</b><span style="text-align:right">7</span></div>
-    </div>
+  <div class="hd"><img src="assets/logos/praxis-color.png" alt="Praxis"><span>Global Transactions · Propuesta técnica</span></div>
 
-    <div class="sec-head" style="margin-top:44px">
-      <span class="n">01</span>
-      <p class="kicker">Resumen ejecutivo</p>
-      <h2 class="h2">Una integración.<br><span class="l2">Todos los rieles.</span></h2>
+  <div class="side" style="top:120px"><p class="eyebrow">Sumario</p></div>
+  <div class="main" style="top:112px">
+    <div class="toc hr ink">
+      <div class="it"><span class="n">01</span><b>Resumen ejecutivo<em>Qué proponemos y qué decisión pedimos</em></b><span class="pp">3</span></div>
+      <div class="it"><span class="n">02</span><b>La solución<em>Global Transactions con Karpay Instapay</em></b><span class="pp">4</span></div>
+      <div class="it"><span class="n">03</span><b>Arquitectura y rieles<em>Cómo se conecta sin tocar el core</em></b><span class="pp">5</span></div>
+      <div class="it"><span class="n">04</span><b>Plan de implementación<em>Cuatro fases, trece semanas</em></b><span class="pp">6</span></div>
+      <div class="it"><span class="n">05</span><b>Alcance y riesgos<em>Qué incluye, qué necesitamos, qué vigilamos</em></b><span class="pp">7</span></div>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:20px">
-      <div>
-        <p class="txt">Banco Andino necesita conectarse a Bre-B, el sistema de pagos inmediatos de Colombia, cumpliendo los requisitos técnicos, normativos y operativos de la certificación, sin rehacer su core ni frenar su hoja de ruta digital.</p>
-        <p class="txt">Proponemos Global Transactions con Karpay Instapay como capa de orquestación: una sola integración con el core del banco que resuelve llaves, QR, transferencias, devoluciones y conciliación, y que deja la plataforma lista para sumar otros rieles.</p>
-      </div>
-      <div>
-        <p class="txt">Praxis acompaña de punta a punta: diagnóstico, integración, pruebas de certificación y salida a producción, con un equipo dedicado y un plan de 90 días dividido en cuatro fases con entregables claros.</p>
-        <div class="callout teal" style="margin-top:14px"><span class="q">→</span><p><b>Decisión que pedimos:</b> aprobar el inicio de la Fase 1 (diagnóstico) para la semana del 7 de diciembre.</p></div>
-      </div>
-    </div>
-
-    <div class="stats" style="margin-top:30px">
-      <div class="stat"><p class="v">90<small>días</small></p><p class="d">De la firma a la salida a producción en Bre-B.</p></div>
-      <div class="stat"><p class="v">20<small>s</small></p><p class="d">Tiempo objetivo de liquidación por transacción.</p></div>
-      <div class="stat"><p class="v">24×7<small>×365</small></p><p class="d">Operación continua con monitoreo y soporte.</p></div>
-    </div>
-    <p class="small" style="margin-top:10px">Cifras de referencia de implementaciones de Global Transactions; se confirman en el diagnóstico.</p>
   </div>
-  <div class="run-f"><span><b>GLOBAL TRANSACTIONS</b> · Confidencial · 2026</span><span>02 / 07</span></div>
+
+  <div class="side" style="top:560px"><p class="eyebrow mute">Carta de presentación</p></div>
+  <div class="main" style="top:552px">
+    <div class="hr ink" style="padding-top:22px">
+      <p class="dek" style="font-size:18px;color:var(--ink)">Estimado equipo de Banco Andino:</p>
+      <p class="txt" style="margin-top:14px">Gracias por la oportunidad de presentar esta propuesta. Bre-B cambia la forma en que las personas y los comercios mueven el dinero en Colombia, y queremos que Banco Andino llegue a ese momento con una operación sólida desde el primer día.</p>
+      <p class="txt">En las siguientes páginas describimos cómo Global Transactions, con su servicio Karpay Instapay, conecta al banco con Bre-B en trece semanas, qué necesitamos de su equipo y cómo medimos el avance. Quedamos atentos para revisarla juntos.</p>
+      <div style="margin-top:30px;display:flex;align-items:flex-end;justify-content:space-between">
+        <div><p class="txt" style="color:var(--ink)"><b>Nombre Apellido</b></p><p class="note">Director de Global Transactions · Praxis</p></div>
+        <img src="assets/logos/global-transactions-color.png" alt="Global Transactions" style="height:26px">
+      </div>
+    </div>
+  </div>
+
+  <div class="ft"><span class="fo">02</span><span>Propuesta técnica · Banco Andino</span><span class="sep"></span><img src="assets/logos/global-transactions-color.png" alt="Global Transactions"><img class="kp" src="assets/logos/karpay-color.svg" alt="Karpay"></div>
 </section>
 
-<!-- ================= D3 · LA SOLUCIÓN ================= -->
+<!-- ============ E3 · APERTURA DE SECCIÓN: RESUMEN ============ -->
 <section class="pg">
-  <div class="run-h"><img src="assets/logos/global-transactions-color.png" alt="Global Transactions"><span>Propuesta técnica · Banco Andino</span></div>
-  <div class="body-area">
-    <div class="sec-head">
-      <span class="n">02</span>
-      <p class="kicker">La solución</p>
-      <h2 class="h2">Todo lo que un banco necesita<br><span class="l2">para operar pagos inmediatos.</span></h2>
-    </div>
-    <p class="lead" style="margin:18px 0 0 74px;font-size:15px">Global Transactions es la plataforma; Karpay Instapay es el motor que conecta el core del banco con Bre-B y los demás rieles.</p>
+  <div class="hd"><img src="assets/logos/praxis-color.png" alt="Praxis"><span>Global Transactions · Propuesta técnica</span></div>
 
-    <div class="cards" style="grid-template-columns:repeat(3,1fr);margin-top:26px">
-      <div class="card"><div class="tile"><img src="assets/iconos-lineales/transferencia.png" alt=""></div><p class="h3">Negocio</p><p class="txt">Transferencias de crédito, solicitudes de pago, devoluciones y conciliación automática.</p></div>
-      <div class="card"><div class="tile"><img src="assets/iconos-lineales/sitio.png" alt=""></div><p class="h3">Complementos</p><p class="txt">App móvil, portal web, integrador con el core, gestión de llaves y QR.</p></div>
-      <div class="card"><div class="tile"><img src="assets/iconos-lineales/cumplimiento.png" alt=""></div><p class="h3">Soporte</p><p class="txt">Riesgo y fraude, KYC/KYB, reportes regulatorios, histórico y monitoreo.</p></div>
-    </div>
-
-    <p class="kicker mute" style="margin-top:40px">Cómo fluye una transferencia</p>
-    <div class="flow" style="--n:4;margin-top:18px">
-      <div class="st"><div class="dot">1</div><p class="h3">Canal</p><p class="txt">El cliente paga con llave o QR desde la app o la web.</p></div>
-      <div class="st on"><div class="dot">2</div><p class="h3">Karpay Instapay</p><p class="txt">Valida, aplica reglas de riesgo y arma el mensaje ISO 20022.</p></div>
-      <div class="st"><div class="dot">3</div><p class="h3">Bre-B</p><p class="txt">El sistema liquida y confirma en segundos.</p></div>
-      <div class="st"><div class="dot">4</div><p class="h3">Core y conciliación</p><p class="txt">Se asienta en el core y se concilia de forma automática.</p></div>
-    </div>
-
-    <div class="callout" style="margin-top:40px"><span class="q">“</span><p>La misma integración que conecta a Banco Andino con Bre-B queda lista para sumar otros rieles —SPEI, Pix, FedNow, SEPA Inst— sin volver a tocar el core.</p></div>
+  <div class="side" style="top:112px"><p class="eyebrow" style="margin-bottom:18px">Resumen ejecutivo</p><p class="secnum">01</p></div>
+  <div class="main" style="top:132px">
+    <h2 class="title">Una integración.<br><b>Todos los rieles.</b></h2>
+    <p class="dek" style="margin-top:16px">Banco Andino puede operar en Bre-B en trece semanas sin rehacer su core, y quedar listo para sumar otros sistemas de pago con la misma conexión.</p>
   </div>
-  <div class="run-f"><span><b>GLOBAL TRANSACTIONS</b> · Confidencial · 2026</span><span>03 / 07</span></div>
+
+  <div class="full hr ink" style="top:372px"></div>
+  <div class="side" style="top:392px">
+    <p class="fig-n">90<small>días</small></p><p class="fig-d">De la firma a la salida a producción.</p>
+    <div class="hr" style="margin:18px 0"></div>
+    <p class="fig-n">20<small>s</small></p><p class="fig-d">Liquidación objetivo por transacción.</p>
+    <div class="hr" style="margin:18px 0"></div>
+    <p class="fig-n">24×7</p><p class="fig-d">Operación continua con monitoreo.</p>
+    <p class="note" style="margin-top:18px">Cifras de referencia de implementaciones de Global Transactions; se confirman en el diagnóstico.</p>
+  </div>
+  <div class="main" style="top:392px">
+    <p class="txt dropcap">Banco Andino necesita conectarse a Bre-B, el sistema de pagos inmediatos de Colombia, cumpliendo los requisitos técnicos, normativos y operativos de la certificación, y sin frenar su hoja de ruta digital. El reto no es solo técnico: hay que coordinar al equipo del core, a los canales y al operador del sistema en una ventana corta.</p>
+    <p class="txt">Proponemos <b>Global Transactions</b>, la plataforma de pagos de Praxis, con su servicio <b>Karpay Instapay</b> como capa de orquestación. Es una sola integración con el core que resuelve llaves, QR, transferencias, devoluciones y conciliación, y que deja la plataforma lista para otros rieles.</p>
+    <p class="txt">Praxis acompaña de punta a punta: diagnóstico, integración, pruebas de certificación y salida a producción, con un equipo dedicado y un plan de cuatro fases con entregables claros.</p>
+    <div class="pull" style="margin-top:28px">
+      <p>Pedimos aprobar el inicio del diagnóstico para la semana del 7 de diciembre.</p>
+      <span>Decisión requerida · Comité de Banco Andino</span>
+    </div>
+  </div>
+
+  <div class="ft"><span class="fo">03</span><span>Propuesta técnica · Banco Andino</span><span class="sep"></span><img src="assets/logos/global-transactions-color.png" alt="Global Transactions"><img class="kp" src="assets/logos/karpay-color.svg" alt="Karpay"></div>
 </section>
 
-<!-- ================= D4 · ARQUITECTURA Y RIELES ================= -->
+<!-- ============ E4 · LA SOLUCIÓN ============ -->
 <section class="pg">
-  <div class="run-h"><img src="assets/logos/global-transactions-color.png" alt="Global Transactions"><span>Propuesta técnica · Banco Andino</span></div>
-  <div class="body-area">
-    <div class="sec-head">
-      <span class="n">03</span>
-      <p class="kicker">Arquitectura y rieles</p>
-      <h2 class="h2">Karpay Instapay en el centro,<br><span class="l2">el core del banco intacto.</span></h2>
-    </div>
+  <div class="hd"><img src="assets/logos/praxis-color.png" alt="Praxis"><span>Global Transactions · Propuesta técnica</span></div>
 
-    <div class="arch" style="margin-top:26px">
-      <div class="col">
-        <p class="lab">Canales del banco</p>
-        <div class="bx">App móvil<span>Llaves y QR</span></div>
-        <div class="bx">Portal web<span>Personas y empresas</span></div>
-        <div class="bx">Core / ERP<span>Cuentas y asientos</span></div>
-      </div>
-      <div class="ar"><svg viewBox="0 0 34 14"><path d="M2 7h26M23 2l6 5-6 5" fill="none" stroke="#8b6bc0" stroke-width="1.5"/></svg></div>
-      <div class="core">
-        <p class="lab" style="color:var(--p200)">Karpay Instapay</p>
-        <div class="bx">Orquestación ISO 20022<span>Mensajería y colas 24×7</span></div>
-        <div class="bx">Gestión de llaves y QR<span>Registro, consulta, portabilidad</span></div>
-        <div class="bx">Riesgo y fraude<span>Reglas y límites configurables</span></div>
-        <div class="bx">Conciliación y reportes<span>Automática, con trazabilidad</span></div>
-      </div>
-      <div class="ar"><svg viewBox="0 0 34 14"><path d="M2 7h26M23 2l6 5-6 5" fill="none" stroke="#8b6bc0" stroke-width="1.5"/></svg></div>
-      <div class="col">
-        <p class="lab">Rieles</p>
-        <div class="bx">Bre-B<span>Colombia · fase 1</span></div>
-        <div class="bx" style="color:var(--ink5)">SPEI · Pix<span>Habilitables</span></div>
-        <div class="bx" style="color:var(--ink5)">FedNow · SEPA Inst<span>Habilitables</span></div>
-      </div>
-    </div>
-
-    <p class="kicker mute" style="margin-top:40px">Rieles que opera la plataforma</p>
-    <div class="ledger" style="margin-top:12px;--cols:120px 1fr 96px">
-      <div class="r th"><span>Riel</span><span>Mercado · características</span><span style="text-align:right">Liquidación</span></div>
-      <div class="r hi"><img src="assets/rieles/breb-tinta.svg" alt="Bre-B"><span><b>Colombia</b> · llaves y QR, pagos entre personas y comercios</span><span class="fig">20 s</span></div>
-      <div class="r"><img src="assets/rieles/spei-tinta.svg" alt="SPEI"><span><b>México</b> · SPEI / CoDi</span><span class="fig">1 s</span></div>
-      <div class="r"><img src="assets/rieles/fednow-tinta.svg" alt="FedNow"><span><b>Estados Unidos</b> · ISO 20022, 24×7×365</span><span class="fig">20 s</span></div>
-      <div class="r"><img src="assets/rieles/sepa-tinta.svg" alt="SEPA Inst"><span><b>Zona euro</b> · ISO 20022</span><span class="fig">10 s</span></div>
-      <div class="r"><img src="assets/rieles/pix-tinta.svg" alt="Pix"><span><b>Brasil</b> · app y monitoreo web</span><span class="fig">—</span></div>
-    </div>
-    <p class="small" style="margin-top:10px">Tiempos de procesamiento por transacción según implementaciones de Global Transactions. Fuente: decks aprobados FedNow y Bre-B (confirmar vigencia).</p>
+  <div class="side" style="top:112px"><p class="eyebrow" style="margin-bottom:18px">La solución</p><p class="secnum">02</p></div>
+  <div class="main" style="top:132px">
+    <h2 class="title">Todo lo que un banco necesita para <b>operar pagos inmediatos.</b></h2>
+    <p class="dek" style="margin-top:16px">Global Transactions es la plataforma; Karpay Instapay es el servicio que conecta el core del banco con Bre-B.</p>
   </div>
-  <div class="run-f"><span><b>GLOBAL TRANSACTIONS</b> · Confidencial · 2026</span><span>04 / 07</span></div>
+
+  <div class="full hr ink" style="top:352px"></div>
+  <div class="full" style="top:372px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+    <div><p class="eyebrow">Negocio</p><p class="txt" style="margin-top:8px">Transferencias de crédito, solicitudes de pago, devoluciones y conciliación automática.</p></div>
+    <div><p class="eyebrow">Canales</p><p class="txt" style="margin-top:8px">App móvil, portal web, integrador con el core, gestión de llaves y códigos QR.</p></div>
+    <div><p class="eyebrow">Control</p><p class="txt" style="margin-top:8px">Riesgo y fraude, KYC/KYB, reportes regulatorios, histórico y monitoreo.</p></div>
+  </div>
+
+  <div class="full" style="top:500px">
+    <div class="panel">
+      <div class="route" style="--n:4">
+        <div class="stop"><i></i><span class="k">Paso 1</span><b>Canal</b><p>El cliente paga con llave o QR desde la app o la web.</p></div>
+        <div class="stop on"><i></i><span class="k">Paso 2</span><b>Karpay Instapay</b><p>Valida, aplica reglas de riesgo y arma el mensaje ISO 20022.</p></div>
+        <div class="stop"><i></i><span class="k">Paso 3</span><b>Bre-B</b><p>El sistema liquida y confirma la operación en segundos.</p></div>
+        <div class="stop"><i></i><span class="k">Paso 4</span><b>Core del banco</b><p>Se asienta y se concilia de forma automática.</p></div>
+      </div>
+    </div>
+    <p class="cap"><b>Figura 1</b> &nbsp;Recorrido de una transferencia Bre-B a través de Karpay Instapay.</p>
+  </div>
+
+  <div class="side" style="top:742px"><p class="note"><b>Por qué importa.</b> La integración se hace una vez; sumar un riel nuevo es configuración, no un proyecto.</p></div>
+  <div class="main" style="top:734px">
+    <div class="pull">
+      <p>La misma conexión que lleva a Banco Andino a Bre-B queda lista para SPEI, Pix, FedNow o SEPA Inst, sin volver a tocar el core.</p>
+      <span>Global Transactions</span>
+    </div>
+  </div>
+
+  <div class="ft"><span class="fo">04</span><span>Propuesta técnica · Banco Andino</span><span class="sep"></span><img src="assets/logos/global-transactions-color.png" alt="Global Transactions"><img class="kp" src="assets/logos/karpay-color.svg" alt="Karpay"></div>
 </section>
 
-<!-- ================= D5 · PLAN DE IMPLEMENTACIÓN ================= -->
+<!-- ============ E5 · ARQUITECTURA ============ -->
 <section class="pg">
-  <div class="run-h"><img src="assets/logos/global-transactions-color.png" alt="Global Transactions"><span>Propuesta técnica · Banco Andino</span></div>
-  <div class="body-area">
-    <div class="sec-head">
-      <span class="n">04</span>
-      <p class="kicker">Plan de implementación</p>
-      <h2 class="h2">Cuatro fases.<br><span class="l2">Salida a producción en 90 días.</span></h2>
+  <div class="hd"><img src="assets/logos/praxis-color.png" alt="Praxis"><span>Global Transactions · Propuesta técnica</span></div>
+
+  <div class="side" style="top:112px"><p class="eyebrow" style="margin-bottom:18px">Arquitectura y rieles</p><p class="secnum">03</p></div>
+  <div class="main" style="top:132px">
+    <h2 class="title">Karpay Instapay en el centro, <b>el core del banco intacto.</b></h2>
+  </div>
+
+  <div class="full" style="top:300px">
+    <div class="panel layers">
+      <div class="ly"><span class="k">Canales</span><div class="chips"><span>App móvil</span><span>Portal web personas</span><span>Portal web empresas</span><span>Comercios con QR</span></div></div>
+      <div class="ly core"><span class="k">Karpay Instapay</span><div class="chips"><span>Orquestación ISO 20022</span><span>Llaves y QR</span><span>Riesgo y fraude</span><span>Conciliación</span><span>Reportes</span><span>Monitoreo 24×7</span></div></div>
+      <div class="ly"><span class="k">Core del banco</span><div class="chips"><span>Cuentas</span><span>Asientos contables</span><span>ERP</span></div></div>
+      <div class="ly" style="border-bottom:0"><span class="k">Rieles</span><div class="chips"><span style="border-color:var(--p600);color:var(--p600);font-weight:700">Bre-B · fase 1</span><span>SPEI</span><span>Pix</span><span>FedNow</span><span>SEPA Inst</span></div></div>
     </div>
+    <p class="cap"><b>Figura 2</b> &nbsp;Capas de la solución. Karpay Instapay concentra la lógica de pagos; el core solo recibe asientos.</p>
+  </div>
 
-    <div class="bar" style="margin-top:30px"><i style="left:0;width:16%"></i><i style="left:17%;width:39%;opacity:.75"></i><i style="left:57%;width:28%;opacity:.55"></i><i class="t" style="left:86%;width:14%"></i></div>
-    <div style="display:flex;justify-content:space-between" class="small"><span>Semana 1</span><span>Semana 4</span><span>Semana 8</span><span>Semana 13</span></div>
+  <div class="side" style="top:640px"><p class="eyebrow mute">Rieles que opera la plataforma</p><p class="note" style="margin-top:10px">Tiempo de procesamiento por transacción en implementaciones de Global Transactions. Confirmar vigencia antes de enviar.</p></div>
+  <div class="main" style="top:640px">
+    <table class="t">
+      <thead><tr><th style="width:92px">Riel</th><th>Mercado</th><th class="r" style="width:70px">Liquidación</th></tr></thead>
+      <tbody>
+        <tr><td><img src="assets/rieles/breb-tinta.svg" alt="Bre-B"></td><td><b>Colombia</b> · llaves y QR</td><td class="r big" style="color:var(--p600)">20 s</td></tr>
+        <tr><td><img src="assets/rieles/spei-tinta.svg" alt="SPEI"></td><td><b>México</b> · SPEI / CoDi</td><td class="r big">1 s</td></tr>
+        <tr><td><img src="assets/rieles/fednow-tinta.svg" alt="FedNow"></td><td><b>Estados Unidos</b> · ISO 20022, 24×7×365</td><td class="r big">20 s</td></tr>
+        <tr><td><img src="assets/rieles/sepa-tinta.svg" alt="SEPA Inst"></td><td><b>Zona euro</b> · ISO 20022</td><td class="r big">10 s</td></tr>
+        <tr><td><img src="assets/rieles/pix-tinta.svg" alt="Pix"></td><td><b>Brasil</b> · app y monitoreo web</td><td class="r big">—</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-    <div class="tl" style="--n:4;margin-top:22px">
-      <div class="ph"><p class="wk">Sem. 1–2</p><p class="h3">Diagnóstico</p><p class="txt">Levantamiento del core, canales y requisitos de certificación. Plan detallado.</p><span class="pill p">Planificado</span></div>
-      <div class="ph"><p class="wk">Sem. 3–7</p><p class="h3">Integración</p><p class="txt">Conexión core–Instapay, llaves, QR y reglas de riesgo en ambiente de pruebas.</p><span class="pill p">Planificado</span></div>
-      <div class="ph"><p class="wk">Sem. 8–11</p><p class="h3">Certificación</p><p class="txt">Pruebas integrales de punta a punta y certificación ante el operador.</p><span class="pill w">Ruta crítica</span></div>
-      <div class="ph"><p class="wk">Sem. 12–13</p><p class="h3">Salida a producción</p><p class="txt">Despliegue controlado, monitoreo reforzado y estabilización.</p><span class="pill ok">Hito final</span></div>
-    </div>
+  <div class="ft"><span class="fo">05</span><span>Propuesta técnica · Banco Andino</span><span class="sep"></span><img src="assets/logos/global-transactions-color.png" alt="Global Transactions"><img class="kp" src="assets/logos/karpay-color.svg" alt="Karpay"></div>
+</section>
 
-    <p class="kicker mute" style="margin-top:44px">Entregables por fase</p>
-    <table class="t" style="margin-top:10px">
-      <thead><tr><th style="width:24%">Fase</th><th>Entregables</th><th style="width:20%">Aprobación</th></tr></thead>
+<!-- ============ E6 · PLAN ============ -->
+<section class="pg">
+  <div class="hd"><img src="assets/logos/praxis-color.png" alt="Praxis"><span>Global Transactions · Propuesta técnica</span></div>
+
+  <div class="side" style="top:112px"><p class="eyebrow" style="margin-bottom:18px">Plan de implementación</p><p class="secnum">04</p></div>
+  <div class="main" style="top:132px">
+    <h2 class="title">Cuatro fases. <b>Producción en la semana 13.</b></h2>
+  </div>
+
+  <div class="full gantt" style="top:290px">
+    <div class="scale"><span>Fase</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span></div>
+    <div class="row"><div><b>Diagnóstico</b><em>Brechas y plan detallado</em></div><div class="track"><i style="left:0;width:15.4%"></i></div></div>
+    <div class="row"><div><b>Integración</b><em>Core, llaves, QR, riesgo</em></div><div class="track"><i style="left:15.4%;width:38.5%"></i></div></div>
+    <div class="row"><div><b>Certificación</b><em>Pruebas · <span class="tag w" style="padding:1px 5px">Ruta crítica</span></em></div><div class="track"><i class="lt" style="left:53.8%;width:30.8%"></i></div></div>
+    <div class="row"><div><b>Producción</b><em>Despliegue y estabilización</em></div><div class="track"><i class="t" style="left:84.6%;width:15.4%"></i><u style="left:99%"></u></div></div>
+  </div>
+  <p class="cap full" style="top:494px"><b>Figura 3</b> &nbsp;Cronograma en semanas desde la firma. El rombo marca la salida a producción.</p>
+
+  <div class="side" style="top:560px"><p class="eyebrow mute">Entregables</p></div>
+  <div class="main" style="top:560px">
+    <table class="t">
+      <thead><tr><th style="width:110px">Fase</th><th>Entregables</th><th style="width:120px">Aprueba</th></tr></thead>
       <tbody>
         <tr><td><b>Diagnóstico</b></td><td>Informe de brechas, arquitectura objetivo y cronograma detallado.</td><td>Comité del proyecto</td></tr>
-        <tr class="z"><td><b>Integración</b></td><td>Conectores con el core, configuración de llaves y QR, reglas de riesgo.</td><td>Líder técnico del banco</td></tr>
+        <tr><td><b>Integración</b></td><td>Conectores con el core, llaves y QR configurados, reglas de riesgo.</td><td>Líder técnico del banco</td></tr>
         <tr><td><b>Certificación</b></td><td>Set de pruebas ejecutado, evidencias y acta de certificación.</td><td>Operador del sistema</td></tr>
-        <tr class="z"><td><b>Producción</b></td><td>Despliegue, manual de operación y plan de soporte 24×7.</td><td>Comité del proyecto</td></tr>
+        <tr><td><b>Producción</b></td><td>Despliegue, manual de operación y plan de soporte 24×7.</td><td>Comité del proyecto</td></tr>
       </tbody>
     </table>
-
-    <p class="kicker mute" style="margin-top:40px">Gobierno del proyecto</p>
-    <div class="cards" style="grid-template-columns:repeat(3,1fr);margin-top:12px">
-      <div class="card"><p class="h3">Comité directivo</p><p class="txt">Cada dos semanas. Decide alcance, riesgos y cambios de fecha.</p></div>
-      <div class="card"><p class="h3">Seguimiento técnico</p><p class="txt">Semanal. Avance por frente, bloqueos y próximos entregables.</p></div>
-      <div class="card"><p class="h3">Tablero compartido</p><p class="txt">Estado de cada fase, hitos y evidencias de pruebas en un solo lugar.</p></div>
-    </div>
   </div>
-  <div class="run-f"><span><b>GLOBAL TRANSACTIONS</b> · Confidencial · 2026</span><span>05 / 07</span></div>
+
+  <div class="side" style="top:808px"><p class="eyebrow mute">Gobierno</p></div>
+  <div class="main" style="top:808px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+    <div class="hr ink" style="padding-top:10px"><p class="txt"><b>Comité directivo</b> cada dos semanas: alcance, riesgos y cambios de fecha.</p></div>
+    <div class="hr ink" style="padding-top:10px"><p class="txt"><b>Seguimiento técnico</b> semanal: avance por frente, bloqueos y próximos entregables.</p></div>
+  </div>
+
+  <div class="ft"><span class="fo">06</span><span>Propuesta técnica · Banco Andino</span><span class="sep"></span><img src="assets/logos/global-transactions-color.png" alt="Global Transactions"><img class="kp" src="assets/logos/karpay-color.svg" alt="Karpay"></div>
 </section>
 
-<!-- ================= D6 · ALCANCE Y SUPUESTOS ================= -->
+<!-- ============ E7 · ALCANCE Y RIESGOS ============ -->
 <section class="pg">
-  <div class="run-h"><img src="assets/logos/global-transactions-color.png" alt="Global Transactions"><span>Propuesta técnica · Banco Andino</span></div>
-  <div class="body-area">
-    <div class="sec-head">
-      <span class="n">05</span>
-      <p class="kicker">Alcance, supuestos y responsabilidades</p>
-      <h2 class="h2">Qué incluye la propuesta<br><span class="l2">y qué necesitamos del banco.</span></h2>
-    </div>
+  <div class="hd"><img src="assets/logos/praxis-color.png" alt="Praxis"><span>Global Transactions · Propuesta técnica</span></div>
 
-    <table class="t" style="margin-top:26px">
-      <thead><tr><th style="width:50%">Dentro del alcance</th><th>Fuera del alcance</th></tr></thead>
+  <div class="side" style="top:112px"><p class="eyebrow" style="margin-bottom:18px">Alcance y riesgos</p><p class="secnum">05</p></div>
+  <div class="main" style="top:132px">
+    <h2 class="title">Qué incluye la propuesta <b>y qué necesitamos del banco.</b></h2>
+  </div>
+
+  <div class="full" style="top:300px;display:grid;grid-template-columns:1fr 1fr;gap:28px">
+    <div><p class="eyebrow">Incluido</p><ol class="num hr ink" style="margin-top:10px">
+      <li><span>Conexión a Bre-B a través de Karpay Instapay.</span></li>
+      <li><span>Integración con el core y el ERP del banco.</span></li>
+      <li><span>Configuración, pruebas y acompañamiento en la certificación.</span></li>
+      <li><span>Salida a producción y dos semanas de estabilización.</span></li>
+    </ol></div>
+    <div><p class="eyebrow mute">No incluido</p><ol class="num hr ink" style="margin-top:10px">
+      <li><span>Migración masiva de datos, usuarios o llaves previas.</span></li>
+      <li><span>Rediseño visual de los canales existentes.</span></li>
+      <li><span>Licencias de terceros no listadas en esta propuesta.</span></li>
+      <li><span>Servicios no definidos en el plan de trabajo.</span></li>
+    </ol></div>
+  </div>
+
+  <div class="side" style="top:560px"><p class="eyebrow mute">Supuestos</p></div>
+  <div class="main" style="top:560px">
+    <ul class="dash">
+      <li>El banco asigna un líder técnico y un líder de negocio con disponibilidad semanal.</li>
+      <li>Los ambientes de pruebas del core están disponibles desde la semana 3.</li>
+      <li>Las ventanas de certificación del operador se reservan con anticipación.</li>
+    </ul>
+  </div>
+
+  <div class="side" style="top:672px"><p class="eyebrow mute">Riesgos</p></div>
+  <div class="main" style="top:672px">
+    <table class="t">
+      <thead><tr><th style="width:150px">Riesgo</th><th style="width:66px">Nivel</th><th>Mitigación</th></tr></thead>
       <tbody>
-        <tr><td>Conexión de Banco Andino a Bre-B a través de Karpay Instapay</td><td>Migración masiva de datos, usuarios o llaves previas</td></tr>
-        <tr class="z"><td>Integración con el core y el ERP del banco</td><td>Rediseño visual de los canales existentes</td></tr>
-        <tr><td>Configuración, pruebas y acompañamiento en la certificación</td><td>Licencias de terceros no listadas en esta propuesta</td></tr>
-        <tr class="z"><td>Salida a producción y estabilización de 2 semanas</td><td>Servicios adicionales no definidos en el plan</td></tr>
-      </tbody>
-    </table>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px">
-      <div>
-        <p class="kicker mute">Supuestos</p>
-        <ul class="list" style="margin-top:12px">
-          <li>El banco asigna un líder técnico y un líder de negocio con disponibilidad semanal.</li>
-          <li>Los ambientes de pruebas del core están disponibles desde la semana 3.</li>
-          <li>Las ventanas de certificación del operador se reservan con anticipación.</li>
-        </ul>
-      </div>
-      <div>
-        <p class="kicker mute">Responsabilidades</p>
-        <table class="t" style="margin-top:8px">
-          <thead><tr><th>Actividad</th><th style="width:70px">Praxis</th><th style="width:70px">Banco</th></tr></thead>
-          <tbody>
-            <tr><td>Plataforma e integración</td><td><b>Lidera</b></td><td>Apoya</td></tr>
-            <tr class="z"><td>Ambientes y accesos</td><td>Apoya</td><td><b>Lidera</b></td></tr>
-            <tr><td>Certificación</td><td><b>Lidera</b></td><td><b>Lidera</b></td></tr>
-            <tr class="z"><td>Operación 24×7</td><td><b>Lidera</b></td><td>Apoya</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <p class="kicker mute" style="margin-top:40px">Riesgos y mitigación</p>
-    <table class="t" style="margin-top:10px">
-      <thead><tr><th style="width:34%">Riesgo</th><th style="width:14%">Nivel</th><th>Mitigación</th></tr></thead>
-      <tbody>
-        <tr><td><b>Ambientes del core tardíos</b></td><td><span class="pill w">Medio</span></td><td>Simuladores del core desde la semana 1 para no frenar la integración.</td></tr>
-        <tr class="z"><td><b>Ventanas de certificación</b></td><td><span class="pill c">Alto</span></td><td>Reserva anticipada y set de pruebas ensayado antes de la ventana oficial.</td></tr>
-        <tr><td><b>Cambios normativos</b></td><td><span class="pill p">Bajo</span></td><td>Reglas parametrizables en Instapay; los ajustes no tocan el core.</td></tr>
+        <tr><td><b>Ambientes del core tardíos</b></td><td><span class="tag w">Medio</span></td><td>Simuladores del core desde la semana 1 para no frenar la integración.</td></tr>
+        <tr><td><b>Ventanas de certificación</b></td><td><span class="tag c">Alto</span></td><td>Reserva anticipada y set de pruebas ensayado antes de la ventana oficial.</td></tr>
+        <tr><td><b>Cambios normativos</b></td><td><span class="tag p">Bajo</span></td><td>Reglas parametrizables en Instapay; los ajustes no tocan el core.</td></tr>
       </tbody>
     </table>
   </div>
-  <div class="run-f"><span><b>GLOBAL TRANSACTIONS</b> · Confidencial · 2026</span><span>06 / 07</span></div>
+
+  <div class="ft"><span class="fo">07</span><span>Propuesta técnica · Banco Andino</span><span class="sep"></span><img src="assets/logos/global-transactions-color.png" alt="Global Transactions"><img class="kp" src="assets/logos/karpay-color.svg" alt="Karpay"></div>
 </section>
 
-<!-- ================= D7 · CIERRE / PRÓXIMOS PASOS (página morada) ================= -->
-<section class="pg dark">
-  <svg data-rings="18" data-color="#5c2d91" style="position:absolute;left:430px;top:-120px;width:560px;height:560px"></svg>
-  <img class="logo" src="assets/logos/global-transactions-blanco.png" alt="Global Transactions" style="position:absolute;left:64px;top:60px;width:170px;height:44px;object-position:left">
-  <div style="position:absolute;left:64px;right:64px;top:300px">
-    <p class="kicker">06 · Próximos pasos</p>
-    <h2 class="h1" style="margin-top:14px;font-size:46px;letter-spacing:-1.8px">Empezamos<br><span class="l2">el 7 de diciembre.</span></h2>
-    <div style="margin-top:40px;border-top:2px solid var(--inv)">
-      <div style="display:grid;grid-template-columns:44px 1fr 150px;gap:14px;align-items:center;min-height:56px;border-bottom:1px solid rgba(255,255,255,.16)"><span class="kicker">01</span><span class="txt" style="font-size:13.5px;color:var(--inv)">Aprobación de la propuesta y firma</span><span class="small" style="text-align:right">Semana del 30 nov.</span></div>
-      <div style="display:grid;grid-template-columns:44px 1fr 150px;gap:14px;align-items:center;min-height:56px;border-bottom:1px solid rgba(255,255,255,.16)"><span class="kicker">02</span><span class="txt" style="font-size:13.5px;color:var(--inv)">Taller técnico de arquitectura con el equipo del banco</span><span class="small" style="text-align:right">7 dic.</span></div>
-      <div style="display:grid;grid-template-columns:44px 1fr 150px;gap:14px;align-items:center;min-height:56px;border-bottom:1px solid rgba(255,255,255,.16)"><span class="kicker">03</span><span class="txt" style="font-size:13.5px;color:var(--inv)">Entrega del informe de diagnóstico</span><span class="small" style="text-align:right">18 dic.</span></div>
-    </div>
+<!-- ============ E8 · CONTRAPORTADA: PRÓXIMOS PASOS ============ -->
+<section class="pg dark" style="background:var(--p950)">
+  <div class="a" style="left:0;top:0;width:816px;height:420px;background:url(assets/ilustraciones/portada-mapa-divisas.jpg) 92% 30%/cover no-repeat;opacity:.9"></div>
+  <img class="a" src="assets/logos/praxis-blanco.png" alt="Praxis" style="left:64px;top:56px;height:30px">
+  <p class="a eyebrow" style="left:64px;top:460px">Próximos pasos</p>
+  <h2 class="a title xl" style="left:62px;top:486px;width:640px;color:#fff;font-size:50px">Empezamos el<br><b>7 de diciembre.</b></h2>
+  <div class="a" style="left:64px;right:64px;top:640px;border-top:1.5px solid var(--inv)">
+    <div style="display:grid;grid-template-columns:44px 1fr 150px;align-items:center;min-height:52px;border-bottom:1px solid rgba(255,255,255,.16)"><span class="eyebrow">01</span><span class="dek" style="font-size:14px;color:var(--inv)">Aprobación de la propuesta y firma</span><span class="note" style="text-align:right">Semana del 30 nov.</span></div>
+    <div style="display:grid;grid-template-columns:44px 1fr 150px;align-items:center;min-height:52px;border-bottom:1px solid rgba(255,255,255,.16)"><span class="eyebrow">02</span><span class="dek" style="font-size:14px;color:var(--inv)">Taller técnico de arquitectura con el equipo del banco</span><span class="note" style="text-align:right">7 dic.</span></div>
+    <div style="display:grid;grid-template-columns:44px 1fr 150px;align-items:center;min-height:52px;border-bottom:1px solid rgba(255,255,255,.16)"><span class="eyebrow">03</span><span class="dek" style="font-size:14px;color:var(--inv)">Entrega del informe de diagnóstico</span><span class="note" style="text-align:right">18 dic.</span></div>
   </div>
-  <div style="position:absolute;left:64px;right:64px;bottom:60px;display:flex;align-items:center;gap:32px;border-top:1px solid rgba(255,255,255,.16);padding-top:20px">
-    <img class="logo" src="assets/logos/global-transactions-blanco.png" alt="Global Transactions" style="width:130px;height:34px">
-    <img class="logo" src="assets/logos/karpay-blanco.svg" alt="Karpay" style="width:110px;height:24px">
-    <span class="client" style="margin-left:auto;color:var(--inv)">Banco Andino</span>
+  <div class="a ladder" style="left:64px;bottom:56px">
+    <div class="step praxis"><span class="lbl">Una empresa de</span><div class="box"><img src="assets/logos/praxis-blanco.png" alt="Praxis"></div></div>
+    <div class="step gt"><span class="lbl">Producto</span><div class="box"><img src="assets/logos/global-transactions-blanco.png" alt="Global Transactions"></div></div>
+    <div class="step kp"><span class="lbl">Servicio</span><div class="box"><img src="assets/logos/karpay-blanco.svg" alt="Karpay"></div></div>
   </div>
-  <p class="small" style="position:absolute;left:64px;bottom:30px">Una solución de Praxis</p>
+  <p class="a note" style="right:64px;bottom:60px;text-align:right">Preparado para<br><b style="color:#fff;font-size:13px">Banco Andino</b></p>
 </section>
 
-<script src="templates/documento.js"></script>
 </body>
 </html>

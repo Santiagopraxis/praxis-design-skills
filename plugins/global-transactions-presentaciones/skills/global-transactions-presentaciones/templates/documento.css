@@ -1,142 +1,148 @@
-/* Global Transactions · Karpay — sistema de DOCUMENTOS (carta 8.5×11 in, 816×1056 px)
-   Mismo ADN que los decks: Swiss Ledger + Magazine Spread, papel/morado, Helvetica.
-   Cada <section class="pg"> es UNA página fija. El contenido NO fluye solo: si no cabe, crea otra página. */
+/* ============================================================================
+   Praxis · Global Transactions · Karpay — sistema EDITORIAL de documentos
+   Hoja carta 8.5×11 in = 816×1056 px. Cada <section class="pg"> es UNA página fija.
+   Dirección: informe anual / revista de negocios. NO es el deck impreso:
+   sin anillos ni spreads; tipografía grande y ligera, columna de notas al margen,
+   aperturas de sección con número gigante, citas destacadas y figuras con pie.
+   Retícula: margen 64 · columna de margen 148 · medianil 28 · columna principal 512
+   ============================================================================ */
 @font-face{font-family:'Inter GT';font-weight:300;src:url(../assets/fuentes/Inter-300.woff2) format('woff2')}
 @font-face{font-family:'Inter GT';font-weight:400;src:url(../assets/fuentes/Inter-400.woff2) format('woff2')}
 @font-face{font-family:'Inter GT';font-weight:500;src:url(../assets/fuentes/Inter-500.woff2) format('woff2')}
 @font-face{font-family:'Inter GT';font-weight:700;src:url(../assets/fuentes/Inter-700.woff2) format('woff2')}
 :root{
-  --p950:#241542; --p900:#2e1c58; --p800:#3d2472; --p600:#5c2d91; --p400:#8b6bc0; --p200:#d8cbef; --p100:#efe9f7;
+  --p950:#241542; --p900:#2e1c58; --p800:#3d2472; --p600:#5c2d91; --p400:#8b6bc0; --p200:#d8cbef; --p100:#efe9f7; --p50:#f6f2fb;
   --teal:#3dbfa0; --teal7:#157a68; --teal1:#e3f6f0;
-  --paper:#f8f9fb; --white:#ffffff; --ink:#1c1626; --ink7:#3e3849; --ink5:#6c6677; --ink3:#aca8b3; --rule:#dfe2e7; --sunk:#f1f2f5;
-  --inv:#f6f6f9; --invm:#cbc3dc;
-  --warn:#c9781a; --crit:#d62839;
+  --paper:#fbfbfc; --white:#fff; --ink:#1c1626; --ink7:#3e3849; --ink5:#6c6677; --ink3:#aca8b3; --rule:#e2e1e6; --sunk:#f3f2f6;
+  --inv:#f6f6f9; --invm:#cbc3dc; --warn:#b86a12; --crit:#c8213a;
   --hf:'Helvetica Neue','Inter GT',Helvetica,Arial,sans-serif;
-  --m:64px;            /* margen lateral */
+  --M:64px; --side:148px; --gut:28px; --main:512px;   /* main empieza en x = 240 */
   color-scheme:light;
 }
 @page{size:8.5in 11in;margin:0}
 *{box-sizing:border-box}
-html,body{margin:0;background:#d9d6df;color-scheme:light only}
+html,body{margin:0;background:#d6d3dc}
 body{font-family:var(--hf);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.fig,.stat .v,.run-f span:last-child{font-feature-settings:"tnum" 1}
 .pg{position:relative;width:816px;height:1056px;margin:24px auto;background:var(--paper);overflow:hidden;box-shadow:0 6px 30px rgba(36,21,66,.18)}
-.pg.dark{background:var(--p950);color:var(--inv)}
-.pg p,.pg h1,.pg h2,.pg h3,.pg ul,.pg ol{margin:0}
+.pg p,.pg h1,.pg h2,.pg h3,.pg ul,.pg ol,.pg figure,.pg blockquote{margin:0}
 @media print{html,body{background:none}.pg{margin:0;box-shadow:none;break-after:page;page-break-after:always}}
+.a{position:absolute}
 
-/* ---------- Encabezado y pie de páginas internas ---------- */
-.run-h{position:absolute;left:var(--m);right:var(--m);top:36px;height:30px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--rule);padding-bottom:12px;box-sizing:content-box}
-.run-h img{height:24px;width:auto}
-.run-h span{font-size:9.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink5)}
-.run-f{position:absolute;left:var(--m);right:var(--m);bottom:34px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--rule);padding-top:12px;font-size:9.5px;letter-spacing:.4px;color:var(--ink5)}
-.run-f b{font-weight:700;color:var(--ink);letter-spacing:1.4px}
-.body-area{position:absolute;left:var(--m);right:var(--m);top:112px;bottom:96px}
+/* ---------- Jerarquía de marca (Praxis › Global Transactions › Karpay) ---------- */
+.ladder{display:flex;align-items:stretch;gap:0}
+.ladder .step{display:flex;flex-direction:column;gap:8px;padding:0 22px;border-left:1px solid var(--rule)}
+.ladder .step:first-child{padding-left:0;border-left:0}
+.ladder .lbl{font-size:8.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink5)}
+.ladder .box{height:32px;display:flex;align-items:center}
+.ladder img{display:block;width:auto;object-fit:contain}
+.ladder .praxis img{height:30px} .ladder .gt img{height:28px} .ladder .kp img{height:20px}
+.dark .ladder .step{border-color:rgba(255,255,255,.18)} .dark .ladder .lbl{color:var(--invm)}
 
-/* ---------- Tipografía (pt reales: 1pt = 1.333 px) ---------- */
-.kicker{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--p600)}
-.kicker.mute{color:var(--ink5)}
-.dark .kicker{color:var(--p200)}
-.h1{font-size:38px;font-weight:700;letter-spacing:-1.4px;line-height:1.05}
-.h1 .l2,.h2 .l2{color:var(--p600)} .dark .h1 .l2,.dark .h2 .l2{color:var(--p200)}
-.h2{font-size:26px;font-weight:700;letter-spacing:-.8px;line-height:1.1}
-.h3{font-size:14px;font-weight:700;letter-spacing:-.1px;line-height:1.25}
-.lead{font-size:17px;font-weight:300;line-height:1.4;letter-spacing:-.2px;color:var(--ink7)}
-.dark .lead{color:var(--invm)}
-.txt{font-size:12.5px;line-height:1.55;color:var(--ink7)}
-.txt + .txt{margin-top:10px}
-.small{font-size:10px;line-height:1.45;color:var(--ink5)}
-.dark .small,.dark .txt{color:var(--invm)}
-.ok{color:var(--teal7)} .accent{color:var(--p600)}
-ul.list{padding:0;list-style:none}
-ul.list li{position:relative;padding-left:16px;font-size:12.5px;line-height:1.5;color:var(--ink7);margin-bottom:6px}
-ul.list li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--p600)}
-ul.list.teal li::before{background:var(--teal)}
+/* ---------- Encabezado / pie de páginas internas ---------- */
+.hd{position:absolute;left:var(--M);right:var(--M);top:34px;display:flex;align-items:center;justify-content:space-between}
+.hd img{height:18px;width:auto}
+.hd span{font-size:8.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--ink5)}
+.ft{position:absolute;left:var(--M);right:var(--M);bottom:30px;display:flex;align-items:center;gap:14px;font-size:8.5px;letter-spacing:.5px;color:var(--ink5)}
+.ft .fo{font-size:20px;font-weight:300;letter-spacing:-.5px;color:var(--ink);font-feature-settings:"tnum" 1;min-width:28px}
+.ft .sep{flex:1;border-top:1px solid var(--rule)}
+.ft img{height:13px;width:auto} .ft img.kp{height:10px}
 
-/* ---------- Encabezado de sección ---------- */
-.sec-head{display:grid;grid-template-columns:56px 1fr;column-gap:18px;align-items:start;border-top:2px solid var(--ink);padding-top:16px}
-.sec-head .n{font-size:30px;font-weight:300;letter-spacing:-1px;color:var(--p600);line-height:1}
-.sec-head .h2{grid-column:2}
-.sec-head .kicker{grid-column:2;margin-bottom:6px}
+/* ---------- Columnas ---------- */
+.side{position:absolute;left:var(--M);width:var(--side)}
+.main{position:absolute;left:240px;width:var(--main)}
+.full{position:absolute;left:var(--M);right:var(--M)}
 
-/* ---------- Reglas ---------- */
-.rule{height:0;border-top:1px solid var(--rule)} .rule.strong{border-top:2px solid var(--ink)}
+/* ---------- Tipografía ---------- */
+.eyebrow{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--p600)}
+.eyebrow.mute{color:var(--ink5)} .dark .eyebrow{color:var(--p200)}
+.secnum{font-size:112px;font-weight:300;letter-spacing:-6px;line-height:.8;color:var(--p600);margin-left:-5px}
+.title{font-size:34px;font-weight:300;letter-spacing:-1.2px;line-height:1.08}
+.title b{font-weight:700}
+.title.xl{font-size:56px;letter-spacing:-2.4px;line-height:1.02}
+.dek{font-size:16px;font-weight:300;line-height:1.45;letter-spacing:-.1px;color:var(--ink7)}
+.dark .dek{color:var(--invm)}
+.txt{font-size:11.5px;line-height:1.62;color:var(--ink7);hyphens:auto}
+.txt + .txt{margin-top:9px}
+.txt b{color:var(--ink)}
+.dropcap::first-letter{float:left;font-size:54px;line-height:.86;font-weight:300;color:var(--p600);padding:4px 8px 0 0}
+.note{font-size:9.5px;line-height:1.5;color:var(--ink5)}
+.note b{color:var(--ink);font-weight:700}
+.dark .note{color:var(--invm)}
+.cap{font-size:9px;line-height:1.45;color:var(--ink5);margin-top:8px}
+.cap b{color:var(--p600);letter-spacing:1px;text-transform:uppercase;font-size:8.5px}
+.hr{border-top:1px solid var(--rule)} .hr.ink{border-top:1.5px solid var(--ink)}
 
-/* ---------- Cifras clave ---------- */
-.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink)}
-.stat{padding:14px 16px 4px 0}
-.stat + .stat{padding-left:16px;border-left:1px solid var(--rule)}
-.stat .v{font-size:40px;font-weight:700;letter-spacing:-2px;line-height:1}
-.stat .v small{font-size:15px;font-weight:300;letter-spacing:0;margin-left:3px;color:var(--p600)}
-.stat .d{font-size:11px;line-height:1.4;color:var(--ink5);margin-top:8px}
+/* ---------- Cita destacada ---------- */
+.pull{border-top:1.5px solid var(--p600);border-bottom:1px solid var(--rule);padding:16px 0 18px}
+.pull p{font-size:21px;font-weight:300;line-height:1.3;letter-spacing:-.5px;color:var(--p800)}
+.pull span{display:block;margin-top:10px;font-size:9px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink5)}
 
-/* ---------- Tarjetas con ícono (ícono lineal blanco sobre teja morada) ---------- */
-.cards{display:grid;gap:14px}
-.card{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:16px}
-.card .tile{width:38px;height:38px;border-radius:9px;background:var(--p600);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
-.card .tile img{width:24px;height:24px}
-.card .h3{margin-bottom:6px}
-.card .txt{font-size:11.5px;line-height:1.5}
+/* ---------- Cifras editoriales (en margen o en fila) ---------- */
+.fig-n{font-size:44px;font-weight:300;letter-spacing:-2px;line-height:1;color:var(--ink);font-feature-settings:"tnum" 1}
+.fig-n small{font-size:14px;letter-spacing:0;margin-left:3px;color:var(--p600);font-weight:400}
+.fig-d{font-size:9.5px;line-height:1.45;color:var(--ink5);margin-top:6px}
+.figs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1.5px solid var(--ink)}
+.figs>div{padding:14px 18px 0 0} .figs>div+div{padding-left:18px;border-left:1px solid var(--rule)}
 
-/* ---------- Ledger (tabla Swiss) ---------- */
-.ledger{border-top:2px solid var(--ink)}
-.ledger .r{display:grid;grid-template-columns:var(--cols,120px 1fr 80px);gap:16px;align-items:center;min-height:46px;border-bottom:1px solid var(--rule);font-size:12px;color:var(--ink7)}
-.ledger .r.th{min-height:32px;font-size:9.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink5)}
-.ledger .r b{color:var(--ink);font-size:12.5px}
-.ledger .r .fig{font-size:17px;font-weight:700;text-align:right;color:var(--ink);letter-spacing:-.4px}
-.ledger .r.hi b,.ledger .r.hi .fig{color:var(--p600)}
-.ledger img{height:20px;width:auto;max-width:110px;object-fit:contain;object-position:left center}
+/* ---------- Sumario ---------- */
+.toc .it{display:grid;grid-template-columns:62px 1fr 30px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--rule)}
+.toc .it .n{font-size:28px;font-weight:300;letter-spacing:-1px;color:var(--p600)}
+.toc .it b{font-size:15px;font-weight:700;letter-spacing:-.2px}
+.toc .it em{display:block;font-style:normal;font-size:10.5px;color:var(--ink5);margin-top:3px;font-weight:400;letter-spacing:0}
+.toc .it .pp{text-align:right;font-size:11px;color:var(--ink5);font-feature-settings:"tnum" 1}
 
-/* ---------- Tabla de datos ---------- */
-table.t{width:100%;border-collapse:collapse;font-size:11.5px}
-table.t th{text-align:left;font-size:9.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--ink5);padding:9px 10px;border-top:2px solid var(--ink);border-bottom:1px solid var(--rule)}
-table.t td{padding:9px 10px;border-bottom:1px solid var(--rule);color:var(--ink7);line-height:1.45;vertical-align:top}
-table.t td b{color:var(--ink)}
-table.t tr.z td{background:var(--sunk)}
+/* ---------- Listas ---------- */
+ol.num{list-style:none;padding:0;counter-reset:n}
+ol.num li{counter-increment:n;display:grid;grid-template-columns:30px 1fr;padding:10px 0;border-bottom:1px solid var(--rule);font-size:11.5px;line-height:1.5;color:var(--ink7)}
+ol.num li::before{content:counter(n,decimal-leading-zero);font-size:10px;font-weight:700;color:var(--p600);padding-top:1px}
+ol.num li b{color:var(--ink)}
+ul.dash{list-style:none;padding:0}
+ul.dash li{position:relative;padding-left:16px;font-size:11.5px;line-height:1.55;color:var(--ink7);margin-bottom:5px}
+ul.dash li::before{content:"";position:absolute;left:0;top:8px;width:8px;border-top:1.5px solid var(--p600)}
 
-/* ---------- Píldoras de estado (ÚNICO lugar donde va color de estado) ---------- */
-.pill{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 9px;border-radius:999px;white-space:nowrap}
-.pill.p{background:var(--p100);color:var(--p600)} .pill.ok{background:var(--teal1);color:var(--teal7)}
-.pill.w{background:#fbefdf;color:var(--warn)} .pill.c{background:#fbe3e6;color:var(--crit)}
+/* ---------- Tabla editorial ---------- */
+table.t{width:100%;border-collapse:collapse;font-size:10.5px}
+table.t th{text-align:left;font-size:8.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink5);padding:0 8px 8px 0;border-bottom:1.5px solid var(--ink)}
+table.t td{padding:9px 8px 9px 0;border-bottom:1px solid var(--rule);color:var(--ink7);line-height:1.45;vertical-align:top}
+table.t td b{color:var(--ink)} table.t td.r,table.t th.r{text-align:right}
+table.t .big{font-size:15px;font-weight:300;letter-spacing:-.3px;color:var(--ink);font-feature-settings:"tnum" 1}
+table.t img{height:15px;width:auto;display:block}
 
-/* ---------- Callout ---------- */
-.callout{background:var(--p100);border-radius:10px;padding:16px 18px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
-.callout .q{font-size:30px;font-weight:700;line-height:.8;color:var(--p600)}
-.callout p{font-size:13px;line-height:1.5;color:var(--p950)}
-.callout.teal{background:var(--teal1)} .callout.teal .q{color:var(--teal7)} .callout.teal p{color:#0d3d34}
+/* ---------- Estado (único lugar con color de estado) ---------- */
+.tag{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 7px;border-radius:3px;white-space:nowrap}
+.tag.p{background:var(--p100);color:var(--p600)} .tag.ok{background:var(--teal1);color:var(--teal7)}
+.tag.w{background:#fbefdf;color:var(--warn)} .tag.c{background:#fbe3e6;color:var(--crit)}
 
-/* ---------- Cronograma ---------- */
-.tl{display:grid;grid-template-columns:repeat(var(--n,4),1fr);gap:12px}
-.tl .ph{border-top:3px solid var(--p600);padding-top:12px}
-.tl .ph .wk{font-size:9.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink5)}
-.tl .ph .h3{margin:6px 0 8px}
-.tl .ph .txt{font-size:11px;line-height:1.5}
-.tl .ph .pill{margin-top:10px}
-.bar{position:relative;height:8px;background:var(--sunk);border-radius:4px;margin:18px 0 6px}
-.bar i{position:absolute;top:0;bottom:0;border-radius:4px;background:var(--p600)}
-.bar i.t{background:var(--teal)}
+/* ---------- Figura sobre panel ---------- */
+.panel{background:var(--p50);border-radius:4px;padding:22px}
+.panel.dark{background:var(--p950);color:var(--inv)}
 
-/* ---------- Proceso (nodos) ---------- */
-.flow{display:grid;grid-template-columns:repeat(var(--n,4),1fr);position:relative}
-.flow::before{content:"";position:absolute;left:12.5%;right:12.5%;top:27px;border-top:1.5px dashed var(--p400)}
-.flow .st{text-align:center;position:relative;padding:0 8px}
-.flow .dot{width:54px;height:54px;border-radius:50%;margin:0 auto 10px;background:var(--white);border:1.5px solid var(--p400);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:var(--p600)}
-.flow .st.on .dot{background:var(--p600);border-color:var(--p600);color:#fff}
-.flow .h3{font-size:12.5px} .flow .txt{font-size:11px;line-height:1.45;margin-top:4px}
+/* Diagrama de flujo editorial (línea + paradas) */
+.route{display:grid;grid-template-columns:repeat(var(--n,4),1fr);position:relative}
+.route::before{content:"";position:absolute;left:0;right:0;top:6px;border-top:1.5px solid var(--p400)}
+.route .stop{position:relative;padding-right:14px}
+.route .stop i{display:block;width:13px;height:13px;border-radius:50%;background:var(--paper);border:2px solid var(--p600);margin-bottom:12px;position:relative}
+.route .stop.on i{background:var(--p600)}
+.route .stop .k{font-size:8.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink5)}
+.route .stop b{display:block;font-size:13px;margin:4px 0 5px;letter-spacing:-.2px}
+.route .stop p{font-size:10px;line-height:1.45;color:var(--ink7)}
 
-/* ---------- Diagrama de arquitectura (cajas) ---------- */
-.arch{display:grid;grid-template-columns:1fr 34px 1.35fr 34px 1fr;align-items:stretch}
-.arch .col{display:flex;flex-direction:column;gap:8px}
-.arch .lab{font-size:9.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink5);margin-bottom:2px}
-.arch .bx{background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:9px 11px;font-size:11px;font-weight:700;color:var(--ink)}
-.arch .bx span{display:block;font-weight:400;color:var(--ink5);font-size:10px;margin-top:2px}
-.arch .core{background:var(--p950);border-radius:12px;padding:14px;color:var(--inv);display:flex;flex-direction:column;gap:7px}
-.arch .core .bx{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14);color:var(--inv)}
-.arch .core .bx span{color:var(--invm)}
-.arch .ar{display:flex;align-items:center;justify-content:center}
-.arch .ar svg{width:34px;height:14px}
+/* Arquitectura en capas */
+.layers .ly{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(92,45,145,.18)}
+.layers .ly:first-child{border-top:1.5px solid var(--p600)}
+.layers .ly .k{font-size:8.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--p600)}
+.layers .chips{display:flex;flex-wrap:wrap;gap:6px}
+.layers .chips span{font-size:10px;padding:5px 9px;border:1px solid rgba(92,45,145,.28);border-radius:3px;color:var(--ink);background:var(--white)}
+.layers .ly.core{background:var(--p950);margin:0 -22px;padding:14px 22px;border-bottom:0}
+.layers .ly.core .k{color:var(--p200)}
+.layers .ly.core .chips span{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:var(--inv)}
 
-/* ---------- Logos ---------- */
-.logo{display:block;object-fit:contain}
-.client{font-size:15px;font-weight:700;letter-spacing:-.3px}
-.sample{position:absolute;right:var(--m);top:44px;font-size:8.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink3)}
+/* Gantt editorial */
+.gantt{}
+.gantt .scale{display:grid;grid-template-columns:150px repeat(13,1fr);font-size:8.5px;color:var(--ink5);border-bottom:1.5px solid var(--ink);padding-bottom:6px;font-feature-settings:"tnum" 1}
+.gantt .row{display:grid;grid-template-columns:150px 1fr;align-items:center;min-height:44px;border-bottom:1px solid var(--rule)}
+.gantt .row b{font-size:12px} .gantt .row em{display:block;font-style:normal;font-size:9.5px;color:var(--ink5);margin-top:2px}
+.gantt .track{position:relative;height:100%}
+.gantt .track i{position:absolute;top:50%;height:10px;margin-top:-5px;background:var(--p600);border-radius:1px}
+.gantt .track i.lt{background:var(--p200)} .gantt .track i.t{background:var(--teal)}
+.gantt .track u{position:absolute;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;transform:rotate(45deg);background:var(--teal7)}

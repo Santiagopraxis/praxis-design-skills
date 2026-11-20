@@ -54,7 +54,7 @@ def main():
             d = uri(u)
             if css_dir:
                 bases.pop(0)
-            return 'url("%s")' % d
+            return "url('%s')" % d
         return re.sub(r'url\(\s*([\'"]?)([^\'")]+)\1\s*\)', r, css)
 
     h = open(src, encoding='utf-8').read()

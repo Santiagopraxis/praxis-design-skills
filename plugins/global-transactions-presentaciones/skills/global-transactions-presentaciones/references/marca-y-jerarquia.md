@@ -1,5 +1,8 @@
 # Jerarquía de marca
 
+**Estructura real:** Praxis es la marca madre → Global Transactions es un producto de Praxis → Karpay es un servicio de Global Transactions.
+En **documentos** van los 3 logos con la escalera de marca (ver `references/documentos.md`). La tabla de abajo describe cómo se aplicaba en los decks; si el equipo decide llevar Praxis también a la portada de los decks, actualiza esta tabla.
+
 | Nivel | Marca | Dónde y cómo |
 |---|---|---|
 | 1 · Lidera | **Global Transactions** (marca maestra) | Arriba-izquierda en portada (250×65), pie de cada diapositiva de contenido (170×44), cierre. Es quien "firma" el deck. |

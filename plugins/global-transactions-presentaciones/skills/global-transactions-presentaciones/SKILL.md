@@ -7,7 +7,7 @@ description: Crea piezas con la identidad de Global Transactions / Karpay (pagos
 
 **Primero decide qué pieza es:**
 - **Presentación / deck / slides** → sigue el flujo de abajo.
-- **Documento** (propuesta, informe, one-pager, ficha, carta, memo, acta, cualquier cosa para leer o imprimir) → sigue `references/documentos.md` con `templates/documento.html`. Ejemplo terminado: `ejemplos/GT_BancoAndino_PropuestaTecnica.pdf`.
+- **Documento** (propuesta, informe, one-pager, ficha, carta, memo, acta, cualquier cosa para leer o imprimir) → sigue `references/documentos.md` con `templates/documento.html` (dirección editorial propia, distinta del deck, con los 3 logos: Praxis › Global Transactions › Karpay). Ejemplo terminado: `ejemplos/GT_BancoAndino_PropuestaTecnica.pdf`.
 - Si no está claro, pregunta en una línea: "¿presentación para proyectar o documento para leer/enviar?".
 
 ## Flujo de presentaciones
@@ -37,7 +37,7 @@ Claude hace todo el trabajo: estructura la historia, arma las diapositivas sobre
 
 | Archivo | Para qué |
 |---|---|
-| `references/documentos.md` | **Documentos**: tipos de página D1–D7, recetas por tipo, flujo a PDF |
+| `references/documentos.md` | **Documentos**: dirección editorial, jerarquía de 3 logos, páginas E1–E8, recetas, flujo a PDF |
 | `references/sistema-visual.md` | Tokens, tipografía, retícula, componentes |
 | `references/layouts.md` | Catálogo L1–L10 con código y reglas de alternancia |
 | `references/animacion.md` | Los 4 movimientos seguros y cómo usarlos |
@@ -45,6 +45,6 @@ Claude hace todo el trabajo: estructura la historia, arma las diapositivas sobre
 | `references/narrativa.md` | Arco narrativo, guion tipo y textos reutilizables |
 | `references/recursos.md` | Inventario de logos, rieles, íconos, ilustraciones |
 | `references/exportar-y-entregar.md` | Empaquetado offline, PDF, publicación |
-| `assets/iconos-lineales/` | Íconos de un trazo (blancos) para ir junto a texto en documentos |
+| `assets/iconos-lineales/` | Íconos de un trazo (blancos) para piezas que los necesiten |
 | `assets/fuentes/` | Inter embebida como respaldo de Helvetica (con peso light) |
 | `assets/design-system/` | Karpay Design System completo (tokens, componentes, guías) |
