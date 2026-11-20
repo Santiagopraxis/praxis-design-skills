@@ -1,23 +1,22 @@
 /* ============================================================================
    Praxis — DOCUMENTOS (carta 8.5×11 in = 816×1056 px)
-   Tomado de las presentaciones aprobadas de Praxis (propuestas Kyndryl, BBVA):
-   blanco, Helvetica Neue 300/400/700, título ligero + remate naranja en negrita con
-   punto naranja, arcos + esfera naranja en la esquina, ciudad en línea al pie,
-   cifras grandes y ligeras, tarjetas blancas con sombra suave, tablas azul marino.
-   Cada <section class="pg"> es UNA página fija.
+   Formato DOCUMENTO, no diapositiva: texto corrido, títulos numerados, márgenes
+   de documento, encabezado y pie con logo Praxis + logo del cliente.
+   Identidad Praxis: Helvetica Neue, naranja #E96326, azul marino #1A2347,
+   azul Praxis #2F3E87; arcos y ciudad SOLO en portada y contraportada.
+   Cada <section class="pg"> es UNA página; el texto va dentro de .content y
+   fluye de arriba abajo. Si no cabe, se crea otra página (nunca bajar la letra).
    ============================================================================ */
 @font-face{font-family:'Inter PX';font-weight:300;src:url(../assets/fuentes/Inter-300.woff2) format('woff2')}
 @font-face{font-family:'Inter PX';font-weight:400;src:url(../assets/fuentes/Inter-400.woff2) format('woff2')}
 @font-face{font-family:'Inter PX';font-weight:500;src:url(../assets/fuentes/Inter-500.woff2) format('woff2')}
 @font-face{font-family:'Inter PX';font-weight:700;src:url(../assets/fuentes/Inter-700.woff2) format('woff2')}
 :root{
-  --or:#e96326; --or2:#ff7637; --or1:#fff4ea;           /* naranja Praxis */
-  --nv:#0b1430; --nv2:#1a2347; --nv3:#1f2f5c;           /* azul marino */
-  --bl:#2f3e87;                                          /* azul Praxis */
-  --ink:#000; --ink2:#434343; --ink3:#6b6f78; --ink4:#8a93a8; --ink5:#a3aabb;
-  --line:#e4e6ec; --soft:#f4f4f7; --soft2:#f1f4fa;
+  --or:#e96326; --or1:#fdf1e9; --or2:#f6d3bd;
+  --nv:#0b1430; --nv2:#1a2347; --bl:#2f3e87; --bl1:#eef0f8;
+  --ink:#1b1d24; --ink2:#3d414c; --ink3:#6b6f78; --ink4:#8a93a8; --line:#dfe2e8; --soft:#f5f6f9;
   --f:'Helvetica Neue','Inter PX',Helvetica,Arial,sans-serif;
-  --M:56px;
+  --ml:80px; --mr:72px;             /* márgenes de documento */
   color-scheme:light;
 }
 @page{size:8.5in 11in;margin:0}
@@ -25,106 +24,112 @@
 html,body{margin:0;background:#d8d9de}
 body{font-family:var(--f);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .pg{position:relative;width:816px;height:1056px;margin:24px auto;background:#fff;overflow:hidden;box-shadow:0 6px 28px rgba(11,20,48,.16)}
-.pg.dark{background:var(--nv);color:#fff}
 @media print{html,body{background:none}.pg{margin:0;box-shadow:none;break-after:page;page-break-after:always}}
-.a{position:absolute}
-.pg h1,.pg h2,.pg h3{margin:0;font-weight:inherit}
-.pg p{margin:0}
+.pg :where(p,h1,h2,h3,h4,ul,ol,table){margin:0}
 
-/* ---------- Decoración de marca ---------- */
-.deco-esfera{position:absolute;right:-40px;top:-30px;width:380px;opacity:1}
-.deco-arcos{position:absolute;right:-120px;top:-120px;width:420px;opacity:.55}
-.deco-ciudad{position:absolute;left:0;bottom:22px;width:380px;opacity:.9}
-.dark .deco-arcos{opacity:.35}
+/* ======================= PORTADA ======================= */
+.cover .arcs{position:absolute;right:-70px;top:-60px;width:360px}
+.cover .logos{position:absolute;left:var(--ml);right:var(--mr);top:64px;display:flex;align-items:center;gap:22px}
+.cover .logos img{height:34px;width:auto}
+.cover .logos .x{width:1px;height:30px;background:var(--line)}
+.cover .block{position:absolute;left:var(--ml);right:150px;top:330px;border-left:4px solid var(--or);padding-left:26px}
+.cover .type{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--or);font-weight:700}
+.cover h1{font-size:40px;font-weight:300;letter-spacing:-1px;line-height:1.12;color:var(--nv2);margin-top:14px}
+.cover h1 b{font-weight:700}
+.cover .sub{font-size:15px;font-weight:300;line-height:1.5;color:var(--ink2);margin-top:16px;max-width:460px}
+.cover .meta{position:absolute;left:var(--ml);right:var(--mr);top:690px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.cover .meta div{padding:14px 14px 0 0}
+.cover .meta span{display:block;font-size:8.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink4)}
+.cover .meta b{display:block;font-size:12px;font-weight:400;color:var(--ink);margin-top:5px}
+.cover .band{position:absolute;left:0;right:0;bottom:0;height:150px;background:var(--nv2)}
+.cover .city{position:absolute;left:var(--ml);bottom:150px;width:330px;opacity:.85}
+.cover .band p{position:absolute;left:var(--ml);right:var(--mr);bottom:40px;display:flex;justify-content:space-between;font-size:9.5px;color:#aeb6cc;letter-spacing:.3px}
+.cover .band p b{color:#fff;font-weight:700}
 
-/* ---------- Encabezado / pie de páginas internas ---------- */
-.hd{position:absolute;left:var(--M);right:var(--M);top:40px;display:flex;justify-content:space-between;align-items:flex-start}
-.hd .logo{height:24px;width:auto}
-.ft{position:absolute;left:var(--M);right:var(--M);bottom:28px;display:flex;align-items:center;justify-content:space-between;font-size:9px;color:var(--ink4);letter-spacing:.2px}
-.ft .cl{font-size:12px;font-weight:700;color:var(--or);letter-spacing:-.2px}
-.ft .fo{font-feature-settings:"tnum" 1}
+/* ======================= PÁGINAS INTERNAS ======================= */
+.hd{position:absolute;left:var(--ml);right:var(--mr);top:40px;height:34px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:12px;box-sizing:content-box}
+.hd img{height:20px;width:auto}
+.hd .doc{font-size:8.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink4)}
+.ft{position:absolute;left:var(--ml);right:var(--mr);bottom:34px;display:flex;align-items:center;justify-content:space-between;font-size:8.5px;color:var(--ink4)}
+.ft .pn{display:flex;align-items:center;gap:8px;color:var(--ink2);font-feature-settings:"tnum" 1}
+.ft .pn::before{content:"";width:8px;height:8px;background:var(--or)}
+.content{position:absolute;left:var(--ml);right:var(--mr);top:112px;bottom:76px;overflow:hidden}
 
-/* ---------- Tipografía ---------- */
-.kicker{font-size:9.5px;font-weight:400;letter-spacing:1.6px;text-transform:uppercase;color:var(--or)}
-.kicker.mute{color:var(--ink4)} .dark .kicker{color:var(--or2)}
-.title{font-size:30px;font-weight:400;letter-spacing:-.5px;line-height:1.15;color:var(--ink)}
-.title b{font-weight:700}
-.title .or{color:var(--or);font-weight:700}
-.dark .title{color:#fff}
-.hero{font-size:52px;font-weight:300;letter-spacing:-1.6px;line-height:1.04;color:var(--ink2)}
-.hero b{display:block;font-weight:700;color:var(--or);letter-spacing:-1.8px}
-.hero i{font-style:normal;color:var(--or)}
-.dark .hero{color:#fff}
-.dot{color:var(--or)}
-.lead{font-size:15px;font-weight:300;line-height:1.55;color:var(--ink2)}
-.dark .lead{color:#c9cfdd}
-.txt{font-size:12px;line-height:1.6;color:var(--ink2)}
-.txt + .txt{margin-top:9px}
-.txt b{color:var(--ink);font-weight:700}
-.txt .hl{color:var(--or);font-weight:700}
-.note{font-size:9px;line-height:1.45;color:var(--ink4)}
+/* Títulos */
+.h1{display:flex;align-items:baseline;gap:12px;font-size:22px;font-weight:700;color:var(--nv2);letter-spacing:-.4px;padding-bottom:10px;border-bottom:2px solid var(--or);margin-bottom:18px}
+.h1 .n{color:var(--or);font-weight:300;font-size:22px}
+.h2{font-size:14px;font-weight:700;color:var(--nv2);margin:22px 0 8px;letter-spacing:-.1px}
+.h2 .n{color:var(--or);margin-right:6px}
+.h3{font-size:9.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--or);margin:16px 0 6px}
+.content > :first-child{margin-top:0}
 
-/* ---------- Cifras ---------- */
-.stats{display:grid;grid-template-columns:repeat(var(--n,4),1fr)}
-.stat{padding:2px 14px 0;border-left:1px solid var(--ink5)}
-.stat:first-child{padding-left:0;border-left:0}
-.stat .n{font-size:26px;font-weight:300;letter-spacing:-.4px;color:var(--ink)}
-.stat .l{font-size:8.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--ink3);margin-top:6px}
-.big{display:grid;grid-template-columns:repeat(var(--n,3),1fr);gap:20px}
-.big .n{font-size:46px;font-weight:300;letter-spacing:-1.4px;line-height:1;color:var(--or)}
-.big .n.bl{color:var(--bl)}
-.big .l{font-size:11.5px;line-height:1.4;color:var(--ink2);margin-top:6px}
-.big.sep>div{border-top:1px solid var(--line);padding-top:12px}
+/* Texto */
+.p{font-size:14px;line-height:1.6;color:var(--ink2);margin-bottom:10px}  /* 10.5 pt */
+.p b{color:var(--ink)}
+.p.lead{font-size:15px;color:var(--ink)}
+.small{font-size:11px;line-height:1.5;color:var(--ink3)}
+ul.l{padding-left:0;list-style:none;margin:4px 0 12px}
+ul.l li{position:relative;padding-left:16px;font-size:14px;line-height:1.55;color:var(--ink2);margin-bottom:5px}
+ul.l li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;background:var(--or)}
+ul.l li b{color:var(--ink)}
+ol.l{padding-left:0;list-style:none;counter-reset:i;margin:4px 0 12px}
+ol.l li{counter-increment:i;position:relative;padding-left:26px;font-size:14px;line-height:1.55;color:var(--ink2);margin-bottom:6px}
+ol.l li::before{content:counter(i) ".";position:absolute;left:0;color:var(--or);font-weight:700}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 
-/* ---------- Tarjetas (blancas, sombra suave, línea de acento abajo) ---------- */
-.cards{display:grid;grid-template-columns:repeat(var(--n,3),1fr);gap:14px}
-.card{background:#fff;border-radius:10px;box-shadow:0 2px 14px rgba(11,20,48,.08);padding:16px 16px 18px;position:relative;border:1px solid #f0f1f5}
-.card::after{content:"";position:absolute;left:16px;right:16px;bottom:0;height:2px;border-radius:2px;background:var(--or)}
-.card.bl::after{background:var(--bl)}
-.card .ic{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--or1);margin-bottom:10px}
-.card .ic svg{width:18px;height:18px;stroke:var(--or);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.card .ic.bl{background:#eef0f8} .card .ic.bl svg{stroke:var(--bl)}
-.card h3{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px;letter-spacing:-.1px}
-.card p{font-size:11.5px;line-height:1.55;color:var(--ink2);margin:0}
+/* Cifras en formato documento (fila discreta, no gigantes) */
+.facts{display:grid;grid-template-columns:repeat(var(--n,4),1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:14px 0 18px}
+.facts div{padding:12px 12px 12px 0}
+.facts div+div{padding-left:14px;border-left:1px solid var(--line)}
+.facts b{display:block;font-size:20px;font-weight:300;color:var(--or);letter-spacing:-.4px}
+.facts b.bl{color:var(--bl)}
+.facts span{display:block;font-size:10.5px;line-height:1.35;color:var(--ink3);margin-top:3px}
 
-/* ---------- Columnas numeradas (01 02 03 04) ---------- */
-.steps{display:grid;grid-template-columns:repeat(var(--n,4),1fr)}
-.steps>div{padding:0 14px;border-left:1px solid var(--ink5)}
-.steps>div:first-child{padding-left:0;border-left:0}
-.steps .n{font-size:44px;font-weight:300;letter-spacing:-1px;line-height:1;color:var(--or)}
-.steps .n.bl{color:var(--bl)}
-.steps h3{font-size:13.5px;font-weight:400;color:var(--ink);margin:8px 0 8px}
-.steps p{font-size:11px;line-height:1.5;color:var(--ink3);margin:0}
-
-/* ---------- Listas ---------- */
-ul.dots{list-style:none;padding:0;margin:0}
-ul.dots li{position:relative;padding-left:14px;font-size:12px;line-height:1.55;color:var(--ink2);margin-bottom:5px}
-ul.dots li::before{content:"";position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--or)}
-ul.dots li b{color:var(--ink)}
-.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.colh{font-size:9.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--or);padding-bottom:7px;border-bottom:1px solid var(--line);margin-bottom:9px}
-.colh.bl{color:var(--bl)}
-
-/* ---------- Tabla (encabezado azul marino) ---------- */
-table.t{width:100%;border-collapse:collapse;font-size:11px}
-table.t th{background:var(--nv2);color:#fff;text-align:left;font-weight:700;padding:10px 11px;font-size:9.5px;letter-spacing:.2px}
-table.t td{padding:10px 11px;border-bottom:1px solid var(--line);color:var(--ink2);line-height:1.45;vertical-align:top}
+/* Tablas */
+table.t{width:100%;border-collapse:collapse;margin:8px 0 6px}
+table.t th{background:var(--nv2);color:#fff;text-align:left;font-size:10.5px;font-weight:700;padding:9px 10px}
+table.t td{font-size:12.5px;line-height:1.45;color:var(--ink2);padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
 table.t td b{color:var(--ink)}
-table.t tr:nth-child(even) td{background:#fafbfd}
+table.t tr:nth-child(odd) td{background:var(--soft)}
+.cap{font-size:10.5px;color:var(--ink4);margin:4px 0 14px}
+.cap b{color:var(--ink2)}
 
-/* ---------- Aviso / callout (caja naranja suave) ---------- */
-.callout{background:var(--or1);border:1px solid #f6d3bd;border-radius:8px;padding:12px 14px}
-.callout .kicker{font-weight:700;margin-bottom:5px}
-.callout p{font-size:11.5px;line-height:1.5;color:var(--ink2);margin:0}
-.banda{display:flex;align-items:center;gap:14px;background:var(--soft);border-radius:4px;padding:10px 14px;font-size:12px;color:var(--ink2)}
-.banda::before{content:"";width:5px;align-self:stretch;background:var(--or);border-radius:2px}
+/* Notas y destacados */
+.note{background:var(--or1);border-left:4px solid var(--or);padding:12px 16px;margin:14px 0}
+.note .h3{margin:0 0 4px}
+.note p{font-size:13px;line-height:1.5;color:var(--ink2)}
+.box{border:1px solid var(--line);border-top:3px solid var(--bl);padding:14px 16px}
+.box .t{font-size:13px;font-weight:700;color:var(--nv2);margin-bottom:5px}
+.box p{font-size:12.5px;line-height:1.5;color:var(--ink2)}
 
-/* ---------- Contacto ---------- */
-.contacto{border-left:2px solid var(--or);padding-left:14px}
-.contacto b{display:block;font-size:13px;font-weight:400;color:var(--ink)}
-.contacto span{display:block;font-size:9.5px;color:var(--ink4);margin-top:4px}
+/* Tabla de contenido */
+.toc .row{display:flex;align-items:baseline;gap:10px;font-size:14px;color:var(--ink);padding:9px 0}
+.toc .row .n{color:var(--or);font-weight:700;min-width:22px}
+.toc .row .dots{flex:1;border-bottom:1px dotted var(--ink4);transform:translateY(-4px)}
+.toc .row .pp{color:var(--ink3);font-feature-settings:"tnum" 1}
+.toc .row.sub{font-size:12.5px;color:var(--ink2);padding:5px 0 5px 32px}
 
-/* ---------- Cuerpo de páginas internas: el contenido se reparte solo ---------- */
-.body{position:absolute;left:var(--M);right:var(--M);top:150px;bottom:84px;display:flex;flex-direction:column;justify-content:space-between;gap:26px}
-.body.top{justify-content:flex-start;gap:34px}
-.hd .title{font-size:30px}
+/* Control de documento */
+.kv{display:grid;grid-template-columns:160px 1fr;border-top:1px solid var(--line)}
+.kv span,.kv b{font-size:12.5px;padding:8px 0;border-bottom:1px solid var(--line)}
+.kv span{color:var(--ink3)} .kv b{font-weight:400;color:var(--ink)}
+
+/* Firmas */
+.sign{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:30px}
+.sign div{padding-top:60px}
+.sign i{display:block;border-top:1px solid var(--ink);margin-bottom:8px}
+.sign b{display:block;font-size:13px;color:var(--ink)}
+.sign span{display:block;font-size:11px;color:var(--ink3);margin-top:2px}
+
+/* Contraportada */
+.back{background:var(--nv2)}
+.back .arcs{position:absolute;right:-70px;top:-60px;width:360px;opacity:.5}
+.back .in{position:absolute;left:var(--ml);right:var(--mr);top:380px;color:#fff}
+.back .in h2{font-size:30px;font-weight:300;letter-spacing:-.6px;line-height:1.2}
+.back .in h2 b{font-weight:700;color:var(--or)}
+.back .in p{font-size:13px;line-height:1.6;color:#c4cadb;margin-top:16px;max-width:460px}
+.back .ct{position:absolute;left:var(--ml);right:var(--mr);top:620px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;border-top:1px solid rgba(255,255,255,.18);padding-top:18px}
+.back .ct span{display:block;font-size:8.5px;letter-spacing:1.4px;text-transform:uppercase;color:#8f99b5}
+.back .ct b{display:block;font-size:13px;font-weight:400;color:#fff;margin-top:6px}
+.back .lg{position:absolute;left:var(--ml);bottom:64px;height:30px}
