@@ -1,6 +1,6 @@
 ---
 name: praxis-marca
-description: Viste cualquier pieza con la marca de Global Transactions / Karpay o de fluXOne (empresas de Praxis) — presentaciones animadas, propuestas técnicas o comerciales, informes, one-pagers, fichas de producto, cartas, memos y actas — y la entrega en HTML y PDF. Úsala siempre que alguien pida algo "de Karpay", "de Global Transactions", "de GT", "de fluXOne" o "de Praxis".
+description: Viste cualquier pieza con la marca de Global Transactions / Karpay o de fluXOne (empresas de Praxis) — presentaciones animadas, propuestas técnicas o comerciales, informes, one-pagers, fichas de producto, cartas, memos y actas — y la entrega en HTML y PDF. Úsala siempre que alguien pida algo "de Karpay", "de Global Transactions", "de GT", "de fluXOne" o "de Praxis" (incluidas propuestas de staffing, AMS o consultoría de Praxis).
 ---
 
 # Praxis · marca para cualquier pieza
@@ -13,6 +13,7 @@ Claude hace todo: escribe, arma sobre la plantilla, revisa y entrega HTML + PDF.
 |---|---|
 | Global Transactions, GT, Karpay, Instapay, Bre-B para bancos, rieles (FedNow, SPEI, Pix, SEPA) | `global-transactions/` (`--marca gt`) |
 | fluXOne, cobrar/pagar/conciliar/decidir, recaudo para empresas, NexaPay | `fluxone/` (`--marca fluxone`) |
+| Praxis como empresa: staffing, AMS, consultoría, propuestas corporativas, "sobre Praxis" | `praxis/` (`--marca praxis`) — por ahora solo documentos |
 
 | Pieza | Plantilla (en la carpeta de la marca) | Guía que debes leer (solo esa) |
 |---|---|---|
@@ -36,7 +37,7 @@ Cliente, objetivo, a quién va, país, datos con fuente, fecha. **No inventes ci
 ## 4. Arma, revisa y entrega
 
 ```bash
-python3 <esta-skill>/scripts/armar.py pieza.html --marca gt|fluxone --salida <carpeta>
+python3 <esta-skill>/scripts/armar.py pieza.html --marca gt|fluxone|praxis --salida <carpeta>
 ```
 Genera el HTML único (offline), el PDF y `pieza_revision.png` (todas las páginas en miniatura). **Mira solo esa imagen** para revisar: textos que se salen, choques con imágenes, páginas medio vacías, logos que faltan, `{{…}}`. Corrige y vuelve a correr. En presentaciones, el detalle de revisión está en `guia-presentaciones.md`.
 

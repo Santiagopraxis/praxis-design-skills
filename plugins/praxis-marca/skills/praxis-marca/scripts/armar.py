@@ -2,7 +2,7 @@
 """Un solo paso: empaqueta la pieza (HTML offline), exporta el PDF y crea una hoja de revisión.
 
 Uso:
-  python3 scripts/armar.py PIEZA.html --marca gt|fluxone [--salida carpeta] [--sin-pdf]
+  python3 scripts/armar.py PIEZA.html --marca gt|fluxone|praxis [--salida carpeta] [--sin-pdf]
 
 Genera en la carpeta de salida (por defecto, junto a la pieza):
   <nombre>.html   → archivo único, funciona sin internet
@@ -13,7 +13,7 @@ Revisar UNA imagen de miniaturas cuesta mucho menos que abrir cada página.
 import os, subprocess, sys, glob, shutil, tempfile
 
 AQUI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MARCAS = {'gt': 'global-transactions', 'global-transactions': 'global-transactions', 'karpay': 'global-transactions', 'fluxone': 'fluxone'}
+MARCAS = {'gt': 'global-transactions', 'global-transactions': 'global-transactions', 'karpay': 'global-transactions', 'fluxone': 'fluxone', 'praxis': 'praxis'}
 
 
 def main():
@@ -23,7 +23,7 @@ def main():
     src = os.path.abspath(a[0])
     marca = MARCAS.get(a[a.index('--marca') + 1].lower())
     if not marca:
-        sys.exit('Marca no válida: usa gt o fluxone')
+        sys.exit('Marca no válida: usa gt, fluxone o praxis')
     root = os.path.join(AQUI, marca)
     out = os.path.abspath(a[a.index('--salida') + 1]) if '--salida' in a else os.path.dirname(src)
     os.makedirs(out, exist_ok=True)
