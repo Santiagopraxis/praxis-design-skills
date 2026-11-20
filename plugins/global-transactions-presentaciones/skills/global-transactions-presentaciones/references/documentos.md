@@ -64,3 +64,4 @@ Encabezado interno `.hd` (Praxis + "Global Transactions · Tipo") y pie `.ft` (f
 - Figuras siempre con pie "Figura N"; cifras siempre con fuente en `.note`.
 - Si es muestra o borrador, dilo en la portada.
 - **Sin rosados ni lilas.** Nada de lavanda (`#efe9f7`, `#d8cbef`) en fondos, barras o etiquetas: se ven rosados al imprimir. Paneles en gris frío `#f2f3f6`; estados con `.tag` de contorno (sin fondo de color); texto secundario sobre morado en `#cbc3dc`.
+- **Imágenes JPG limpias.** Algunos JPG exportados desde Adobe traen un marcador de color que ciertos visores de PDF leen mal (la imagen sale rosada/magenta). Antes de usar un JPG nuevo, re-guárdalo: `python3 -c "from PIL import Image; Image.open('f.jpg').convert('RGB').save('f.jpg', quality=90)"`.
