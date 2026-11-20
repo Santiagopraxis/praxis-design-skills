@@ -1,17 +1,23 @@
 # Praxis · Skill de marca
 
-Una sola skill, `praxis-marca`, para que cualquiera del equipo le pida a Claude piezas con la identidad de **Global Transactions / Karpay** o de **fluXOne**, sin depender de una persona.
+Una sola skill, `praxis-marca`, para que cualquiera del equipo le pida a Claude piezas con la identidad de **Global Transactions / Karpay**, **fluXOne** o **Praxis**, sin depender de una persona.
 
 > **Uso interno.** Este repo contiene logos e identidad de Praxis y sus marcas. Mantenerlo **privado**.
 
 ## Qué puede hacer
 
-| Pieza | Global Transactions / Karpay | fluXOne |
-|---|---|---|
-| Presentación animada (HTML + PDF) | ✓ | ✓ |
-| Propuesta técnica o comercial, informe | ✓ | ✓ |
-| One-pager / ficha de producto | ✓ | ✓ |
-| Carta, memo, acta | ✓ | ✓ |
+| Pieza | GT / Karpay | fluXOne | Praxis |
+|---|---|---|---|
+| Presentación animada (HTML + PDF) | ✓ estilo Redeban | ✓ presentación general | ✓ editorial |
+| Presentación editable (PowerPoint / Google Slides) | ✓ | ✓ | ✓ |
+| Propuesta, documento largo | ✓ | ✓ | ✓ |
+| One-pager / ficha de producto | ✓ | ✓ | ✓ |
+| Carta, memo | ✓ | ✓ | ✓ |
+| Diagrama de flujo / proceso | ✓ | ✓ | ✓ |
+| Informe de estado + acta | ✓ | ✓ | ✓ |
+| Post para redes (cuadrado y vertical, PNG) | ✓ | ✓ | ✓ |
+
+Antes de una presentación Claude pregunta si la quieres **animada** (HTML que se presenta en el navegador, no se edita en PowerPoint) o **editable** (PowerPoint o Google Slides).
 
 Ejemplos de cada uno en `plugins/praxis-marca/skills/praxis-marca/<marca>/ejemplos/`.
 
@@ -31,6 +37,8 @@ Si tenías instaladas las skills anteriores (`global-transactions-presentaciones
 Escribe todo en **un solo mensaje**, así Claude no tiene que preguntar:
 
 > Hazme un **one-pager de Karpay Instapay** para **Banco X**. Objetivo: que aprueben una reunión técnica. Datos: [cifras con fuente]. Contacto: [nombre, correo]. Solo PDF.
+
+> Hazme un **post cuadrado de Praxis** anunciando 30 años. Texto: [titular]. Solo PNG.
 
 > Hazme una **propuesta comercial de fluXOne** para **Empresa Y en México**, 6 páginas. Problema: concilian a mano. Fecha de la próxima reunión: 3 de diciembre.
 
@@ -52,4 +60,6 @@ praxis-marca/
   scripts/armar.py         ← un paso: HTML offline + PDF + hoja de revisión
   global-transactions/     ← plantillas, guías, logos, ejemplos de GT/Karpay
   fluxone/                 ← plantillas, guías, logos, ejemplos de fluXOne
+  praxis/                  ← plantillas, logos, gráficos y ejemplos de Praxis
+  nucleo/                  ← estilos y motor de presentaciones compartidos + guías de piezas
 ```
