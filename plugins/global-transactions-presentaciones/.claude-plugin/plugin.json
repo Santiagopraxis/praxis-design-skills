@@ -1,5 +1,8 @@
 {
   "name": "global-transactions-presentaciones",
-  "description": "Presentaciones HTML de Global Transactions / Karpay con el sistema editorial de Praxis.",
-  "author": { "name": "Praxis · Diseño" }
+  "description": "Presentaciones y documentos (propuestas, informes, one-pagers, cartas) de Global Transactions / Karpay con el sistema editorial de Praxis, en HTML y PDF.",
+  "author": {
+    "name": "Praxis · Diseño"
+  },
+  "version": "1.1.0"
 }

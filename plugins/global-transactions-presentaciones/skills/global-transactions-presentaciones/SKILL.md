@@ -1,13 +1,19 @@
 ---
 name: global-transactions-presentaciones
-description: Crea presentaciones HTML de Global Transactions / Karpay (pagos inmediatos, rieles, propuestas a bancos) con el sistema editorial aprobado de Praxis, animación segura y exportación offline/PDF.
+description: Crea piezas con la identidad de Global Transactions / Karpay (pagos inmediatos, rieles, bancos) — presentaciones HTML animadas Y documentos (propuesta técnica o comercial, informe de estado, one-pager, ficha de producto, carta, memo, acta) con el sistema editorial de Praxis, exportados a HTML y PDF. Úsala para cualquier pieza de marca Global Transactions o Karpay, no solo decks.
 ---
 
-# Presentaciones Global Transactions · Karpay
+# Global Transactions · Karpay — presentaciones y documentos
+
+**Primero decide qué pieza es:**
+- **Presentación / deck / slides** → sigue el flujo de abajo.
+- **Documento** (propuesta, informe, one-pager, ficha, carta, memo, acta, cualquier cosa para leer o imprimir) → sigue `references/documentos.md` con `templates/documento.html`. Ejemplo terminado: `ejemplos/GT_BancoAndino_PropuestaTecnica.pdf`.
+- Si no está claro, pregunta en una línea: "¿presentación para proyectar o documento para leer/enviar?".
+
+## Flujo de presentaciones
 
 Claude hace todo el trabajo: estructura la historia, arma las diapositivas sobre la plantilla, las revisa, las empaqueta en un solo HTML offline y exporta el PDF. El equipo solo aporta el contenido (cliente, objetivo, datos) y revisa.
 
-## Flujo (síguelo en orden)
 
 1. **Brief.** Si falta, pregunta en una sola ronda: cliente, objetivo de la reunión, audiencia, idioma, nº de diapositivas (por defecto 8–12), datos/cifras con fuente, logo del cliente (opcional). No inventes cifras: usa las del usuario o las de `references/narrativa.md` marcadas como reutilizables.
 2. **Guion.** Escribe primero el guion en 1 línea por diapositiva siguiendo el arco **oportunidad → solución → cómo → prueba → próximos pasos** (`references/narrativa.md`). Asigna a cada diapositiva un layout del catálogo (`references/layouts.md`) respetando las reglas de alternancia. Muéstralo al usuario si el pedido es ambiguo; si no, sigue.
@@ -31,6 +37,7 @@ Claude hace todo el trabajo: estructura la historia, arma las diapositivas sobre
 
 | Archivo | Para qué |
 |---|---|
+| `references/documentos.md` | **Documentos**: tipos de página D1–D7, recetas por tipo, flujo a PDF |
 | `references/sistema-visual.md` | Tokens, tipografía, retícula, componentes |
 | `references/layouts.md` | Catálogo L1–L10 con código y reglas de alternancia |
 | `references/animacion.md` | Los 4 movimientos seguros y cómo usarlos |
@@ -38,4 +45,6 @@ Claude hace todo el trabajo: estructura la historia, arma las diapositivas sobre
 | `references/narrativa.md` | Arco narrativo, guion tipo y textos reutilizables |
 | `references/recursos.md` | Inventario de logos, rieles, íconos, ilustraciones |
 | `references/exportar-y-entregar.md` | Empaquetado offline, PDF, publicación |
+| `assets/iconos-lineales/` | Íconos de un trazo (blancos) para ir junto a texto en documentos |
+| `assets/fuentes/` | Inter embebida como respaldo de Helvetica (con peso light) |
 | `assets/design-system/` | Karpay Design System completo (tokens, componentes, guías) |

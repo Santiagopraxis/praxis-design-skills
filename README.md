@@ -4,7 +4,7 @@ Marketplace privado con dos skills para que Claude arme presentaciones con la id
 
 | Plugin | Para qué sirve |
 | --- | --- |
-| `global-transactions-presentaciones` | Propuestas de Global Transactions / Karpay (pagos inmediatos, rieles, bancos) |
+| `global-transactions-presentaciones` | Presentaciones **y documentos** de Global Transactions / Karpay (propuestas, informes, one-pagers, cartas) |
 | `fluxone-presentaciones` | Presentaciones de fluXOne (cobrar, pagar, conciliar, decidir) |
 
 Cada skill trae su guía, design system, iconos, fuentes, plantilla y un ejemplo.

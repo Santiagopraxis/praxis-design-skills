@@ -1,0 +1,142 @@
+/* Global Transactions · Karpay — sistema de DOCUMENTOS (carta 8.5×11 in, 816×1056 px)
+   Mismo ADN que los decks: Swiss Ledger + Magazine Spread, papel/morado, Helvetica.
+   Cada <section class="pg"> es UNA página fija. El contenido NO fluye solo: si no cabe, crea otra página. */
+@font-face{font-family:'Inter GT';font-weight:300;src:url(../assets/fuentes/Inter-300.woff2) format('woff2')}
+@font-face{font-family:'Inter GT';font-weight:400;src:url(../assets/fuentes/Inter-400.woff2) format('woff2')}
+@font-face{font-family:'Inter GT';font-weight:500;src:url(../assets/fuentes/Inter-500.woff2) format('woff2')}
+@font-face{font-family:'Inter GT';font-weight:700;src:url(../assets/fuentes/Inter-700.woff2) format('woff2')}
+:root{
+  --p950:#241542; --p900:#2e1c58; --p800:#3d2472; --p600:#5c2d91; --p400:#8b6bc0; --p200:#d8cbef; --p100:#efe9f7;
+  --teal:#3dbfa0; --teal7:#157a68; --teal1:#e3f6f0;
+  --paper:#f8f9fb; --white:#ffffff; --ink:#1c1626; --ink7:#3e3849; --ink5:#6c6677; --ink3:#aca8b3; --rule:#dfe2e7; --sunk:#f1f2f5;
+  --inv:#f6f6f9; --invm:#cbc3dc;
+  --warn:#c9781a; --crit:#d62839;
+  --hf:'Helvetica Neue','Inter GT',Helvetica,Arial,sans-serif;
+  --m:64px;            /* margen lateral */
+  color-scheme:light;
+}
+@page{size:8.5in 11in;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;background:#d9d6df;color-scheme:light only}
+body{font-family:var(--hf);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.fig,.stat .v,.run-f span:last-child{font-feature-settings:"tnum" 1}
+.pg{position:relative;width:816px;height:1056px;margin:24px auto;background:var(--paper);overflow:hidden;box-shadow:0 6px 30px rgba(36,21,66,.18)}
+.pg.dark{background:var(--p950);color:var(--inv)}
+.pg p,.pg h1,.pg h2,.pg h3,.pg ul,.pg ol{margin:0}
+@media print{html,body{background:none}.pg{margin:0;box-shadow:none;break-after:page;page-break-after:always}}
+
+/* ---------- Encabezado y pie de páginas internas ---------- */
+.run-h{position:absolute;left:var(--m);right:var(--m);top:36px;height:30px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--rule);padding-bottom:12px;box-sizing:content-box}
+.run-h img{height:24px;width:auto}
+.run-h span{font-size:9.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink5)}
+.run-f{position:absolute;left:var(--m);right:var(--m);bottom:34px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--rule);padding-top:12px;font-size:9.5px;letter-spacing:.4px;color:var(--ink5)}
+.run-f b{font-weight:700;color:var(--ink);letter-spacing:1.4px}
+.body-area{position:absolute;left:var(--m);right:var(--m);top:112px;bottom:96px}
+
+/* ---------- Tipografía (pt reales: 1pt = 1.333 px) ---------- */
+.kicker{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--p600)}
+.kicker.mute{color:var(--ink5)}
+.dark .kicker{color:var(--p200)}
+.h1{font-size:38px;font-weight:700;letter-spacing:-1.4px;line-height:1.05}
+.h1 .l2,.h2 .l2{color:var(--p600)} .dark .h1 .l2,.dark .h2 .l2{color:var(--p200)}
+.h2{font-size:26px;font-weight:700;letter-spacing:-.8px;line-height:1.1}
+.h3{font-size:14px;font-weight:700;letter-spacing:-.1px;line-height:1.25}
+.lead{font-size:17px;font-weight:300;line-height:1.4;letter-spacing:-.2px;color:var(--ink7)}
+.dark .lead{color:var(--invm)}
+.txt{font-size:12.5px;line-height:1.55;color:var(--ink7)}
+.txt + .txt{margin-top:10px}
+.small{font-size:10px;line-height:1.45;color:var(--ink5)}
+.dark .small,.dark .txt{color:var(--invm)}
+.ok{color:var(--teal7)} .accent{color:var(--p600)}
+ul.list{padding:0;list-style:none}
+ul.list li{position:relative;padding-left:16px;font-size:12.5px;line-height:1.5;color:var(--ink7);margin-bottom:6px}
+ul.list li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--p600)}
+ul.list.teal li::before{background:var(--teal)}
+
+/* ---------- Encabezado de sección ---------- */
+.sec-head{display:grid;grid-template-columns:56px 1fr;column-gap:18px;align-items:start;border-top:2px solid var(--ink);padding-top:16px}
+.sec-head .n{font-size:30px;font-weight:300;letter-spacing:-1px;color:var(--p600);line-height:1}
+.sec-head .h2{grid-column:2}
+.sec-head .kicker{grid-column:2;margin-bottom:6px}
+
+/* ---------- Reglas ---------- */
+.rule{height:0;border-top:1px solid var(--rule)} .rule.strong{border-top:2px solid var(--ink)}
+
+/* ---------- Cifras clave ---------- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--ink)}
+.stat{padding:14px 16px 4px 0}
+.stat + .stat{padding-left:16px;border-left:1px solid var(--rule)}
+.stat .v{font-size:40px;font-weight:700;letter-spacing:-2px;line-height:1}
+.stat .v small{font-size:15px;font-weight:300;letter-spacing:0;margin-left:3px;color:var(--p600)}
+.stat .d{font-size:11px;line-height:1.4;color:var(--ink5);margin-top:8px}
+
+/* ---------- Tarjetas con ícono (ícono lineal blanco sobre teja morada) ---------- */
+.cards{display:grid;gap:14px}
+.card{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:16px}
+.card .tile{width:38px;height:38px;border-radius:9px;background:var(--p600);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.card .tile img{width:24px;height:24px}
+.card .h3{margin-bottom:6px}
+.card .txt{font-size:11.5px;line-height:1.5}
+
+/* ---------- Ledger (tabla Swiss) ---------- */
+.ledger{border-top:2px solid var(--ink)}
+.ledger .r{display:grid;grid-template-columns:var(--cols,120px 1fr 80px);gap:16px;align-items:center;min-height:46px;border-bottom:1px solid var(--rule);font-size:12px;color:var(--ink7)}
+.ledger .r.th{min-height:32px;font-size:9.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink5)}
+.ledger .r b{color:var(--ink);font-size:12.5px}
+.ledger .r .fig{font-size:17px;font-weight:700;text-align:right;color:var(--ink);letter-spacing:-.4px}
+.ledger .r.hi b,.ledger .r.hi .fig{color:var(--p600)}
+.ledger img{height:20px;width:auto;max-width:110px;object-fit:contain;object-position:left center}
+
+/* ---------- Tabla de datos ---------- */
+table.t{width:100%;border-collapse:collapse;font-size:11.5px}
+table.t th{text-align:left;font-size:9.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--ink5);padding:9px 10px;border-top:2px solid var(--ink);border-bottom:1px solid var(--rule)}
+table.t td{padding:9px 10px;border-bottom:1px solid var(--rule);color:var(--ink7);line-height:1.45;vertical-align:top}
+table.t td b{color:var(--ink)}
+table.t tr.z td{background:var(--sunk)}
+
+/* ---------- Píldoras de estado (ÚNICO lugar donde va color de estado) ---------- */
+.pill{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 9px;border-radius:999px;white-space:nowrap}
+.pill.p{background:var(--p100);color:var(--p600)} .pill.ok{background:var(--teal1);color:var(--teal7)}
+.pill.w{background:#fbefdf;color:var(--warn)} .pill.c{background:#fbe3e6;color:var(--crit)}
+
+/* ---------- Callout ---------- */
+.callout{background:var(--p100);border-radius:10px;padding:16px 18px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.callout .q{font-size:30px;font-weight:700;line-height:.8;color:var(--p600)}
+.callout p{font-size:13px;line-height:1.5;color:var(--p950)}
+.callout.teal{background:var(--teal1)} .callout.teal .q{color:var(--teal7)} .callout.teal p{color:#0d3d34}
+
+/* ---------- Cronograma ---------- */
+.tl{display:grid;grid-template-columns:repeat(var(--n,4),1fr);gap:12px}
+.tl .ph{border-top:3px solid var(--p600);padding-top:12px}
+.tl .ph .wk{font-size:9.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink5)}
+.tl .ph .h3{margin:6px 0 8px}
+.tl .ph .txt{font-size:11px;line-height:1.5}
+.tl .ph .pill{margin-top:10px}
+.bar{position:relative;height:8px;background:var(--sunk);border-radius:4px;margin:18px 0 6px}
+.bar i{position:absolute;top:0;bottom:0;border-radius:4px;background:var(--p600)}
+.bar i.t{background:var(--teal)}
+
+/* ---------- Proceso (nodos) ---------- */
+.flow{display:grid;grid-template-columns:repeat(var(--n,4),1fr);position:relative}
+.flow::before{content:"";position:absolute;left:12.5%;right:12.5%;top:27px;border-top:1.5px dashed var(--p400)}
+.flow .st{text-align:center;position:relative;padding:0 8px}
+.flow .dot{width:54px;height:54px;border-radius:50%;margin:0 auto 10px;background:var(--white);border:1.5px solid var(--p400);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:var(--p600)}
+.flow .st.on .dot{background:var(--p600);border-color:var(--p600);color:#fff}
+.flow .h3{font-size:12.5px} .flow .txt{font-size:11px;line-height:1.45;margin-top:4px}
+
+/* ---------- Diagrama de arquitectura (cajas) ---------- */
+.arch{display:grid;grid-template-columns:1fr 34px 1.35fr 34px 1fr;align-items:stretch}
+.arch .col{display:flex;flex-direction:column;gap:8px}
+.arch .lab{font-size:9.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink5);margin-bottom:2px}
+.arch .bx{background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:9px 11px;font-size:11px;font-weight:700;color:var(--ink)}
+.arch .bx span{display:block;font-weight:400;color:var(--ink5);font-size:10px;margin-top:2px}
+.arch .core{background:var(--p950);border-radius:12px;padding:14px;color:var(--inv);display:flex;flex-direction:column;gap:7px}
+.arch .core .bx{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14);color:var(--inv)}
+.arch .core .bx span{color:var(--invm)}
+.arch .ar{display:flex;align-items:center;justify-content:center}
+.arch .ar svg{width:34px;height:14px}
+
+/* ---------- Logos ---------- */
+.logo{display:block;object-fit:contain}
+.client{font-size:15px;font-weight:700;letter-spacing:-.3px}
+.sample{position:absolute;right:var(--m);top:44px;font-size:8.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink3)}
