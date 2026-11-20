@@ -56,23 +56,30 @@ body{font-family:var(--f);color:var(--ink);-webkit-print-color-adjust:exact;prin
 .fase p{font-size:11.5px;line-height:1.45;color:var(--ink2);margin-top:6px}
 .fase .badge{position:absolute;left:50%;top:-30px;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:9.5px;font-weight:var(--wb);letter-spacing:.8px;padding:4px 10px;border-radius:999px;white-space:nowrap}
 
-/* 2) Hub: entradas → nodo central → salidas */
-.hub{display:grid;grid-template-columns:1fr 70px 190px 70px 1fr;align-items:center}
-.hub .col{display:flex;flex-direction:column;gap:10px;position:relative}
-.hub .col .lab{font-size:9px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink3);margin-bottom:2px}
-.hub .it{position:relative;display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:9px 12px}
+.fases.xl .ico{width:78px;height:78px} .fases.xl .ico svg{width:34px;height:34px}
+.fases.xl::before{top:38px} .fases.xl .fase h3{font-size:17px} .fases.xl .fase p{font-size:12.5px}
+/* fila de entregables / notas al pie de un flujo */
+.entrega{display:grid;grid-template-columns:repeat(var(--n,4),1fr);gap:16px;border-top:1px solid var(--line);padding-top:16px}
+.entrega div{font-size:11.5px;line-height:1.45;color:var(--ink2)}
+.entrega b{display:block;font-size:9.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--brand);margin-bottom:4px}
+
+/* 2) Hub: entradas → nodo central → salidas (corchete continuo) */
+.hub{display:grid;grid-template-columns:1fr 74px 200px 74px 1fr;align-items:center}
+.hub .col{display:flex;flex-direction:column;gap:12px;position:relative}
+.hub .col .lab{position:absolute;top:-24px;left:0;font-size:9px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink3)}
+.hub .it{position:relative;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
 .hub .it i{width:8px;height:8px;border-radius:50%;background:var(--brand);flex:none}
-.hub .it span{font-size:10.5px;color:var(--ink3);display:block}
-.hub .in .it::after,.hub .out .it::before{content:"";position:absolute;top:50%;width:35px;border-top:1.5px solid var(--brand2)}
-.hub .in .it::after{right:-36px}
-.hub .out .it::before{left:-36px}
-.hub .wire{align-self:stretch;position:relative}
-.hub .wire::before{content:"";position:absolute;top:var(--t,20%);bottom:var(--b,20%);border-left:1.5px solid var(--brand2)}
-.hub .wire.l::before{left:35px} .hub .wire.r::before{right:35px}
-.hub .wire::after{content:"";position:absolute;top:50%;width:35px;border-top:1.5px solid var(--brand2)}
-.hub .wire.l::after{left:35px} .hub .wire.r::after{right:35px}
+/* tramo horizontal de cada caja hasta el corchete */
+.hub .in .it::after{content:"";position:absolute;right:-37px;top:50%;width:37px;border-top:1.5px solid var(--brand2)}
+.hub .out .it::before{content:"";position:absolute;left:-37px;top:50%;width:37px;border-top:1.5px solid var(--brand2)}
+/* tramo vertical del corchete entre cajas consecutivas */
+.hub .in .it:not(:last-child) b,.hub .out .it:not(:last-child) b{position:absolute;top:50%;height:calc(100% + 12px);border-left:1.5px solid var(--brand2)}
+.hub .in .it b{right:-37px} .hub .out .it b{left:-37px}
+/* conexión del corchete al nodo */
+.hub .wire{height:0;border-top:1.5px solid var(--brand2);margin:0 0 0 0}
+.hub .wire.l{margin-left:0} .hub .wire.r{margin-right:0}
 .hub .node{aspect-ratio:1;border-radius:50%;background:var(--dark);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px;box-shadow:0 0 0 10px var(--soft),0 0 0 11px var(--line)}
-.hub .node img{max-width:130px;max-height:40px}
+.hub .node img{max-width:136px;max-height:42px}
 .hub .node span{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:8px}
 
 /* 3) Carriles (quién hace qué): cada fila es un responsable, cada columna un momento */

@@ -1,6 +1,6 @@
 ---
 name: praxis-marca
-description: Viste cualquier pieza con la marca de Global Transactions / Karpay o de fluXOne (empresas de Praxis) — presentaciones animadas, propuestas técnicas o comerciales, informes, one-pagers, fichas de producto, cartas, memos y actas — y la entrega en HTML y PDF. Úsala siempre que alguien pida algo "de Karpay", "de Global Transactions", "de GT", "de fluXOne" o "de Praxis" (incluidas propuestas de staffing, AMS o consultoría de Praxis).
+description: Viste cualquier pieza con la marca de Global Transactions / Karpay, fluXOne o Praxis — presentaciones (animadas en HTML o editables en PowerPoint/Google Slides), propuestas, one-pagers, cartas, diagramas de flujo, informes de estado, actas y posts para redes — y la entrega en HTML, PDF o PNG. Úsala siempre que alguien pida algo "de Karpay", "de Global Transactions", "de GT", "de fluXOne" o "de Praxis" (incluidas propuestas de staffing, AMS o consultoría de Praxis).
 ---
 
 # Praxis · marca para cualquier pieza
@@ -13,16 +13,28 @@ Claude hace todo: escribe, arma sobre la plantilla, revisa y entrega HTML + PDF.
 |---|---|
 | Global Transactions, GT, Karpay, Instapay, Bre-B para bancos, rieles (FedNow, SPEI, Pix, SEPA) | `global-transactions/` (`--marca gt`) |
 | fluXOne, cobrar/pagar/conciliar/decidir, recaudo para empresas, NexaPay | `fluxone/` (`--marca fluxone`) |
-| Praxis como empresa: staffing, AMS, consultoría, propuestas corporativas, "sobre Praxis" | `praxis/` (`--marca praxis`) — por ahora solo documentos |
+| Praxis como empresa: staffing, AMS, consultoría, propuestas corporativas, "sobre Praxis" | `praxis/` (`--marca praxis`) |
 
 | Pieza | Plantilla (en la carpeta de la marca) | Guía que debes leer (solo esa) |
 |---|---|---|
-| Presentación / deck / slides | `templates/plantilla.html` | `guia-presentaciones.md` |
-| Propuesta, informe, documento largo | `templates/documento.html` (GT: editorial · fluXOne: template aprobado del DS) | `references/documentos.md` |
-| One-pager, ficha de producto, hoja de venta | `templates/one-pager.html` | `references/documentos.md` |
-| Carta, memo, correo formal en PDF, acta | `templates/carta.html` | `references/documentos.md` |
+| Presentación **animada** (HTML) | `templates/presentacion-animada.html` | `nucleo/presentaciones-animadas.md` |
+| Presentación **editable** (PowerPoint / Google Slides) | skill `pptx` o conector de Google Slides | `nucleo/presentaciones-editables.md` |
+| Propuesta, documento largo | `templates/documento.html` | `references/documentos.md` |
+| One-pager, ficha de producto | `templates/one-pager.html` | `references/documentos.md` |
+| Carta, memo | `templates/carta.html` | `references/documentos.md` |
+| Diagrama de flujo / proceso | `templates/flujo.html` | `nucleo/piezas-dia-a-dia.md` |
+| Informe de estado / acta de reunión | `templates/informe-acta.html` | `nucleo/piezas-dia-a-dia.md` |
+| Post o banner para redes | `templates/post-cuadrado.html` (1080×1080) · `post-vertical.html` (1080×1350) | `nucleo/piezas-dia-a-dia.md` |
 
-Si no sabes la marca o la pieza, pregunta **una sola vez** y en una línea. Si piden algo fuera de la tabla (post para redes, banner, invitación), usa la pieza más cercana (one-pager) y avisa en una línea.
+### Presentaciones: pregunta siempre antes
+
+Antes de hacer cualquier presentación pregunta en una línea (con AskUserQuestion si está disponible):
+**¿La quieres animada (HTML que se presenta en el navegador; no se puede editar en PowerPoint) o editable (PowerPoint o Google Slides)?**
+- Animada → plantilla `presentacion-animada.html` de la marca (GT = estilo Redeban, fluXOne = presentación general, Praxis = editorial). Entrega HTML + PDF.
+- Editable → .pptx con la skill `pptx`, o Google Slides si el conector está conectado, con la identidad de `nucleo/presentaciones-editables.md`.
+- `guia-presentaciones.md` (GT, fluXOne) es el método anterior de deck HTML por layouts; úsalo solo si piden un deck HTML a la medida que no encaje en la plantilla animada.
+
+Si no sabes la marca o la pieza, pregunta **una sola vez** y en una línea. Si piden algo fuera de la tabla (invitación, firma de correo), usa la pieza más cercana y avisa en una línea.
 
 ## 2. Brief en una ronda
 
@@ -39,9 +51,9 @@ Cliente, objetivo, a quién va, país, datos con fuente, fecha. **No inventes ci
 ```bash
 python3 <esta-skill>/scripts/armar.py pieza.html --marca gt|fluxone|praxis --salida <carpeta>
 ```
-Genera el HTML único (offline), el PDF y `pieza_revision.png` (todas las páginas en miniatura). **Mira solo esa imagen** para revisar: textos que se salen, choques con imágenes, páginas medio vacías, logos que faltan, `{{…}}`. Corrige y vuelve a correr. En presentaciones, el detalle de revisión está en `guia-presentaciones.md`.
+Genera el HTML único (offline), el PDF y `pieza_revision.png`. Con `--png` además saca un PNG por página (úsalo en posts). Si la pieza es una presentación animada, el PDF sale de capturas de cada paso (todas las páginas en miniatura). **Mira solo esa imagen** para revisar: textos que se salen, choques con imágenes, páginas medio vacías, logos que faltan, `{{…}}`. Corrige y vuelve a correr. En presentaciones, el detalle de revisión está en `guia-presentaciones.md`.
 
-Entrega el PDF (y el HTML si es un deck) como archivos descargables. Nombre: `<Marca>_<Cliente>_<pieza>.pdf`.
+Entrega el PDF (el HTML si es presentación animada, los PNG si son posts) como archivos descargables. Nombre: `<Marca>_<Cliente>_<pieza>.pdf`.
 
 ## Reglas comunes
 

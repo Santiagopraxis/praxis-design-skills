@@ -1,0 +1,79 @@
+<!doctype html>
+<!-- PLANTILLA INFORME DE ESTADO + ACTA DE REUNIÓN (carta; semáforo, avance, riesgos, compromisos) · fluXOne. Copia y reemplaza textos/datos (el logo de cliente de ejemplo es FICTICIO). Arma con: python3 <skill>/scripts/armar.py ARCHIVO.html --marca fluxone -->
+<html lang="es"><head><meta charset="utf-8"><meta name="color-scheme" content="light only">
+<title>fluXOne · Informe de estado y acta</title>
+<style>@page{size:8.5in 11in;margin:0}</style>
+<link rel="stylesheet" href="../nucleo/piezas.css">
+<link rel="stylesheet" href="templates/tema.css"></head><body>
+
+<!-- ===== I1 · Informe de estado (semanal o mensual) ===== -->
+<section class="pz carta">
+  <div class="pz-hd"><img src="assets/logos/fluxone-negro.png" alt="logo" style="height:18px"><span class="lbl">Informe de estado · Semana 47</span><img src="assets/ejemplo/logo-cliente-ejemplo.svg" alt="Cliente"></div>
+  <div class="pz-body" style="left:64px;right:64px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end">
+      <div><p class="k">Implementación fluXOne · Servicios Andinos</p><h1 class="t1" style="margin-top:8px">Informe de <b>estado</b></h1></div>
+      <span class="sem warn">En riesgo</span>
+    </div>
+    <div class="kv2" style="margin-top:18px">
+      <div><span>Periodo</span><b>16 – 20 nov. 2026</b></div>
+      <div><span>Responsable</span><b>Nombre Apellido</b></div>
+      <div><span>Fase</span><b>Configuración</b></div>
+      <div><span>Próximo comité</span><b>27 nov. 2026</b></div>
+    </div>
+    <p class="sec">Resumen</p>
+    <p class="p">Los canales de cobro y las reglas de conciliación avanzan según el plan. La conexión con el ERP espera credenciales del equipo de sistemas y puede mover una semana la salida en vivo.</p>
+    <div class="kpis" style="--n:4;margin-top:16px">
+      <div><b>62%</b><span>Avance de la transición</span></div>
+      <div><b>12</b><span>Incidentes atendidos</span></div>
+      <div><b>100%</b><span>Dentro del tiempo acordado</span></div>
+      <div><b>1</b><span>Riesgo abierto</span></div>
+    </div>
+    <p class="sec">Avance por frente</p>
+    <div class="av"><span>Cobrar · canales</span><span class="bar"><i style="width:85%"></i></span><span class="pc">85%</span><span class="sem ok">Al día</span></div>
+    <div class="av"><span>Conexión con el ERP</span><span class="bar"><i style="width:40%"></i></span><span class="pc">40%</span><span class="sem warn">En riesgo</span></div>
+    <div class="av"><span>Conciliar · reglas</span><span class="bar"><i style="width:75%"></i></span><span class="pc">75%</span><span class="sem ok">Al día</span></div>
+    <div class="av"><span>Tablero de tesorería</span><span class="bar"><i style="width:70%"></i></span><span class="pc">70%</span><span class="sem ok">Al día</span></div>
+    <p class="sec">Riesgos y bloqueos</p>
+    <table class="tb"><tr><th style="width:34%">Riesgo</th><th>Acción</th><th style="width:18%">Responsable</th><th style="width:14%">Fecha</th></tr>
+      <tr><td><b>Credenciales del ERP</b></td><td>Escalar con el líder de infraestructura del banco.</td><td>Servicios Andinos</td><td>24 nov.</td></tr>
+    </table>
+    <p class="sec">Próxima semana</p>
+    <ul class="bl"><li>Activar el cobro por Bre-B y PSE en pruebas.</li><li>Validar las reglas de conciliación con tesorería.</li><li>Presentar el tablero de tesorería.</li></ul>
+  </div>
+  <div class="pz-ft"><span>fluXOne · by Praxis · Confidencial</span><span class="pn">Página 1 de 2</span></div>
+</section>
+
+<!-- ===== A1 · Acta de reunión ===== -->
+<section class="pz carta">
+  <div class="pz-hd"><img src="assets/logos/fluxone-negro.png" alt="logo" style="height:18px"><span class="lbl">Acta de reunión · N.º 004</span><img src="assets/ejemplo/logo-cliente-ejemplo.svg" alt="Cliente"></div>
+  <div class="pz-body" style="left:64px;right:64px">
+    <p class="k">Comité de seguimiento</p>
+    <h1 class="t1" style="margin-top:8px">Acta de <b>reunión</b></h1>
+    <div class="kv2" style="margin-top:18px">
+      <div><span>Fecha</span><b>20 nov. 2026</b></div>
+      <div><span>Hora</span><b>10:00 – 11:00</b></div>
+      <div><span>Lugar</span><b>Microsoft Teams</b></div>
+      <div><span>Elaboró</span><b>Nombre Apellido</b></div>
+    </div>
+    <p class="sec">Asistentes</p>
+    <table class="tb"><tr><th>Nombre</th><th>Cargo</th><th>Empresa</th></tr>
+      <tr><td><b>Nombre Apellido</b></td><td>Gerente financiera</td><td>Servicios Andinos</td></tr>
+      <tr><td><b>Nombre Apellido</b></td><td>Líder de sistemas</td><td>Servicios Andinos</td></tr>
+      <tr><td><b>Nombre Apellido</b></td><td>Gerente de cuenta</td><td>fluXOne</td></tr>
+      <tr><td><b>Nombre Apellido</b></td><td>Líder de implementación</td><td>fluXOne</td></tr>
+    </table>
+    <p class="sec">Temas tratados</p>
+    <ul class="bl"><li>Avance de la configuración por pilar.</li><li>Credenciales pendientes del ERP.</li><li>Formato del tablero de tesorería.</li></ul>
+    <p class="sec">Decisiones</p>
+    <ul class="bl"><li><b>Se aprueba</b> el formato del tablero de tesorería presentado por fluXOne.</li><li><b>Se acuerda</b> mover la salida en vivo al 1 de diciembre si las credenciales no están listas el 24 de noviembre.</li></ul>
+    <p class="sec">Compromisos</p>
+    <table class="tb"><tr><th>Compromiso</th><th style="width:22%">Responsable</th><th style="width:16%">Fecha</th><th style="width:14%">Estado</th></tr>
+      <tr><td>Entregar credenciales del ERP</td><td>Servicios Andinos</td><td>24 nov.</td><td><span class="sem warn" style="font-size:9px;padding:3px 8px">Abierto</span></td></tr>
+      <tr><td>Enviar las reglas de conciliación</td><td>fluXOne</td><td>27 nov.</td><td><span class="sem warn" style="font-size:9px;padding:3px 8px">Abierto</span></td></tr>
+      <tr><td>Compartir el catálogo de facturas</td><td>Servicios Andinos</td><td>18 nov.</td><td><span class="sem ok" style="font-size:9px;padding:3px 8px">Cerrado</span></td></tr>
+    </table>
+    <p class="small" style="margin-top:14px">Próxima reunión: 27 de noviembre de 2026, 10:00. Si no hay observaciones en 2 días hábiles, el acta se da por aprobada.</p>
+  </div>
+  <div class="pz-ft"><span>fluXOne · by Praxis · Confidencial</span><span class="pn">Página 2 de 2</span></div>
+</section>
+</body></html>

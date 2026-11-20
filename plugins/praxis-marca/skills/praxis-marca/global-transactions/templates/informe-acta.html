@@ -1,0 +1,79 @@
+<!doctype html>
+<!-- PLANTILLA INFORME DE ESTADO + ACTA DE REUNIÓN (carta; semáforo, avance, riesgos, compromisos) · GT. Copia y reemplaza textos/datos (el logo de cliente de ejemplo es FICTICIO). Arma con: python3 <skill>/scripts/armar.py ARCHIVO.html --marca gt -->
+<html lang="es"><head><meta charset="utf-8"><meta name="color-scheme" content="light only">
+<title>Global Transactions · Informe de estado y acta</title>
+<style>@page{size:8.5in 11in;margin:0}</style>
+<link rel="stylesheet" href="../nucleo/piezas.css">
+<link rel="stylesheet" href="templates/tema.css"></head><body>
+
+<!-- ===== I1 · Informe de estado (semanal o mensual) ===== -->
+<section class="pz carta">
+  <div class="pz-hd"><img src="assets/logos/global-transactions-color.png" alt="logo" ><span class="lbl">Informe de estado · Semana 47</span><img src="assets/ejemplo/logo-cliente-ejemplo.svg" alt="Cliente"></div>
+  <div class="pz-body" style="left:64px;right:64px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end">
+      <div><p class="k">Participante Indirecto · Banco Andino</p><h1 class="t1" style="margin-top:8px">Informe de <b>estado</b></h1></div>
+      <span class="sem warn">En riesgo</span>
+    </div>
+    <div class="kv2" style="margin-top:18px">
+      <div><span>Periodo</span><b>16 – 20 nov. 2026</b></div>
+      <div><span>Responsable</span><b>Nombre Apellido</b></div>
+      <div><span>Fase</span><b>Integración</b></div>
+      <div><span>Próximo comité</span><b>27 nov. 2026</b></div>
+    </div>
+    <p class="sec">Resumen</p>
+    <p class="p">La consultoría está cerrada y la integración con el SPBVI avanza. El acceso al ambiente de pruebas del core sigue pendiente y puede mover la ventana de certificación.</p>
+    <div class="kpis" style="--n:4;margin-top:16px">
+      <div><b>68%</b><span>Avance de la transición</span></div>
+      <div><b>12</b><span>Incidentes atendidos</span></div>
+      <div><b>100%</b><span>Dentro del tiempo acordado</span></div>
+      <div><b>1</b><span>Riesgo abierto</span></div>
+    </div>
+    <p class="sec">Avance por frente</p>
+    <div class="av"><span>Consultoría</span><span class="bar"><i style="width:85%"></i></span><span class="pc">85%</span><span class="sem ok">Al día</span></div>
+    <div class="av"><span>Integración con el SPBVI</span><span class="bar"><i style="width:40%"></i></span><span class="pc">40%</span><span class="sem warn">En riesgo</span></div>
+    <div class="av"><span>Módulo de participación</span><span class="bar"><i style="width:75%"></i></span><span class="pc">75%</span><span class="sem ok">Al día</span></div>
+    <div class="av"><span>Plan de certificación</span><span class="bar"><i style="width:70%"></i></span><span class="pc">70%</span><span class="sem ok">Al día</span></div>
+    <p class="sec">Riesgos y bloqueos</p>
+    <table class="tb"><tr><th style="width:34%">Riesgo</th><th>Acción</th><th style="width:18%">Responsable</th><th style="width:14%">Fecha</th></tr>
+      <tr><td><b>Acceso al ambiente de pruebas del core</b></td><td>Escalar con el líder de infraestructura del banco.</td><td>Banco Andino</td><td>24 nov.</td></tr>
+    </table>
+    <p class="sec">Próxima semana</p>
+    <ul class="bl"><li>Cerrar la transferencia de conocimiento de canales digitales.</li><li>Iniciar la línea base de indicadores del servicio.</li><li>Presentar el primer informe de niveles de servicio.</li></ul>
+  </div>
+  <div class="pz-ft"><span>Global Transactions · Powered by Karpay · Confidencial</span><span class="pn">Página 1 de 2</span></div>
+</section>
+
+<!-- ===== A1 · Acta de reunión ===== -->
+<section class="pz carta">
+  <div class="pz-hd"><img src="assets/logos/global-transactions-color.png" alt="logo" ><span class="lbl">Acta de reunión · N.º 004</span><img src="assets/ejemplo/logo-cliente-ejemplo.svg" alt="Cliente"></div>
+  <div class="pz-body" style="left:64px;right:64px">
+    <p class="k">Comité de seguimiento</p>
+    <h1 class="t1" style="margin-top:8px">Acta de <b>reunión</b></h1>
+    <div class="kv2" style="margin-top:18px">
+      <div><span>Fecha</span><b>20 nov. 2026</b></div>
+      <div><span>Hora</span><b>10:00 – 11:00</b></div>
+      <div><span>Lugar</span><b>Microsoft Teams</b></div>
+      <div><span>Elaboró</span><b>Nombre Apellido</b></div>
+    </div>
+    <p class="sec">Asistentes</p>
+    <table class="tb"><tr><th>Nombre</th><th>Cargo</th><th>Empresa</th></tr>
+      <tr><td><b>Nombre Apellido</b></td><td>Gerente de TI</td><td>Banco Andino</td></tr>
+      <tr><td><b>Nombre Apellido</b></td><td>Líder de canales</td><td>Banco Andino</td></tr>
+      <tr><td><b>Nombre Apellido</b></td><td>Gerente de cuenta</td><td>Praxis</td></tr>
+      <tr><td><b>Nombre Apellido</b></td><td>Líder técnico AMS</td><td>Praxis</td></tr>
+    </table>
+    <p class="sec">Temas tratados</p>
+    <ul class="bl"><li>Avance de la transición por aplicación.</li><li>Acceso pendiente al ambiente de pruebas del core.</li><li>Formato del informe mensual de niveles de servicio.</li></ul>
+    <p class="sec">Decisiones</p>
+    <ul class="bl"><li><b>Se aprueba</b> el formato del informe mensual presentado por Praxis.</li><li><b>Se acuerda</b> mover el inicio de la estabilización del core al 1 de diciembre si el acceso no está listo el 24 de noviembre.</li></ul>
+    <p class="sec">Compromisos</p>
+    <table class="tb"><tr><th>Compromiso</th><th style="width:22%">Responsable</th><th style="width:16%">Fecha</th><th style="width:14%">Estado</th></tr>
+      <tr><td>Habilitar acceso al ambiente de pruebas del core</td><td>Banco Andino</td><td>24 nov.</td><td><span class="sem warn" style="font-size:9px;padding:3px 8px">Abierto</span></td></tr>
+      <tr><td>Enviar la línea base de indicadores</td><td>Praxis</td><td>27 nov.</td><td><span class="sem warn" style="font-size:9px;padding:3px 8px">Abierto</span></td></tr>
+      <tr><td>Compartir el inventario de aplicaciones</td><td>Banco Andino</td><td>18 nov.</td><td><span class="sem ok" style="font-size:9px;padding:3px 8px">Cerrado</span></td></tr>
+    </table>
+    <p class="small" style="margin-top:14px">Próxima reunión: 27 de noviembre de 2026, 10:00. Si no hay observaciones en 2 días hábiles, el acta se da por aprobada.</p>
+  </div>
+  <div class="pz-ft"><span>Global Transactions · Powered by Karpay · Confidencial</span><span class="pn">Página 2 de 2</span></div>
+</section>
+</body></html>

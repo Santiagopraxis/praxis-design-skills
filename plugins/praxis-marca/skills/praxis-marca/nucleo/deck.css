@@ -1,0 +1,35 @@
+/* Motor de presentación animada (tomado del deck de Redeban). Lienzo 1920×1080 escalado a la ventana.
+   Uso: <div id="vp"><div id="stage"> <section class="slide">…</section> … </div></div> + hud + deck.js
+   Animación de entrada: data-build-in="rise 2"  (tipo: fade | rise | pop | scale | right | left ; número = orden)
+   Línea que se dibuja: class="draw" (horizontal) o "draw-v" (vertical), con data-build-in para el orden. */
+html,body{margin:0;height:100%;background:#0d0816;overflow:hidden}
+#vp{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#stage{position:relative;width:1920px;height:1080px;flex:none;transform-origin:center center}
+.slide{position:absolute;inset:0;width:1920px;height:1080px;box-sizing:border-box;overflow:hidden;opacity:0;visibility:hidden;transition:opacity .5s ease,visibility 0s linear .5s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .5s ease}
+.slide *{box-sizing:border-box}
+.slide :where(p,h1,h2,h3,ul,ol){margin:0}
+.slide .a{position:absolute}
+#hud{position:fixed;right:16px;bottom:12px;font:13px/1 -apple-system,Helvetica,Arial,sans-serif;color:#cbc3dc;opacity:.55;transition:opacity .3s;display:flex;gap:8px;align-items:center;user-select:none;z-index:9}
+body:hover #hud{opacity:.85}
+#hud button{background:#1a2347;color:#f6f6f9;border:1px solid #3d4a7a;border-radius:6px;padding:6px 10px;cursor:pointer;font:inherit}
+@keyframes bi-fade{from{opacity:0}to{opacity:1}}
+@keyframes bi-rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes bi-pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+@keyframes bi-scale{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+@keyframes bi-right{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes bi-left{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0 0 0 0)}}
+@keyframes bi-down{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+.slide.on [data-bi]{animation-duration:.9s;animation-fill-mode:both;animation-timing-function:cubic-bezier(.16,1,.3,1)}
+.slide.on .draw[data-bi]{animation-name:bi-right !important;animation-duration:1.4s}
+.slide.on .draw-v[data-bi]{animation-name:bi-down !important;animation-duration:1.2s}
+@media (prefers-reduced-motion:reduce){.slide.on [data-bi]{animation:none !important}}
+/* PDF: una diapositiva por página */
+@page{size:1920px 1080px;margin:0}
+@media print{
+  html,body{height:auto;overflow:visible;background:none}
+  #vp{position:static;display:block} #stage{transform:none !important;width:auto;height:auto}
+  .slide{position:relative;opacity:1;visibility:visible;break-after:page;page-break-after:always}
+  .slide [data-bi]{animation:none !important;opacity:1 !important;transform:none !important;clip-path:none !important}
+  #hud{display:none}
+}

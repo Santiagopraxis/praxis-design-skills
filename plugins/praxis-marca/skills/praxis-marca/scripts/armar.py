@@ -36,7 +36,11 @@ def main():
     if '--sin-pdf' in a:
         return
     pdf = os.path.join(out, name + '.pdf')
-    subprocess.run([sys.executable, os.path.join(root, 'scripts', 'exportar.py'), html, '--pdf', pdf], check=True)
+    if 'class="slide' in open(html, encoding='utf-8', errors='ignore').read():
+        # presentación animada: captura cada vista ya animada (1920×1080)
+        subprocess.run([sys.executable, os.path.join(AQUI, 'scripts', 'deck_pdf.py'), html, pdf], check=True)
+    else:
+        subprocess.run([sys.executable, os.path.join(root, 'scripts', 'exportar.py'), html, '--pdf', pdf], check=True)
     if '--png' in a and shutil.which('pdftoppm'):
         subprocess.run(['pdftoppm', '-r', '96', '-png', pdf, os.path.join(out, name)], stderr=subprocess.DEVNULL)
         print('PNG →', out, '(%s-N.png)' % name)
