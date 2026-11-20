@@ -1,0 +1,89 @@
+/* ============================================================================
+   fluXOne — DOCUMENTOS (réplica fiel de la plantilla aprobada del design system:
+   assets/design-system/plantillas-documentos/propuesta-comercial-co)
+   Hoja A4 = 794×1123 px. Cada <section class="pc-page"> es UNA página fija.
+   Portada: tarjeta gris con líneas de flujo. Internas: franja de vidrio arriba,
+   pie "Fluye a tu manera" + logo. Solo logos: sin etiquetas de jerarquía.
+   ============================================================================ */
+@font-face{font-family:'Jakarta FX';font-weight:200;src:url(../assets/fuentes/PlusJakartaSans-ExtraLight.ttf) format('truetype')}
+@font-face{font-family:'Jakarta FX';font-weight:300;src:url(../assets/fuentes/PlusJakartaSans-Light.ttf) format('truetype')}
+@font-face{font-family:'Jakarta FX';font-weight:400;src:url(../assets/fuentes/PlusJakartaSans-Regular.ttf) format('truetype')}
+@font-face{font-family:'Jakarta FX';font-weight:500;src:url(../assets/fuentes/PlusJakartaSans-Medium.ttf) format('truetype')}
+@font-face{font-family:'Jakarta FX';font-weight:600;src:url(../assets/fuentes/PlusJakartaSans-SemiBold.ttf) format('truetype')}
+:root{
+  --f:'Plus Jakarta Sans','Jakarta FX',Arial,sans-serif;
+  --ink:#0a0a0a; --ink2:rgba(10,10,10,.72); --ink3:rgba(10,10,10,.5); --ink4:rgba(10,10,10,.4); --line:#eee;
+  --cobrar:#3cb8eb; --cobrar-t:#1e9fd6; --conciliar:#ab4b96; --pagar:#f5b5d2; --pagar-t:#c9679a; --decidir:#4e154f;
+  /* escala fija de documentos del DS: título 30 · subtítulo 14 · cuerpo 12 · denso 10 */
+  --doc-title:600 30px/1.2 var(--f); --doc-sub:600 14px/1.4 var(--f); --doc-body:400 12px/1.65 var(--f); --doc-dense:400 10px/1.5 var(--f);
+  color-scheme:light;
+}
+@page{size:A4;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;background:#d9d9dc}
+body{font-family:var(--f);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pc-page{width:794px;height:1123px;background:#fff;position:relative;overflow:hidden;margin:24px auto;box-shadow:0 4px 24px rgba(0,0,0,.12)}
+@media print{html,body{background:none}.pc-page{margin:0;box-shadow:none;break-after:page;page-break-after:always}}
+.pc-page h1{margin:0}
+
+/* ---------- Portada ---------- */
+.pc-cover{background:#ececec}
+.pc-cover .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.pc-cover .in{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;padding:90px}
+.pc-cover .tt{font-weight:200;font-size:46px;line-height:1.15;color:#1a1a1a;text-transform:uppercase;letter-spacing:.01em}
+.pc-cover .sub{font:var(--doc-body);color:rgba(10,10,10,.65);max-width:34ch;margin-top:20px}
+.pc-cover .for{font:500 11px/1 var(--f);letter-spacing:.16em;text-transform:uppercase;color:var(--cobrar-t);margin-bottom:18px}
+.pc-cover .meta{position:absolute;bottom:70px;left:70px;font:400 12px/1.4 var(--f);color:rgba(10,10,10,.5)}
+.pc-cover .lg{position:absolute;bottom:68px;right:70px;display:flex;align-items:center;gap:18px}
+.pc-cover .lg img{height:20px;width:auto}
+
+/* ---------- Encabezado / pie de páginas internas ---------- */
+.pc-header{width:100%;height:90px;background:url(../assets/documentos/encabezado-vidrio.jpg) center/cover no-repeat;position:relative}
+.pc-doclabel{position:absolute;top:50%;right:56px;transform:translateY(-50%);font:300 12px/1 var(--f);letter-spacing:.22em;text-transform:uppercase;color:#0a0a0a}
+.pc-footer{width:100%;height:70px;background:url(../assets/documentos/pie-fluye.jpg) center/cover no-repeat;position:absolute;left:0;bottom:0}
+.pc-folio{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font:500 10px/1 var(--f);color:var(--ink4);letter-spacing:.1em}
+.pc-body{padding:28px 56px 40px}
+
+/* ---------- Tipografía ---------- */
+.pc-h2{font:var(--doc-title);color:var(--ink);margin:0 0 12px;letter-spacing:-.01em}
+.pc-h2 small{font-weight:400;color:var(--ink3);font-size:13px}
+.pc-h3{font:var(--doc-sub);color:var(--ink);margin:20px 0 8px}
+.pc-p{font:var(--doc-body);color:var(--ink2);margin:0 0 12px}
+.pc-li{font:var(--doc-body);color:var(--ink2);margin-bottom:5px;padding-left:14px;position:relative}
+.pc-li::before{content:"•";position:absolute;left:0}
+.pc-note{font:var(--doc-dense);color:var(--ink3);margin:6px 0 16px}
+.c-cobrar{color:var(--cobrar-t)} .c-conciliar{color:var(--conciliar)} .c-pagar{color:var(--pagar-t)} .c-decidir{color:var(--decidir)}
+
+/* ---------- Tabla de contenidos ---------- */
+.toc .l1{display:flex;align-items:baseline;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line);font:600 17px/1.3 var(--f)}
+.toc .l1 span:last-child{font:500 14px/1 var(--f);color:var(--ink4)}
+.toc .l2{padding:10px 0 10px 24px;font:400 14px/1.5 var(--f);color:rgba(10,10,10,.65)}
+.toc .l3{padding:10px 0 10px 48px;font:400 13px/1.5 var(--f);color:rgba(10,10,10,.55)}
+.toc .end{border-bottom:1px solid var(--line)}
+
+/* ---------- Tabla ---------- */
+.pc-table{width:100%;border-collapse:collapse;margin:12px 0 18px;border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.05);border:1px solid rgba(10,10,10,.06)}
+.pc-table th{background:rgba(60,184,235,.08);color:var(--ink);font:600 11px/1.3 var(--f);text-align:left;padding:13px 16px;letter-spacing:.04em;text-transform:uppercase;border-bottom:2px solid var(--cobrar)}
+.pc-table td{border-bottom:1px solid #f0f0f0;font:var(--doc-body);padding:13px 16px;color:var(--ink)}
+.pc-table tr:last-child td{border-bottom:none}
+.pc-table tr:nth-child(even) td{background:#fafbfc}
+
+/* ---------- Etiqueta de país / pilar ---------- */
+.pc-tag{display:inline-flex;align-items:center;gap:6px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:11px;margin-bottom:8px;padding:5px 10px;border-radius:999px;background:rgba(0,0,0,.04);color:var(--cobrar)}
+.pc-tag::before{content:"";width:6px;height:6px;border-radius:999px;background:currentColor}
+
+/* ---------- Pilares y cifras (para one-pager y secciones de solución) ---------- */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:8px 0 6px}
+.pillar{border-top:2px solid var(--ink);padding-top:10px}
+.pillar b{display:block;font:600 11px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.pillar p{font:var(--doc-body);color:var(--ink2)}
+.pillar.cobrar{border-color:var(--cobrar)} .pillar.cobrar b{color:var(--cobrar-t)}
+.pillar.conciliar{border-color:var(--conciliar)} .pillar.conciliar b{color:var(--conciliar)}
+.pillar.pagar{border-color:var(--pagar)} .pillar.pagar b{color:var(--pagar-t)}
+.pillar.decidir{border-color:var(--decidir)} .pillar.decidir b{color:var(--decidir)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0}
+.stat .n{font:200 40px/1 var(--f);letter-spacing:-.04em;color:var(--ink)}
+.stat .n small{font-size:14px;font-weight:400;color:var(--cobrar-t);margin-left:3px;letter-spacing:0}
+.stat .d{font:var(--doc-dense);color:var(--ink3);margin-top:6px}
+.pays{display:flex;align-items:center;gap:34px;padding:14px 0}
+.pays img{height:24px;width:auto}
