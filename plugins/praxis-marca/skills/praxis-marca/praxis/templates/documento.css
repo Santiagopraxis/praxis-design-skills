@@ -43,7 +43,7 @@ body{font-family:var(--f);color:var(--ink);-webkit-print-color-adjust:exact;prin
 .cover .meta span{display:block;font-size:8.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink4)}
 .cover .meta b{display:block;font-size:12px;font-weight:400;color:var(--ink);margin-top:5px}
 .cover .band{position:absolute;left:0;right:0;bottom:0;height:150px;background:var(--nv2)}
-.cover .city{position:absolute;left:0;bottom:150px;width:560px;opacity:.9}
+.cover .city{position:absolute;left:0;bottom:145px;width:560px;display:block;opacity:.9}
 .cover .band p{position:absolute;left:var(--ml);right:var(--mr);bottom:40px;display:flex;justify-content:space-between;font-size:9.5px;color:#aeb6cc;letter-spacing:.3px}
 .cover .band p b{color:#fff;font-weight:700}
 
