@@ -63,3 +63,4 @@ Encabezado interno `.hd` (Praxis + "Global Transactions · Tipo") y pie `.ft` (f
 - Los números de sección y las cifras van en peso ligero y morado; las tablas con regla negra arriba y hairlines.
 - Figuras siempre con pie "Figura N"; cifras siempre con fuente en `.note`.
 - Si es muestra o borrador, dilo en la portada.
+- **Sin rosados ni lilas.** Nada de lavanda (`#efe9f7`, `#d8cbef`) en fondos, barras o etiquetas: se ven rosados al imprimir. Paneles en gris frío `#f2f3f6`; estados con `.tag` de contorno (sin fondo de color); texto secundario sobre morado en `#cbc3dc`.

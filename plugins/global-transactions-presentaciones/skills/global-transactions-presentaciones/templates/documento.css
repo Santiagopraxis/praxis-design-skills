@@ -11,7 +11,7 @@
 @font-face{font-family:'Inter GT';font-weight:500;src:url(../assets/fuentes/Inter-500.woff2) format('woff2')}
 @font-face{font-family:'Inter GT';font-weight:700;src:url(../assets/fuentes/Inter-700.woff2) format('woff2')}
 :root{
-  --p950:#241542; --p900:#2e1c58; --p800:#3d2472; --p600:#5c2d91; --p400:#8b6bc0; --p200:#d8cbef; --p100:#efe9f7; --p50:#f6f2fb;
+  --p950:#241542; --p900:#2e1c58; --p800:#3d2472; --p600:#5c2d91; --p400:#8b6bc0; --p200:#d8cbef; --p100:#efe9f7; --p50:#f2f3f6;
   --teal:#3dbfa0; --teal7:#157a68; --teal1:#e3f6f0;
   --paper:#fbfbfc; --white:#fff; --ink:#1c1626; --ink7:#3e3849; --ink5:#6c6677; --ink3:#aca8b3; --rule:#e2e1e6; --sunk:#f3f2f6;
   --inv:#f6f6f9; --invm:#cbc3dc; --warn:#b86a12; --crit:#c8213a;
@@ -54,7 +54,7 @@ body{font-family:var(--hf);color:var(--ink);-webkit-print-color-adjust:exact;pri
 
 /* ---------- Tipografía ---------- */
 .eyebrow{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--p600)}
-.eyebrow.mute{color:var(--ink5)} .dark .eyebrow{color:var(--p200)}
+.eyebrow.mute{color:var(--ink5)} .dark .eyebrow{color:var(--invm)}
 .secnum{font-size:112px;font-weight:300;letter-spacing:-6px;line-height:.8;color:var(--p600);margin-left:-5px}
 .title{font-size:34px;font-weight:300;letter-spacing:-1.2px;line-height:1.08}
 .title b{font-weight:700}
@@ -110,8 +110,8 @@ table.t img{height:15px;width:auto;display:block}
 
 /* ---------- Estado (único lugar con color de estado) ---------- */
 .tag{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 7px;border-radius:3px;white-space:nowrap}
-.tag.p{background:var(--p100);color:var(--p600)} .tag.ok{background:var(--teal1);color:var(--teal7)}
-.tag.w{background:#fbefdf;color:var(--warn)} .tag.c{background:#fbe3e6;color:var(--crit)}
+.tag{background:transparent;border:1px solid currentColor}
+.tag.p{color:var(--p600)} .tag.ok{color:var(--teal7)} .tag.w{color:var(--warn)} .tag.c{color:var(--crit)}
 
 /* ---------- Figura sobre panel ---------- */
 .panel{background:var(--p50);border-radius:4px;padding:22px}
@@ -128,13 +128,13 @@ table.t img{height:15px;width:auto;display:block}
 .route .stop p{font-size:10px;line-height:1.45;color:var(--ink7)}
 
 /* Arquitectura en capas */
-.layers .ly{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(92,45,145,.18)}
+.layers .ly{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule)}
 .layers .ly:first-child{border-top:1.5px solid var(--p600)}
 .layers .ly .k{font-size:8.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--p600)}
 .layers .chips{display:flex;flex-wrap:wrap;gap:6px}
-.layers .chips span{font-size:10px;padding:5px 9px;border:1px solid rgba(92,45,145,.28);border-radius:3px;color:var(--ink);background:var(--white)}
+.layers .chips span{font-size:10px;padding:5px 9px;border:1px solid #d5d4db;border-radius:3px;color:var(--ink);background:var(--white)}
 .layers .ly.core{background:var(--p950);margin:0 -22px;padding:14px 22px;border-bottom:0}
-.layers .ly.core .k{color:var(--p200)}
+.layers .ly.core .k{color:var(--invm)}
 .layers .ly.core .chips span{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:var(--inv)}
 
 /* Gantt editorial */
@@ -144,5 +144,5 @@ table.t img{height:15px;width:auto;display:block}
 .gantt .row b{font-size:12px} .gantt .row em{display:block;font-style:normal;font-size:9.5px;color:var(--ink5);margin-top:2px}
 .gantt .track{position:relative;height:100%}
 .gantt .track i{position:absolute;top:50%;height:10px;margin-top:-5px;background:var(--p600);border-radius:1px}
-.gantt .track i.lt{background:var(--p200)} .gantt .track i.t{background:var(--teal)}
+.gantt .track i.lt{background:repeating-linear-gradient(135deg,var(--p600) 0 4px,#7a52a8 4px 8px)} .gantt .track i.t{background:var(--teal)}
 .gantt .track u{position:absolute;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;transform:rotate(45deg);background:var(--teal7)}
