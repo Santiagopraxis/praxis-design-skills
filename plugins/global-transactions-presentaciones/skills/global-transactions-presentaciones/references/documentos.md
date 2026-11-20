@@ -31,7 +31,7 @@ Margen 64 · columna de margen 148 (x = 64) · medianil 28 · columna principal 
 | E5 | Arquitectura | `.panel.layers` (capas con chips; la capa Karpay en morado) + tabla de rieles con logos |
 | E6 | Plan | `.gantt` por semanas + tabla de entregables + gobierno |
 | E7 | Alcance y riesgos | Dos listas `ol.num` (incluido / no incluido), supuestos `ul.dash`, tabla de riesgos con `.tag` |
-| E8 | Contraportada | Imagen a medio alto, próximos pasos con fecha, escalera de marca en blanco, "Preparado para {Cliente}" |
+| E8 | Contraportada | Imagen a 600 px de alto con el título "Próximos pasos" sobre la zona oscura izquierda (nunca dejar esa zona vacía), pasos con fecha, escalera de marca en blanco, "Preparado para {Cliente}" |
 
 Encabezado interno `.hd` (Praxis + "Global Transactions · Tipo") y pie `.ft` (folio grande, nombre del documento, GT + Karpay).
 
