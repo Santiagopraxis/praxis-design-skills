@@ -1,0 +1,51 @@
+<!doctype html>
+<!-- PLANTILLA FLUJOS Y PROCESOS (hoja horizontal: fases, carriles) Praxis. Copia y reemplaza textos/datos (el logo de cliente de ejemplo es FICTICIO). Arma con: python3 <skill>/scripts/armar.py ARCHIVO.html --marca praxis  -->
+<html lang="es"><head><meta charset="utf-8"><meta name="color-scheme" content="light only">
+<title>Praxis · Flujos y procesos</title>
+<style>@page{size:11in 8.5in;margin:0}</style>
+<link rel="stylesheet" href="../nucleo/piezas.css">
+<link rel="stylesheet" href="templates/tema.css"></head><body>
+
+<!-- ===== F1 · Proceso en fases (hasta 7 pasos en una fila) ===== -->
+<section class="pz apaisado">
+  <img class="deco-ciudad" src="assets/graficos/ciudad-lineal.png" alt="" style="--w:430px;bottom:58px;left:auto;right:0;opacity:.55">
+  <div class="pz-hd"><img src="assets/logos/praxis-color.png" alt="Praxis"><span class="lbl">Proceso · Staffing</span></div>
+  <div class="pz-body">
+    <p class="k">Cómo trabajamos</p>
+    <h1 class="t1" style="margin-top:8px">Proceso de <b>reclutamiento de TI</b></h1>
+    <p class="lead" style="margin-top:10px;max-width:640px">Siete pasos desde la definición del perfil hasta que el profesional se integra al equipo del cliente.</p>
+    <div class="fases" style="--n:7;margin-top:70px">
+      <div class="fase on"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div><p class="num">01</p><h3>Planeación</h3><p>Perfiles, competencias y nivel de experiencia según el proyecto.</p></div>
+      <div class="fase"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></div><p class="num">02</p><h3>Búsqueda</h3><p>Bases internas, LinkedIn, portales y aliados de reclutamiento.</p></div>
+      <div class="fase"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg></div><p class="num">03</p><h3>Filtro</h3><p>Revisión de hojas de vida por ajuste técnico y cultural.</p></div>
+      <div class="fase"><div class="ico"><svg viewBox="0 0 24 24"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 6l-2 12"/></svg></div><p class="num">04</p><h3>Prueba técnica</h3><p>Pruebas de código y entrevista con líderes técnicos.</p></div>
+      <div class="fase"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 19c.8-3 3.2-5 6-5s5.2 2 6 5M15 15c2.4 0 4.3 1.4 5 4"/></svg></div><p class="num">05</p><h3>Entrevista</h3><p>Habilidades blandas, comunicación y alineación con valores.</p></div>
+      <div class="fase"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></div><p class="num">06</p><h3>Oferta</h3><p>Evaluación integral y propuesta competitiva al candidato.</p></div>
+      <div class="fase"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3c3 2 5 5 5 9l-2 3H9l-2-3c0-4 2-7 5-9z"/><path d="M9 15l-2 4 3-1M15 15l2 4-3-1"/><circle cx="12" cy="9" r="1.5"/></svg></div><p class="num">07</p><h3>Integración</h3><p>Equipos, accesos, mentoría y entrada al proyecto.</p></div>
+    </div>
+    <div class="a" style="left:0;right:0;bottom:16px;display:flex;justify-content:space-between;align-items:flex-end">
+      <p class="small" style="max-width:520px">Tiempo de referencia por perfil: [x] semanas desde la aprobación del requerimiento. Ajustar según el nivel de seniority.</p>
+    </div>
+  </div>
+  <div class="pz-ft"><span>Praxis · Uso interno y de clientes</span><span class="pn">1 / 2</span></div>
+</section>
+
+<!-- ===== F2 · Carriles: quién hace qué ===== -->
+<section class="pz apaisado">
+  <img class="deco-ciudad" src="assets/graficos/ciudad-lineal.png" alt="" style="--w:430px;bottom:58px;left:auto;right:0;opacity:.55">
+  <div class="pz-hd"><img src="assets/logos/praxis-color.png" alt="Praxis"><span class="lbl">Flujo · Servicio AMS</span></div>
+  <div class="pz-body">
+    <p class="k">Modelo de atención</p>
+    <h1 class="t1" style="margin-top:8px">Cómo se atiende <b>un incidente</b></h1>
+    <p class="lead" style="margin-top:10px;max-width:640px">Responsabilidades del cliente y de Praxis desde el reporte hasta el cierre con causa raíz.</p>
+    <div class="lanes" style="--c:5;margin-top:40px">
+      <div class="time"><span>Responsable</span><div class="ar"></div></div>
+      <div class="lane"><div class="who">Cliente</div><div class="st" style="grid-column:2"><b>1</b>Reporta el incidente en la mesa de servicio</div><div class="st" style="grid-column:6"><b>5</b>Valida la solución y aprueba el cierre</div></div>
+      <div class="lane"><div class="who b2">Gerente de cuenta Praxis</div><div class="st b2" style="grid-column:3"><b>2</b>Clasifica la prioridad y asigna el equipo</div></div>
+      <div class="lane"><div class="who">Equipo AMS Praxis</div><div class="st" style="grid-column:4"><b>3</b>Diagnostica y corrige el incidente</div><div class="st" style="grid-column:5"><b>4</b>Documenta la causa raíz y la entrega</div></div>
+    </div>
+    <p class="small" style="margin-top:16px">Tiempos de respuesta y solución según la prioridad acordada en el contrato.</p>
+  </div>
+  <div class="pz-ft"><span>Praxis · Uso interno y de clientes</span><span class="pn">2 / 2</span></div>
+</section>
+</body></html>

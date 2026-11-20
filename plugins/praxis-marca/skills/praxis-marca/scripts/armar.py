@@ -2,12 +2,13 @@
 """Un solo paso: empaqueta la pieza (HTML offline), exporta el PDF y crea una hoja de revisión.
 
 Uso:
-  python3 scripts/armar.py PIEZA.html --marca gt|fluxone|praxis [--salida carpeta] [--sin-pdf]
+  python3 scripts/armar.py PIEZA.html --marca gt|fluxone|praxis [--salida carpeta] [--sin-pdf] [--png]
 
 Genera en la carpeta de salida (por defecto, junto a la pieza):
   <nombre>.html   → archivo único, funciona sin internet
   <nombre>.pdf    → para enviar/imprimir (decks: 1 diapositiva por página; documentos: carta)
   <nombre>_revision.png → todas las páginas en miniatura; MÍRALA antes de entregar
+  --png → además, una imagen PNG por página a tamaño real (posts: 1080×1080 o 1080×1350)
 Revisar UNA imagen de miniaturas cuesta mucho menos que abrir cada página.
 """
 import os, subprocess, sys, glob, shutil, tempfile
@@ -36,6 +37,9 @@ def main():
         return
     pdf = os.path.join(out, name + '.pdf')
     subprocess.run([sys.executable, os.path.join(root, 'scripts', 'exportar.py'), html, '--pdf', pdf], check=True)
+    if '--png' in a and shutil.which('pdftoppm'):
+        subprocess.run(['pdftoppm', '-r', '96', '-png', pdf, os.path.join(out, name)], stderr=subprocess.DEVNULL)
+        print('PNG →', out, '(%s-N.png)' % name)
     # hoja de revisión (miniaturas)
     if shutil.which('pdftoppm'):
         tmp = tempfile.mkdtemp()

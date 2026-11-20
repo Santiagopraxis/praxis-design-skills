@@ -1,0 +1,136 @@
+/* ============================================================================
+   PIEZAS DEL DÍA A DÍA — estructura compartida por las tres marcas
+   (flujos y procesos · informe de estado y acta · posts para redes)
+   La marca la pone el tema de cada carpeta: <marca>/templates/tema.css
+   (colores, fuente, logos y decoración). Aquí NO va ningún color fijo.
+   Variables que define cada tema:
+     --brand (acento), --brand2 (acento secundario), --dark (superficie oscura),
+     --paper (fondo), --ink / --ink2 / --ink3 (texto), --line, --soft,
+     --ok / --warn / --bad (estados), --f (fuente), --wb (peso negrita)
+   ============================================================================ */
+*{box-sizing:border-box}
+html,body{margin:0;background:#d8d9de}
+body{font-family:var(--f);color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pz{position:relative;background:var(--paper);overflow:hidden;margin:24px auto;box-shadow:0 6px 28px rgba(0,0,0,.14)}
+.pz :where(p,h1,h2,h3,ul,ol,table){margin:0}
+.pz.carta{width:816px;height:1056px}
+.pz.apaisado{width:1056px;height:816px}
+.pz.post{width:1080px;height:1080px}
+.pz.post.vertical{height:1350px}
+.pz.dark{background:var(--dark);color:#fff}
+@media print{html,body{background:none}.pz{margin:0;box-shadow:none;break-after:page;page-break-after:always}}
+.a{position:absolute}
+
+/* ---------- Encabezado y pie ---------- */
+.pz-hd{position:absolute;left:56px;right:56px;top:36px;display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.pz-hd img{height:22px;width:auto}
+.pz-hd .lbl{font-size:9px;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink3)}
+.pz-ft{position:absolute;left:56px;right:56px;bottom:28px;display:flex;justify-content:space-between;align-items:center;font-size:9px;color:var(--ink3)}
+.pz-ft .pn{color:var(--ink2);font-feature-settings:"tnum" 1}
+.pz-body{position:absolute;left:56px;right:56px;top:96px;bottom:64px}
+
+/* ---------- Tipografía ---------- */
+.k{font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--brand);font-weight:var(--wb)}
+.k.mute{color:var(--ink3)}
+.t1{font-size:30px;font-weight:300;letter-spacing:-.6px;line-height:1.12;color:var(--ink)}
+.t1 b{font-weight:var(--wb);color:var(--brand)}
+.t1 .ink{color:var(--ink)}
+.dark .t1{color:#fff}
+.lead{font-size:14px;line-height:1.55;color:var(--ink2)}
+.dark .lead{color:rgba(255,255,255,.75)}
+.p{font-size:13px;line-height:1.55;color:var(--ink2)}
+.small{font-size:10.5px;line-height:1.45;color:var(--ink3)}
+.dark .small{color:rgba(255,255,255,.6)}
+
+/* ======================= FLUJOS ======================= */
+/* 1) Fases en línea (proceso, metodología, ruta) */
+.fases{display:grid;grid-template-columns:repeat(var(--n,4),1fr);position:relative}
+.fases::before{content:"";position:absolute;left:calc(100%/var(--n,4)/2);right:calc(100%/var(--n,4)/2);top:31px;height:2px;background:var(--brand2)}
+.fase{position:relative;text-align:center;padding:0 12px}
+.fase .ico{width:64px;height:64px;margin:0 auto;border-radius:50%;background:var(--paper);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+.fase .ico svg{width:28px;height:28px;stroke:var(--brand);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.fase.on .ico{background:var(--brand);border-color:var(--brand)}
+.fase.on .ico svg{stroke:#fff}
+.fase .num{font-size:11px;font-weight:var(--wb);color:var(--brand2);margin-top:12px}
+.fase h3{font-size:15px;font-weight:var(--wb);color:var(--ink);margin-top:4px}
+.fase p{font-size:11.5px;line-height:1.45;color:var(--ink2);margin-top:6px}
+.fase .badge{position:absolute;left:50%;top:-30px;transform:translateX(-50%);background:var(--brand);color:#fff;font-size:9.5px;font-weight:var(--wb);letter-spacing:.8px;padding:4px 10px;border-radius:999px;white-space:nowrap}
+
+/* 2) Hub: entradas → nodo central → salidas */
+.hub{display:grid;grid-template-columns:1fr 70px 190px 70px 1fr;align-items:center}
+.hub .col{display:flex;flex-direction:column;gap:10px;position:relative}
+.hub .col .lab{font-size:9px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink3);margin-bottom:2px}
+.hub .it{position:relative;display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:9px 12px}
+.hub .it i{width:8px;height:8px;border-radius:50%;background:var(--brand);flex:none}
+.hub .it span{font-size:10.5px;color:var(--ink3);display:block}
+.hub .in .it::after,.hub .out .it::before{content:"";position:absolute;top:50%;width:35px;border-top:1.5px solid var(--brand2)}
+.hub .in .it::after{right:-36px}
+.hub .out .it::before{left:-36px}
+.hub .wire{align-self:stretch;position:relative}
+.hub .wire::before{content:"";position:absolute;top:var(--t,20%);bottom:var(--b,20%);border-left:1.5px solid var(--brand2)}
+.hub .wire.l::before{left:35px} .hub .wire.r::before{right:35px}
+.hub .wire::after{content:"";position:absolute;top:50%;width:35px;border-top:1.5px solid var(--brand2)}
+.hub .wire.l::after{left:35px} .hub .wire.r::after{right:35px}
+.hub .node{aspect-ratio:1;border-radius:50%;background:var(--dark);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px;box-shadow:0 0 0 10px var(--soft),0 0 0 11px var(--line)}
+.hub .node img{max-width:130px;max-height:40px}
+.hub .node span{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:8px}
+
+/* 3) Carriles (quién hace qué): cada fila es un responsable, cada columna un momento */
+.lanes{--c:5}
+.lanes .time{display:grid;grid-template-columns:160px repeat(var(--c),1fr);align-items:center;margin-bottom:8px}
+.lanes .time .ar{grid-column:2 / -1;height:2px;background:var(--brand2);position:relative}
+.lanes .time .ar::after{content:"";position:absolute;right:-2px;top:-5px;border:6px solid transparent;border-left:9px solid var(--brand2)}
+.lanes .time span{font-size:9px;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink3)}
+.lane{display:grid;grid-template-columns:160px repeat(var(--c),1fr);border-top:1px solid var(--line);min-height:92px}
+.lane:last-child{border-bottom:1px solid var(--line)}
+.lane .who{display:flex;align-items:center;font-size:12.5px;font-weight:var(--wb);color:var(--ink);background:var(--soft);padding:0 14px;border-left:4px solid var(--brand)}
+.lane .who.b2{border-left-color:var(--brand2)}
+.lane .st{align-self:center;margin:0 8px;font-size:11.5px;line-height:1.35;color:var(--ink);background:var(--paper);border:1.5px solid var(--brand);border-radius:8px;padding:9px 10px 9px 36px;position:relative}
+.lane .st b{position:absolute;left:9px;top:8px;width:20px;height:20px;border-radius:50%;background:var(--brand);color:#fff;font-size:10.5px;display:flex;align-items:center;justify-content:center}
+.lane .st.b2{border-color:var(--brand2)} .lane .st.b2 b{background:var(--brand2)}
+
+/* ======================= INFORME Y ACTA ======================= */
+.sem{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:var(--wb);letter-spacing:.6px;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.sem::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.sem.ok{color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,white)}
+.sem.warn{color:var(--warn);background:color-mix(in srgb,var(--warn) 14%,white)}
+.sem.bad{color:var(--bad);background:color-mix(in srgb,var(--bad) 12%,white)}
+.kpis{display:grid;grid-template-columns:repeat(var(--n,4),1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kpis div{padding:14px 14px 14px 0}
+.kpis div+div{padding-left:16px;border-left:1px solid var(--line)}
+.kpis b{display:block;font-size:24px;font-weight:300;color:var(--brand);letter-spacing:-.5px}
+.kpis span{display:block;font-size:10.5px;color:var(--ink3);margin-top:3px}
+.av{display:grid;grid-template-columns:180px 1fr 44px 120px;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12px}
+.av .bar{height:8px;background:var(--soft);border-radius:4px;position:relative;overflow:hidden}
+.av .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--brand);border-radius:4px}
+.av .pc{font-feature-settings:"tnum" 1;color:var(--ink2);text-align:right}
+.tb{width:100%;border-collapse:collapse}
+.tb th{background:var(--dark);color:#fff;text-align:left;font-size:10px;font-weight:var(--wb);padding:8px 10px}
+.tb td{font-size:11.5px;line-height:1.4;color:var(--ink2);padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tb td b{color:var(--ink)}
+.sec{font-size:13px;font-weight:var(--wb);color:var(--ink);margin:22px 0 10px;display:flex;align-items:center;gap:10px}
+.sec::before{content:"";width:4px;height:14px;background:var(--brand)}
+.kv2{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kv2 div{padding:10px 12px 10px 0}
+.kv2 div+div{padding-left:14px;border-left:1px solid var(--line)}
+.kv2 span{display:block;font-size:9px;letter-spacing:1.3px;text-transform:uppercase;color:var(--ink3)}
+.kv2 b{display:block;font-size:12.5px;font-weight:400;color:var(--ink);margin-top:4px}
+ul.bl{list-style:none;padding:0}
+ul.bl li{position:relative;padding-left:16px;font-size:12px;line-height:1.5;color:var(--ink2);margin-bottom:5px}
+ul.bl li::before{content:"";position:absolute;left:1px;top:7px;width:6px;height:6px;border-radius:50%;background:var(--brand)}
+ul.bl li b{color:var(--ink)}
+
+/* ======================= POSTS ======================= */
+.post .in{position:absolute;left:84px;right:84px;top:84px;bottom:84px;display:flex;flex-direction:column}
+.post .logo{height:48px;width:auto;align-self:flex-start}
+.post .k{font-size:20px;letter-spacing:3px}
+.post .h{font-size:76px;font-weight:300;letter-spacing:-2.4px;line-height:1.04;color:var(--ink)}
+.post .h b{font-weight:var(--wb);color:var(--brand)}
+.post.dark .h{color:#fff}
+.post .sub{font-size:28px;line-height:1.4;color:var(--ink2);font-weight:300}
+.post.dark .sub{color:rgba(255,255,255,.78)}
+.post .cifra{font-size:230px;font-weight:300;letter-spacing:-10px;line-height:.9;color:var(--brand)}
+.post .foot{display:flex;justify-content:space-between;align-items:center;font-size:20px;color:var(--ink3);border-top:1px solid var(--line);padding-top:24px}
+.post.dark .foot{color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.2)}
+.post .cta{display:inline-block;background:var(--brand);color:#fff;font-size:24px;font-weight:var(--wb);padding:16px 30px;border-radius:999px;align-self:flex-start}
+.spacer{flex:1}

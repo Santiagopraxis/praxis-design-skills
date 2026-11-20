@@ -1,0 +1,15 @@
+/* Tema Praxis para las piezas del día a día (va DESPUÉS de ../../nucleo/piezas.css) */
+@font-face{font-family:'Inter PX';font-weight:300;src:url(../assets/fuentes/Inter-300.woff2) format('woff2')}
+@font-face{font-family:'Inter PX';font-weight:400;src:url(../assets/fuentes/Inter-400.woff2) format('woff2')}
+@font-face{font-family:'Inter PX';font-weight:700;src:url(../assets/fuentes/Inter-700.woff2) format('woff2')}
+:root{
+  --brand:#e96326; --brand2:#2f3e87; --dark:#1a2347; --paper:#ffffff;
+  --ink:#1b1d24; --ink2:#3d414c; --ink3:#8a93a8; --line:#dfe2e8; --soft:#f5f6f9;
+  --ok:#2e9d6b; --warn:#d98a1c; --bad:#d23a3a;
+  --f:'Helvetica Neue','Inter PX',Helvetica,Arial,sans-serif; --wb:700;
+}
+/* Decoración Praxis: círculo naranja en la esquina superior derecha + ciudad apoyada abajo */
+.deco-arcos{position:absolute;width:var(--w,360px);right:calc(var(--w,360px) * -0.1);top:calc(var(--w,360px) * -0.117)}
+.deco-ciudad{position:absolute;left:0;display:block;width:var(--w,520px)}
+.pz-hd{border-bottom-color:var(--line)}
+.post .h b,.t1 b{color:var(--brand)}
